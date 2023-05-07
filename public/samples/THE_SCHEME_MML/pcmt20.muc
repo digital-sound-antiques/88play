@@ -1,0 +1,61 @@
+#mucom88 1.5
+#title pcmt20
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice scmvoice.dat
+#pcm schemepcm.bin
+#date 2018/12/4
+#comment 
+
+A C96 L t185@122o4v10q4l16 p1  [ccce-ccfccgcc >c<ccb-cca-ccgcc
+B C96 L       o4l16v11q2p3   [@130ccce-ccfccgcc c>c<cd>d<de->e-<e-f>f<f
+I C96 L   @109 o3v7 l16 p3 [e-e-e-ge-e-a-e-e-b-e-e->e-<e-e->d<e-e->c<e-e-b-e-e-
+H C96 L     @122o4v10q4l16 D4p2 [ccce-ccfccgcc >c<ccb-cca-ccgcc
+C C96 L S0,0,8,8D-4 @80 v10o4p3[l16e-4.&e-8.e-ff+g4.>c4. <g4f+gb-4ab->d8.c+dc+cdc<b->c<b- g4f+g b-4ab-/>[c+dg ]4   ]2  c+dgb-gb->c+c<b- g8.
+J C96 L          @80 v6 o4p3r8.[l16e-4.&e-8.e-ff+g4.>c4. <g4f+gb-4ab->d8.c+dc+cdc<b->c<b- g4f+g b-4ab-/>[c+dg ]4   ]2  c+dgb-gb->c+c<b-
+K C96 L [ @7 o1v20c1.
+G C96 L [ v52,28,28,21,14,28,21 l16[@9c@8cc@11c@8cc]4
+
+K [v30o1@7c8.@14o2v50a8.<v30@7c8.@9>f8.< @7c8.@9  o2/ b-8.a8.g8. ]2 @9o2v30g8.b-8./g8.    ]2  <c8.
+B [<ggg>>b-ag<<ggg>>fe-d<<ggg>/b-agfgfe-fe-  ]2  @136<g>g<gb->b-<b-/g>g<g ]2   >c<c>c
+A [<ggg>d8.<ggg>f8.<ggg>/b-8.ab-agag    ]2 g8.b-8./g8.   ]2 > c8.
+H [<ggg>d8.<ggg>f8.<ggg>/b-8.ab-agag    ]2 g8.b-8./g8.    ]2> c8.
+I [<b-b-b->g8.<b-b-b->b-8.<b-b-b->>/d8.cdc<b->c<b- >]2 c8.d8.c8. ]2
+G [[@35ccc/@6c8@1c]3 @2ccc@16ccc/@1ccc  ]2 /@1ccc ]2  @2[c32]6
+
+A @125 o6q1p3 v11de-f+gab->c+<b-agag f+e-df+e-d c+de-f+e-d  <gab->d<b-a b-ag dc<b- >cdf+ gggaaab-b-b-
+H @125 o6q1p3 v8r8de-f+gab->c+<b-agag f+e-df+e-d c+de-f+e-d  <gab->d<b-a b-ag dc<b- >cdf+ gggaaab-b-b-
+B @130[ddd]8<[ggg]6aaab-b-b- [ggg]5bgg>d<gg>g<gg  >[ccc]5e-ccgcc>c<cc
+C o3d4.e-4.f+4.a4.  g4.a4.b-4.g4.>g2.b4.>d4.c2.e-4.g4.
+I @24l16o6  v9q1p2[af+d]8[b-gd]8 [bgd ]8 ) [>c<ge-]8
+J @90o2v8 D7 p3d2.&d2.<g2.&g2. >>v6@108D0d2.g4.b4.g2.>c4.e-4.
+G [@9c@8cc@11c@8cc]16 [@7c@1cc ]8
+K l16[v20@4cccv30@20c4.&c8.]10
+
+A bbb>dddfffggg >d<bgfe-d <bgf e-de- c<g>c e-ce- ge-g >c<g>c de-d ge-d c<gfe-dc
+H bbb>dddfffggg >d<bgfe-d <bgf e-de- c<g>c e-ce- ge-g >c<g>c de-d ge-d c<gfe-dc
+
+B <[aaa]7ab>c+
+I >[c+<ae]7ab>c+
+A c+<a>c+ec+eaea>c+<a>c+ec+e ab->c+ ec+<b- agf+
+H c+<a>c+ec+eaea>c+<a>c+ec+e ab->c+ ec+<b- a
+C b-2.a4.g4.
+J g2.e4.e4.
+
+A o3p1   [@122ddd>d8.<ddd>c8.<ddd>d8.@109/ab->c<b-ag]2  aaaddd
+H o3p2v11[@122ddd>d8.<ddd>c8.<ddd>d8.@109/ab->c<b-ag]2  aaaddd
+B q0 [ddd>dc<b-dddb-agddd >dc<b-ab->c<b-ag]2
+I @109o3v10p3[f+f+f+>d8.<f+f+f+>c8.<f+f+f+>a8.< r4.  ]2
+G [[@35ccc/@6c8@1c]3 @2ccc@16ccc@1ccc  ]2
+K [v30o1@7c8.@9o1d8. @7c8.@9 c8.  @7c8.@9o1 d8.v10/>ab-<c>b-ag ]2 aaaddd
+J D4        v8p3q1[@24o3dddo6d8ro3dddo6c8ro3dddo6d8r/o6f+gagf+e-]2 ddd<aaa
+C D0S0,0,0,0v8p3q1[@24o2dddo6d8ro2dddo6c8ro2dddo6d8r/o6de-f+e-dc]2 ddd<aaa
+
+B dddf+f+f+gggaaab-b-b->c+c+c+ ddde-e-e- <[ddd>d<dd]3 dddf+f+f+b-b-b-aaa>dddf+f+f+b-b-b-aaa
+A @106o4 v6p3f+gagf+d<a2.gab-b->c+d f+8.f+gad8.de-f+<ab->c<f+gadef+f+4.&f+2.&f+8.
+H @144o3v10p3d1.&d1.&d2.&d4.
+G l16[@9c@8cc@11c@8cc]9 [@6c@1cc]2 @2c32c32cc@16c32c32cc
+K @7o1v30c2.r1.r1.r4.
+J @106o4v6ab->c<b-ag d2.cde-e-f+g a8.ab->c<f+8.f+ga cde-<ab->c<f+gaa4.&a2.&a8.
+C @106o4v6ab->c<b-ag d2.cde-e-f+g a8.ab->c<f+8.f+ga cde-<ab->c<f+gaa4.&a2.&a8.
+I @106o4v6de-f+e-dc <f+2. e-f+ggab- >c8.cde- <a8.ab->c<f+gacde-<ab->cc4.&c2.&c8.

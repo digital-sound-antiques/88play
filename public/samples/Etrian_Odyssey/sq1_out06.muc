@@ -1,0 +1,107 @@
+#mucom88 1.5
+#title sq1_out06
+#composer Yuzo Koshiro
+#author WING GHOST
+#voice voice.dat
+#pcm sq1pcm.bin
+#date 2018/12/8
+#comment sq1_out06
+
+  @116:{
+   0,  4
+  31,  0,  0,  0,  0, 23,  0,  3,  7
+  18, 14,  0,  6,  3,  0,  0,  3,  7
+  31,  0,  0,  0,  0, 22,  0,  4,  3
+  31, 14,  0,  6,  3,  0,  0,  4,  3,"orc7th"}
+
+A C96 t202 L @70 o3 v14 q3 p3 l8
+B C96      L            q0 p3 l8 M1,1,-40,80
+C C96      L            q0 p3 l8
+D C96      L @1  o4 v12 q0    l8
+E C96      L @1  o4 v12 q0    l8
+H C96      L            q0 p3 l8
+I C96      L            q0 p3 l8
+J C96      L            q0 p3 l8
+
+# *1{@98 o4v13e}
+# *2{@198o4v13c}
+# *3{@124o4v15c}
+# *4{c16c16}
+
+A [b>b<ba4>a<ag&  g>g<ga4 / >a<a>a<]2 >ea4< l16 [[b8bb]5 >d8ddc+8c+c+c8cc<]2
+H @123v13o5q2 [f+d<b>e4c+<a>d& d<bg>c+4 / de4]2 <a>c+4< b1& b1 r1 r1
+I [r1]8
+J @123v14o3q2 [b>b<ba4>a<ag& g>g<ga4 / >a<a>a<]2 >ea4< b1 f+4a4g+4g4 b1 f+4a4g+4g4
+C @116o3v13q3 b4.a2>d2 <a2&a b4.a2>e2 f+4a4. [b<b4>c+<b4>d<b& b>e<b4>f+<b>a<b>]2
+D [r1]8
+E [r1]8
+B [*1*2*2*1r*1*3*2 / r*1*2*1r*1*3*2]2 r*1*3*1r*1*3*4 [*1*2*3*2*1*1*3*2]3 *1*2*3*2*1*3*3*4
+
+
+C [@80o4v12q3  [b1 a1 g2a2 >d1 e2<a2 >d2<g2 b1 / b2a+2]2
+H [@80o4v12q3   f+1 e1 d2e2 a1 b2e2 a2d2 e1 f+1
+A [[[b8bb]4 [a8aa]4 g8ggg8gga8aaa8aa >[d8dd]4 e8eee8ee<a8aaa8aa >d8ddd8dd<g8ggg8gg / >[c+8c+c+]4< [f+8f+f+]4]2
+I [@91o4v13q3    [b4.b16>c+16d.e.f+ c+1 <b4.b16>c+16d.e.a f+2..f+16g16 a.g.c+2&c+ g.f+. / <b2&b b2..a+16b16 >c+2.r4]2
+J [@91o4v10q3D3  r [b4.b16>c+16d.e.f+ c+1 <b4.b16>c+16d.e.a f+2..f+16g16 a.g.c+2&c+ g.f+. / <b2&b b2..a+16b16 >c+2.r4]2
+D [[r1]8
+E [[r1]8
+B [[[*1*2*3*2*1*1*3*2]3 / *1*2*3*2*1*3*3*4]4
+
+
+H >r4.r16a32a+32b2&  b4a4e.a.g  f+2b.a.>c+  d2.r4  e1  d1  <g1  a1
+C a1
+A >[e8ee]4< [a8aa]4
+I b2b16>c+16 d2&d<b>de e4.f+4.c+<a
+J b2b16>c+16 d2&d<b>de e4.f+4.c+<a
+D r1 r1 f+2b.>c+.c+ d1 e.<b.a2&a> d.d.f+2&f+< b1 >c+2&c+<ea>c+<
+E f+1& f+2e.a.g d2g.a.a a1 b.g.e2&e a.a.>d2&d< g1 a2&ac+ea
+B *1*2*3*2*1*1*3*2
+
+
+H b1& b2.r4
+C b1& b2..r8
+A [b8bb]8
+I >c+4.<bb2& b2&b4r4
+J >c+4.<bb2& b2&b4r4
+D a4.f+f+2& f+2&f+4r4
+E f+4.dd2& d2&d4r4
+B *1*2*3*2*1*1*3*2 *1*2*3*2*1*3*3*4
+
+
+H r1 r1 r1 r1 r1 r2.rr32<f+32g32a32  b1 >c+.d.c+e.d.c+
+C [r1]8
+A >[d8dd]4< [a8aa]4 b8bbb8bb>c+8c+c+c+8c+c+ [d8dd]4 [e8ee]4 [f+8f+f+]4 [g8gg]4 a8aaa8aaa+8a+a+a+8a+a+
+I f+4.<a4.>f+4  a4.ee4.<b16>c+16  d4.e4<a4>g  g4.f+f+4.<b16>c+16  d.c+.<b2>c+16d16  e.d.c+2d16e16  f+2f+.g.a  a.g.f+f+.a+.>c+
+J f+4.<a4.>f+4  a4.ee4.<b16>c+16  d4.e4<a4>g  g4.f+f+4.<b16>c+16  d.c+.<b2>c+16d16  e.d.c+2d16e16  f+2f+.g.a  a.g.f+f+.a+.
+D r1 r1 r1 r1 b2&bdgb >c+2&c+<ea>c+ d2&d<f+b>d e2g.f+.e<
+E r1 r1 r1 r1 g2&g<b>dg a2&ac+ea b2&bdf+b >c+2e.d.c+<
+B [[*1*2*3*2*1*1*3*2]3 / *1*2*3*2*1*3*3*4]2 *3*2*3*2*1*3*3*4
+
+
+A [[g8gg]4 [f+8f+f+]4 [e8ee]2[a8aa]2 [d8dd]4 [f+8f+f+]4 [g8gg]4 [a8aa]4 / e8eee8eef+8f+f+f+8f+f+]2
+C @123v13o4q2 g2d.g.b a.f+.d4<a>da g2e2 d1 f+2f+.c+.f+ g1 a1 >d2e2<
+H @123v11o5q2 g.d16gdg.d16gd a.d16ada.d16ad g.d16gda.d16ad f+.d16f+df+df+d c+.<a+16>c+<a+>c+.<a+16>c+<a+ >d.<b16>d<b>d.<b16>d<b >e.c+16ec+e.c+16ec+ f+.f+.f+g.g.a
+I d.c+.<bb.>d.e  f+.d.<a2&a  b.g.ab.>e.<b  a.b.a2r  f+.c+.f+a+.>c+.e  e.d.<b2r>  f+.e.c+4<a>c+e  a.g.f+c+.d.e
+J )3 b.a.gg.b.>c+  d.<a.f+2&f+  g.d.gg.b.g  f+.g.f+2d16e16  c+.<a+.>c+f+.a+.>c+  <b.b.g2>d16e16  d.c+.<a4ea>c+  f+.e.d<a.b.>c+<
+D @1o4v13q2 r1 r1 r1 r1 c+2c+.<f+.>c+ d1 e1 g2a2
+E [r1]8
+B [[*1*2*3*2*1*1*3*2]3 *1*2*3*2*1*3*3*4]5
+
+
+A a8r8<a2&a6r12
+C b2d.g.b a.f+.d4<a>da g2e2 d2...r16 f+2f+.c+.f+ g1 a1 a16r.f+2.
+H g.d16gdg.d16gd a.d16ada.d16ad g.d16gda.d16ad f+.d16f+df+df+d c+.<a+16>c+<a+>c+.<a+16>c+<a+ >d.<b16>d<b>d.<b16>d<b >e.c+16ec+e.c+16ec+ f+16r.)2<<a2.
+I d.c+.<bb.>d.e  f+.d.<a2&a  b.g.ab.>e.<b  a.b.a2r  f+.c+.f+a+.>c+.e  e.d.<b2r>  d.c+2.. (10r.)10<a4b4>c+4
+J b.a.gg.b.>c+  d.<a.f+2&f+  g.d.gg.b.g  f+.g.f+2d16e16  c+.<a+.>c+f+.a+.>c+  <b.b.g2b16>c+16  <a.a2..  (10r.)10e4f+4a4
+D r1 r1 r1 r1 c+2c+.<f+.>c+ d1 e1 e16r.r2. q0
+E [r1]8
+
+
+A [[b8bb]5 >d8ddc+8c+c+c8cc<]2                  ]2
+H @123o4v13q2 b1& b1 r1 r1                      ]2
+I r1 r1 r1 r1                                   ]2
+J @123o3v14q2D0 [b1 f+4a4g+4g4]2                ]2
+C @116o4v13q3 [b<b4>c+<b4>d<b4> e<b4>f+<b>a<b>]2]2
+D r1 r1 r1 r1                                   ]2
+E r1 r1 r1 r1                                   ]2
+B                                               ]2

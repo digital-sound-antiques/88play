@@ -1,0 +1,58 @@
+#mucom88 1.5
+#title THE SHINOBI
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice shinobivoice.dat
+#pcm shinobipcm.bin
+#date 2018/12/12
+#comment sin002
+
+K         o1v40 l16 L @1g8g8@2g8@1gg8g8g@2g8@1g8 g8g8@2g8@1gg8ggg@2g8@1g8
+K     @1g8g8@2g8@1gg8g8g@2g8@1g8 g8g8@2g8@1gg8@2ggggggg
+C  K0 L @109o3v4p3[d2&)  ]8 l16(3o5[q3@59)2brbr(2@159b-r@59)2>e<(2b@159araa ra @59)2b8b8(2 rr>@23 b-rr   a@59<)2b(2>q3@23 a@59<)2b(2>@23 a@59 )2ee(2 rr<]4@159
+B  K0 L @109o3v4p3[a2&)  ]8 l16(3o5[q4@159<)p1g4(2>p3frrreree  re8.r4  p2)q3@23>frrererer4<]4  p3
+I  K0 L@103o4v7p3g1&g1(2g1&g1 )4l16 q3o5[q4@159<<)p1g4(2>>p3drrrcrccrc8.r4    p2)q3>@23drrcrcrcr4<]4   p3
+H  K0 L@172o3v10l16q1[g4    (3gg)g)2gr)b128g128&(g32.rrr8r8 g4  (3gg)3ggrgrrrp2@171(>d8r<)@172p3]6
+A  K0 t198L@43 o5v8 l16p3q0[g>dddddddde-e-e-e-e-e-e-e-ffffffffe-e-e-e-e-/e-e-]2 M20,1,6,6 @165o6v8g8q2a1>d2.&d8c8<a1&[a8&(]4r4.> v10M10,1,10,200d8&M20,1,6,6
+D  K0 LE255,255,255,190,1,10v9 D16 o3q3 l16[g>dddddddde-e-e-e-e-e-e-e-ffffffffe-e-e-e-e-e-e-]2
+E  K0 LE255,255,255,190,1,10v9      o3q3 l16[g>dddddddde-e-e-e-e-e-e-e-ffffffffe-e-e-e-e-e-e-]2
+F K0 Ll16E255,255,255,190,1,10v11o4[d32&<a32&g2.&g8.r1>]2
+G   v52,21,21,21,14,21,21 l8@8 L [cr]48  [[crcrccrr]2l16[crccr8cc]4]3
+     dddddcfe-dddddc<ga
+
+K [@1g8g8@2g8@1gg8g8g@2g8@1g8 g8g8@2g8@1gg8ggg@2g8@1g8]3
+K @1g8g8@2g8@1gg8g8g@2g8@1g8 g8@2g8g8@1gg8@2ggg@1g@2ggg
+A    e2.&M1,1,-2,80e4rM20,1,6,6dea&a2&a8g8ede8&e2.q0@43(2rp2d<b-ag8.b-agd4.p3 )2
+D  [r1]8
+E  [r1]8
+F [r1]8
+
+C    q4[v9@159rgggraaarb-b-b-r>ccc   @171rddd<g4 rb-b-b-f4
+B    q4[v9@159rdddreeerfffrggg       @171raaad4 rfffc4
+E    [v9E255,255,255,190,1,10o4rcccrdddre-e-e-rfff        rgggc4 re-e-e-<b-4
+H    q2[ggggr>g8<grgrg8 gab- >e-e-e-e-r>e-8<e-re-re-8d<b-8 g8>g<gg>g<gg>fgcd<gab-g >e-8>e-<e-e->e-<e-e->d-e-<a-b-d-e-<e-f]2<
+K [@1g8g8@2g8@1gg8g8g@2g8@6g8 @1g8g8@2g8@1gg8ggg@2g8@1g8]3
+K @1g8g8@2g8@1gg8g8g@2g8@6g8 @1g8g8@2g8@1gg8ggg@2g8@1gg
+A [@109o3v8p2MF0g1>g1
+I [@109o3v8p1D5 g1>g1
+D [o3E255,255,255,255,0,255v8g1>g1
+F r8[o3E255,255,255,255,0,255v6g1>g1
+
+
+C a8a4aa&a2 b-8b-4b-b-&b-2 ]2
+B g8g4gg8@174 D-20p1)aa)aa)a)a)ap3(4 D0@171 f8f4ff&f2]2
+I d2.&d8.d-c8.<b-8.>f8&f2  ]2
+A d2.&d8.d-c8.<b-8.>f8&f2  ]2
+D d2.&d8.d-c8.<b-&b-2. >   ]2
+F d2.&d8.d-c8.<b-&b-2. >   ]2
+E >d8d4dd&d2 e-8e-4e-e-&e-2 ]2
+
+K [@1g8g8@2g8@1gg8g8g@2g8@1g8 @1g8g8@2g8@1g/g8ggg@2g8@1g8]2 ggggg@2gggg
+H ) > [     g8g8r8ggrr4fdf  g8g8ggr8/ r2]2 gdfg>cdfg
+C )o6 [ @171q4p3g8g8r8gg       rrrrrrrr   (2  g8g8ggr8 @43/r<q0f8.ff>r8)2]2r2
+B )o6 [ q4@171p3d8d8r8ddr2   d8d8ddr8 /r8(3@43q0<b-8b-b-r8>)3]2    r2
+I )3  o6   [q4p3@159c8c8r8ccr2 c8c8ccr8 /(3 q0@43r8.ccc r8)3]2  r2
+A ) [p3 q4@97o3g8g8r8ggr2 g8g8ggr8 /@43 q0o6(r4ffr8)]2 r2
+D q0r1r2r  o3l48(    fgab>cdefgab>cl16frrrr1r1
+E q0r1r2r  o3l48(3r   fgab>cdefgab>l16crrrr1r1
+F q0r1r4.r o3l48(rr  fgab>cdefga>l16b-rrrr1r1

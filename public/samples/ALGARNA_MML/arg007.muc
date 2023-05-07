@@ -1,0 +1,27 @@
+#mucom88 1.5
+#title ÊÞÚÝÂ É ÏÁ 2(¾ÝÄ³)
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#date 2018/12/26
+#comment arg007
+
+D      K2LE255,255,255,190,0,10v11l16 o3 q4[M50,1,40,200,15b2>M18,1,26,4,15e8.f+8.g8  b8.g8.b8 a8.g8.f+8 g8.<b&b4>>e8.f+8.g8
+E t197 K2LE255,255,255,190,0,10v13l16 o2 w0[[q4ev9q3E255,255,255,1,255,255P2e32e32E255,255,255,190,0,10P1v13q4e>e((e))<e>e<e]2 c((c))c>c((c))<c>c<c d((d))d>d<((d))/d>d<d ]4
+E                                        q0w10[E255,255,255,1,255,255P2((c128))P1o2E255,255,255,190,0,10d128&d32.]3
+F      K2LE255,255,255,190,0,10v11l16 o3 q4[D16g2>e8.f+8.g8 e8.c8.e8 d8.<a&a4>e8.<g8>>>((beg))<e8.f+8.g8
+
+D c8.e8.g8   a8gf+&f+4      ]2
+F <e8.g8.>c8 d8.<a&aa>d<a ]2
+
+D  o3e2.&e8ga b4.gba4.&a32&M1,1,40,80,15a16.>M18,1,26,4,15e2.&e8ga g4b4a4>d+4
+E  q5[[e>e<]8/[g>g<]4[d>d<]4 ]2  q2>ccccc+c+c+c+d+d+d+d+<bbf+d+
+F D0[o3g2b4.>ef+/g2f+2      ]2  e4g4f+4b4
+
+D [o5[eedergab]2g8.e8.g8  /f+8ga&a4  ]2
+E [q1)e32(e32q5e>e<e)ee(>e<e q1)d32(d32q5d>d<d )dd(>d<d q1))c32((c32q5c>c<c)cc(g>c  /<q1b32b32q5b>b<b)bb>ab(  ]2
+F [w0v11E255,255,255,190,0,10q4o4bbabo1))e((P2(q0E255,255,255,170,0,255cq4)E255,255,255,190,0,10P1o5f+g <bbab>o1))d((P2(q0E255,255,255,170,0,255cq4)E255,255,255,190,0,10P1o5f+g
+F  e8.c8.e8 /d+8ef+v13o2E255,255,255,1,255,255q3c32c32o3q0v7M1,1,-500,80,15))a16((MF0q0P2w8c8P1 ]2
+
+D q3rfc<afa>cf
+E q3rfc<afa>cf
+F q3v11ro5c<afE255,255,255,1,255,255q3v14o2a32a32P2E255,255,255,170,0,255q0w5v10cE255,255,255,1,255,255P1q7v14ec

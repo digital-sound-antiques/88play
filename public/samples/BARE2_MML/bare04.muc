@@ -1,0 +1,85 @@
+#mucom88 1.7
+#title Never Return Alive
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice bare2voice.dat
+#pcm bare2pcm.bin
+#date 2018/12/14
+#comment bare04
+
+  @%192;efctes
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,17,17
+  $000,$01F,18,18
+  $03F,$02F,$02F,$04F
+  $03C
+  @%193;efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,11,10
+  $000,$01F,16,15
+  $03F,$02F,$02F,$04F
+  $03C
+# *0{@192o8v11  D270}
+# *1{@58o5v15D0  }
+# *2{@193o8v11  D270 }
+
+A C112 V-2  L
+B C112 V-2  L
+C C112 V-2  L
+D C112 V-2  L
+E C112      L
+F C112      L
+F C112 V-2  L
+H C112      L
+I C112 V-2  L
+K C112 V-2  L
+
+D t198   ;@0o5K0 v11 l16[<{g32>e}e16..{e16f}f32{f32.b-} b-16{b-16f}[{a16b-}{b-16a}]2 a8a-8g8   ]4
+E          [r1]8
+K   o1@1l16v80[c4c8.cc4c4]7   @2ccc8cc8ccccccccc
+A     @224o3q5v14l16R1
+A [<p2yTL,1,0e8p1yTL,1,4ep3yTL,1,8e8p2yTL,4,12p1ep3yTL,4,16>e8yTL,1,20eyTL,1,24f8yTL,1,28f<yTL,1,30b-&yTL,1,34b- yTL,1,38b-&yTL,1,42b->
+A  yTL,1,56e yTL,1,48eyTL,1,40e8  yTL,1,34eyTL,1,30e8yTL,1,24eyTL,1,20f8yTL,1,16f<yTL,1,12b-&yTL,1,8b->yTL,1,7b- yTL,1,4b- yTL,1,1b-]12
+B  
+H   @"Îß°×2" l16o3v15[{de}e8. {d16e}&e8 {eg+} g+8g+8 a8>c8 ]8
+I  
+F   D16@0  o4q5v15l16  K0[r1r1]12 ;[e8ee8ee8ef8f<b-8b-8>eee8ee8ef8f<b-8b->eb-]12
+C   l16[*2c4]31  *1c8cc [*0cc*2c8*1c*0c*2c8  ]8
+
+B     @202  o7l16       [v9 [M8,1,8,250c4&c4^^&MF0b-4.(2]4]2
+I     @202 o7l16 D9r4  [v7 [M8,1,8,250c4&c4^^&MF0/b-4.(2]4/b-4.]2b-8
+D   @0v8 \=2,3   l16q0 [r1]4 o6[e<(4e)4a\b\efr(4e)4f(2e)2b(f(e)2/b  )]4
+
+C [*0cc*2c8*1c*0c*2c8  ]24
+K [[@1c4@3c8.@2c/@1c@2cr8@3c8.@2c]8  @3c@2c8c@3c@2ccc   ]2
+H @"¿³ÙÍÞ"o3v15[de8d {d16e}&e  de g+8g+8 a8>c8 <de8de8 geg+8g+8a8>c8]8
+I [@65yDR,1,5o3v12q4e1&e1&e1@"808kik"v15o4q0{e2>d}{d2<e} q4@80o3v10[e4f2.>/e4f2.]2 q0@65o3v12yKA,1,9yDR,1,5g4)a-4&)a-4&)a-4]2
+B  [ @224o4v15 q5 D15M13,1,-40,50[p2b8(4p1b8)4]14>[p1b8(4p2b8)4]2  /
+B MF0@20o7K0l16v7q0 [p2<{g32>e}e16..{e16f}p3f32{f32.b-} p1b-16{b-16f}[{a16b-}p3{b-16a}]2 a8p2{a-b-}a-g8   ]4  ]2
+B MF0@20o7K0l16v8q4 [p2<{g32>e}e16..{e16f}p3f32{f32.b-} p1b-16{b-16f}[{a16b-}p3{b-16a}]2 a8p2/{a-b-}a-g8 ]4  D20a-D40a-D60gD80g  D0
+E @2o4l16q4[v13[f1]4 R4  [e\br\ar\>er\r<br\ar\br\er\ar\r>er\d ]2 v0RF0 ]2
+D o3v11l16[[@0{b>b})2b(2@4{b<e}r]14>[@0{b>b})2b(2@4{b<e}r]2  [r1]4 ]2 r
+
+
+C [*0cc*2c8*1c*0c*2c8  ]64
+K [[@1c4@3c8.@2c/@1c@2cr8@3c8.@2c]8  @3c@2c8c@3c@2ccc   ]4
+H @"¿³ÙÍÞ"o3v15[de8d {d16e}&e  de g+8g+8 a8>c8 <de8de8 geg+8g+8a8>c8]16
+A [<p2yTL,1,0e8p1yTL,1,4ep3yTL,1,8e8p2yTL,4,12p1ep3yTL,4,16>e8yTL,1,20eyTL,1,24f8yTL,1,28f<yTL,1,30b-&yTL,1,34b- yTL,1,38b-&yTL,1,42b->
+A  yTL,1,56e yTL,1,48eyTL,1,40e8  yTL,1,34eyTL,1,30e8yTL,1,24eyTL,1,20f8yTL,1,16f<yTL,1,12b-&yTL,1,8b->yTL,1,7b- yTL,1,4b- yTL,1,1b-]16
+B  [r1]8 @20o7K0l16v7q0   [[p2<{b-32>e}e16..{e16f}p3f32{f32.b-}b-16r(3]2)6 r4 p2<{g32>e}e16..{e16f}p3f32{f32.b-} p1b-16{b-16f}[{a16b-}p3{b-16a}]2 a8p2{a-b-}a-g8   ]4
+I  [r1]12 @20o7K0l16v5q0  r4 [[p2<{b-32>e}e16..{e16f}p3f32{f32.b-}b-16r(3]2)6 r4 p2<{g32>e}e16..{e16f}p3f32{f32.b-} p1b-16{b-16f}[{a16b-}p3{b-16a}]2 a8p2/{a-b-}a-g8   ]2
+D [r1]16
+E [r1]16
+F [r1]16
+
+B D0  @218o5v12   p3[[p1e8<p3e>p2e8<p3e>p1e8/<p3e>p2e8<p3e>p1f8<p3b-8>]4  p3b-8p2<b->p3d-8<p1b->p3f8 ]4
+I D4  @218o5v11r8.p3[[p2e8<p3e>p1e8<p3e>p2e8/<p3e>p1e8<p3e>p2f8<p3b-8>]4  p3b-8p1<b->p3d-8<p2/b->p3f8 ]4      p3
+D @0v10o5D0 [e1]16
+E @0v10o5D16[e1]8   @4R4q4o5v15[a\br\<b->r\er\rfr\dr\e\r<b-r\>fr\rer\d]4
+F @0v10o5D0 [f1]16
+
+

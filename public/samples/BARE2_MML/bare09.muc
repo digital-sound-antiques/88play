@@ -1,0 +1,78 @@
+#mucom88 1.7
+#title Too Deep
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice bare2voice.dat
+#pcm bare2pcm.bin
+#date 2018/12/14
+#comment bare09
+
+  @%192;   efctes
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,17,17
+  $000,$01F,18,18
+  $03F,$02F,$02F,$04F
+  $03C
+  @%193;   efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,11,10
+  $000,$01F,16,15
+  $03F,$02F,$02F,$04F
+  $03C
+# *0{@192o8v12  D270}
+# *1{@58o5v15D0  }
+# *2{@193o8v11  D270 }
+# *3{@"ÀÑÀÑ"S100,0,0,0o4v12}
+# *4{S0,0,0,0@163 q7 ySL,4,$4f v12o3}
+# *5{@"ÀÑÀÑ2"S100,0,0,0o4v12}
+
+A C128 V1    t200 \=2,3       L
+B C128 V1 r%1                 L
+C C128 V1                     L
+D C128 V1                     L
+E C128 V1                     L
+F C128 V1                     L
+H C128 V1 r%1                 L
+I C128 V1                     L
+K C128 V1                     L
+
+A  @226o2l32q2[r1  v10[br(]16  r1r1]2   r2.r8
+C  [r1]8    r2.r8
+H  [r1]8    r2.r8
+K  [r1]8    r2.r8
+D @0RF0[r1]3 r2 o6v12[b8r16(2]6  r1r1r2r2.r8        r2.r8
+E @0RF0[r1]8     r2.r8
+F [r1]8     r2.r8
+I @231v10 o5l16 H4,4,0  K0 D8   q3 [ p3ap2(4>b-<)8 <<dp3(3a)3>(4p3dp1\>p3fp1\p3d/ f+p2\p3g)4<dp2\ (4p3ap1\>]7 [p3 f+p2\/p3g)4<dp2\(4p3ap1\(2]6
+B @231v7  o5l16 r8H4,4,0  K0 D8 q3 [ p3ap2(4>b-<)8<<dp3(3a)3 >(4p3dp1\>p3fp1\p3d/ f+p2\p3g)4<dp2\ (4p3ap1\>]7 [p3 f+p2\p3g)4 <dp2\(4p3ap1\(2]5
+
+
+A  @"¿³ÙÍÞ"   q2l16o3l16v14[>d%10d%6rrrr<d%10d%6 (6d)6rr%10a%6r%10b-%6ar ]16
+B  p3@64o7[v13q1 e%9  q0 e%7 (2 q8[e%8 (2e%8)2]2 q1e%9q0e%7 q8e%8 )3e%9(3e%7  (e%8 ) e%8 )q0d%8(q8 e%8e%8  ]15  r1
+H  p3o6[[@64v13q1 b-%9 q0 b-%7(2<q8[b-%9 (2b-%7)2]2 q1b-%9q0b-%7 q8/b-%9 )3b-%8(3b-%7 (b-%8)[b-%9(2b-%7)2]2 >  ]4  p1 (6  q2 @34o6l16>c+\d\<e\f%10b-%6 )6p3  ]3
+H  [@64v13q1 b-%9 q0 b-%7(2<q8[b-%9 (2b-%7)2]2 q1b-%9q0b-%7 q8/b-%9 )3b-%8(3b-%7 (b-%8)[b-%9(2b-%7)2]2 >  ]3 r1  p1 (6  q2 @34o6l16>c+\d\<e\f%10b-%6 )6p3
+K  l16v100o1q2[@1 c8r%10c%6 @2cr @1c8&c%10 @2c%6 @1c8 @2cr @1c%10 @2c%6]15  r2r8@2cr   c%10c%6@1c%10@3c%6
+D @0o6l16v8 [D-10[q0{g+a}D10+{ag+}D40+]2D-20[{g+b-}{b-a}D10+]2D-30[{ab}{bb-}D30+]2D-20[{b->c}/{c<b}D40+]2 >q2{c<b}]16
+E     @0q3v8 l16o4M1,1,20,4   [rrcr c8&c%10c%6 r2]15     r1
+F     @0q3v8 l16o3M1,1,20,4   [rra-r a-8&a-%10a-%6 r2]15 r1
+I  @231v10 o5l16 H4,4,0  K0 D8 [  q3 p3ap2>(4b-)4< )4<<dp3(3a)3 >(4p3dp1\>p3fp1\p3df+p2\p3g)4<dp2\ (4p3ap1\ ]16
+C  @231v7  o5l16 r8H4,4,0  K0 D0 [  q3 p3ap2>(4b-)4<)4<<dp3(3a)3 >(4p3dp1\>p3fp1\p3df+p2\p3g)4<dp2\ (4p3/ap1\ ]16
+
+
+A    [@"¿³ÙÍÞ">d%10d%6>>>p2@20(11 M4,1,5,200c+8.)11 rp3<<<<MF0@"¿³ÙÍÞ"d%10d%6 (6d)6rr%10a%6r%10b-%6ar ]24
+K  l16v60o1q2[@1 c8r%10c%6 @2cr @1c8&c%10 @2c%6 @1c8 @2cr @1c%10 @2c%6]24
+C  p3 V-2l16 [ *3c%10 c%6 *4 b%6 r%4 *5<g%6 b%10>e%6 *4f+%6 r%4 *3f+%6    ]48  S0,0,0,0     q0
+I  p3[*0c%9  (4c%7 )4*2c8  *0[c%9 (4c%7)4]3 *2)c8( *0[c%9(4c%7)4]2  ]24
+H   [@65o2v8D0p3a1&a1r1  r8p1@23o5v8q7R1a8a8a8a8a8r8r8RF0  ]2
+B  [@65o2v8D8p3a1&a1r1  r8p1@23o5v8q7R1f8f8f8f8f8r8r8RF0  ]2
+D   @0v10R0o5 r4[ r1 r1r2.r8  {d%10<a}  a%6>   drerfrrcrrdr/rarr@0RF0  ]6
+E   @0v10R0o4 r4[ r1 r1r2.r8  {d%10<a}  a%6>   drerfrrcrrdr/rarr@0RF0  ]6
+F  [r1]8 @0q2v9M1,1,20,4o5[drr<b->rrerrdrr<b-r>er     ]16
+H  RF0@231v11 o5l16 H4,4,0  K0 D8 [  q3 p3ap2>(4b-)4< )4<<dp3(3a)3 >(4p3dp1\>p3fp1\p3df+p2\p3g)4<dp2\ (4p3ap1\ ]16
+B  RF0@231v8  o5l16 r8H4,4,0  K0 D0 [  q3 p3ap2>(4b-)4<)4<<dp3(3a)3 >(4p3dp1\>p3fp1\p3df+p2\p3g)4<dp2\ (4p3/ap1\ ]16
+
+A

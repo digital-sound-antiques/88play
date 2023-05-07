@@ -1,0 +1,30 @@
+#mucom88 1.5
+#title Sacrifices
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice actvoice.dat
+#pcm actpcm.bin
+#date 2018/12/9
+#comment gh029
+
+A t184 L C96@80v12o6M32,1,8,4  [d2.c2.<b-2l8ag a2f4 g2e4  f2/d4  g2fg  a2a4   ]2
+B      L C96@24v10o5[a2.a2. f2e4    f2.  d2e4  d2. /  d2.   e2.    ]2
+C      L C96@24v10o5[f2.e2. d2c4f2.     <b-2.  a2./  b-2. >d4e4c+4]2
+H      L C96@24v13o3l4[d2.   a2.   b-2.   f2.  g2.    d2./  g2.a2.       ]2
+I      L C96@24v9 o6l8[d<a>defgaece<a>c<b-fb->cde fc<a>c<fa b-gb->cdefd<a>d<fa / gdgb->dfedc+e<a>c+<   ]2
+J      L C96@109 v11o4[r1.]4 D4d2a4e2.d2e4f4c4<a4g2b-4>d2d4 c2<a4>d2.
+
+
+A  g4 e4d4c4d2.
+B  c2.<a2.
+C <a2.d2.
+H   a2.d2.
+I  >edce<a>cd<afadr
+
+
+A @24[>f2ede4c+4<a4>g2fef4d4<a4 >a2gfg2  b-4  /a2 f4 g2.  ]2 a2. a2a4
+H   [d2.<a2.>e2.d2.         f2.  c2.         f2.  /c2.    ]2 <a2.
+B   [>a2.e2. >c+2.<a2.    > c2. <g2. >       c2. /<g2.    ]2  c+2.
+C   [>f2.c+2.  g2. f2.       a2.  e2.         a2./ e2.    ]2  e2.
+I   v11>l8[d<a>defg arerc+r   e<a>efge arfrdr  fcfgab->cr<grer /frfgaf efgecr   ]2   fefgafedc+d<b>c+
+J [r2.]16

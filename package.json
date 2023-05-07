@@ -1,0 +1,44 @@
+{
+  "name": "88play",
+  "private": true,
+  "version": "1.0.0+alpha.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.12.0",
+    "dockview": "^1.7.1",
+    "md5": "^2.3.0",
+    "mucom88-js": "file:../mucom88-js",
+    "react": "^18.2.0",
+    "react-ace": "^10.1.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-file-drop": "^3.1.6",
+    "react-i18next": "^12.2.2",
+    "webaudio-stream-player": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/i18next-browser-languagedetector": "^3.0.0",
+    "@types/md5": "^2.3.2",
+    "@types/react": "^18.0.28",
+    "@types/react-beautiful-dnd": "^13.1.4",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.0"
+  }
+}

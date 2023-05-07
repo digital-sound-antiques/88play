@@ -1,0 +1,80 @@
+#mucom88 1.5
+#title Moon Beach
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice stkvoice.dat
+#pcm stkpcm.bin
+#date 2018/12/14
+#comment stk027
+
+  @%192;efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,17,17
+  $000,$01F,18,18
+  $03F,$02F,$02F,$04F
+  $03C
+  @%193;efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,11,10
+  $000,$01F,16,15
+  $03F,$02F,$02F,$04F
+  $03C
+
+B C112 t198
+B D150q4[r1]4 [@192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193b8)]4    [r1]3@58yDR,2,13q0<<<)2[d]16(2>>>
+K C112 o1v50 l16[r1]3r2.r8@1cc[c2.&c8c8c2.&c8cc]4
+A C112 @"ø≥ŸÕﬁ" v13q2  l16o4[f8.(c8.e-8.) e-8.(f8)c8  ]12
+
+H C112 @64 l16 o6v12[q2e-q6ccccccq2)2c(2q6cq2e-q6cq2fq6cccc]12
+I C112 M1,1,4,4[@64 l16 o6v11 MF0q2crrr@"strpls"q4MF1(2ff(4fr(4f)10q2MF0@64crcrrfr]12
+
+C C112  V-1l16    [S0,0,0,0MF0@"¿—¿—"S100,0,0,0o4v14p2f8  S0,0,0,0@163q6ySL,4,$4fMF1v15o3p3g   q0MF0@"¿—¿—2"S100,0,0,0o4v10p1 c8f v14@"¿—¿—"p2cc ]24
+E C112 [r1]4 l16E255,255,255,255,0,255 o4v9    M20,1,20,4f1e-1c1&c2g8.e-8.c8 [r1]4
+F C112 [r1]4 l16E255,255,255,255,0,255 o4v9D16M20,1,20,4           [r1]8
+D C112 P2w0[r1]12
+
+B L [ q1[[@192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193/b8)]2 b@58)3<<<a>>>(3    ]7
+B [@192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<</)2a(2>>>@192(b@193b8)  ]2q0@58<<<)3dd>>>@192b<<<@58d(3>>>
+A o4  L@"ø≥ŸÕﬁ"[   [f8.(c8.e-8.) e-8.(f8)c8  ]16
+I  L[ M6,1,8,4@24 o6v11  q4[fe-rfr(6f)6fe-rfr(6f)6>c4  <q4fe-rfr(6f)6fe-rfr(6f)6/frce-]8 )>cc<b-a-fr(
+H  L[ M6,1,8,4@24 o4v11D4q4[fe-rfr(6f)6fe-rfr(6f)6>c4  <q4fe-rfr(6f)6fe-rfr(6f)6/frce-]8 )>cc<b-a-fr(
+C   L[ [S0,0,0,0MF0@"¿—¿—"S100,0,0,0o4v14p2f8  S0,0,0,0@163q6ySL,4,$4fMF1v15o3p3g   q0MF0@"¿—¿—2"S100,0,0,0o4v10p1 c8f v14@"¿—¿—"p2cc ]32
+D   L[ E255,255,255,255,0,255[v14[c16(]14r8   r1r1r1]8
+E  L[ v9[a-1 g1 f1&f1   ]4
+F  L[ v9[f1 e-1 c1&c1   ]4
+K  L[ @1[c4c4c4c8.c]16
+
+I ([p3@"ap4"o5MF0 q2a-8a-b-8a-&a-2 r8g8ga-8g&g4)2e-8fc&c8  p2  @23o6[ce-ffe-c/fr(4f)4fr(4f)4rr r8 ]2  a-a-gf/ggfe- r(4e-)2   ]2  fga-b-  p3
+H (2[p3@"ap4"o5MF0D0 q2f8fg8f&f2      r8e-8e-f8e-&e-4r4 D4 )2p1@23o5[r8ce-ffe-c/fr(4f)4fr(4f)4rr ]2      a-a-gf/ggfe- r(4e-)2]2   fga-b-  p3
+A [f8.(2c8.e-8.)2 e-8.(3f8)3c8 e-8.<b-8.>e-8.e-8.<b-8>e-8 ]8     ]2
+C [S0,0,0,0MF0@"¿—¿—"S100,0,0,0o4v14p2f8  S0,0,0,0@163q6ySL,4,$4fMF1v15o3p3g   q0MF0@"¿—¿—2"S100,0,0,0o4v10p1 c8f v14@"¿—¿—"p2cc ]32        ]2
+B q1[[@192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193/b8)]2 b@58)3<<<a>>>(3    ]7
+B  @192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193b8)    q0@58yDR,2,13<<<)2[d]16(2>>>      ]2
+K  [@1[c4c4/c4c8.c]8  @1c)40@2c8c(40@1c8@2cc    ]2          ]2
+E  [c1<b-2>e-2c1</b-1]2 b-2.>fga-b-
+F [c1<b-2>e-2c1</b-1]2 b-2.>fga-b-
+D                                                           ]2
+
+E  ) o5[c1e-4d-4c4d-8. /c& c1<b-2.>e-8.c& ]2  c&c1 e-1           ]2
+F  ) o5[c1e-4d-4c4d-8. /c& a-4g4f4e-4<b-2.>e-8.c& ]2  c&c1 e-1   ]2
+H @64 l16 o6v12[q1a-q6ccccccq2)c(q6cq2a-q6cq2a-q6cccc q2gq6ccccccq2)c(q6cq2gq6cq2gq6ccgg]4                                                ]2
+I M1,1,4,4q2[MF0@64 l16 o6v12 f@"strpls"(5MF1fe-fr(3fe-f)8 rMF0@64frfrrfr e-@"strpls"MF1(5fe-fr(3fe-fr)8@64MF0e-re-rre-c]4                ]2
+
+
+
+K  @1[c4c4c4c8.c]8
+B  q1[[@192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193/b8)]2 b@58)3<<<a>>>(3    ]3
+B  @192o8l16v12b(bbb)@58<<<)2a(2>>>@192(2b)2b@58<<<)2a(2>>>@192b(2b)2@193b8@58<<<)2a(2>>>@192(b@193b8)    q0@58yDR,2,13<<<)2[d]16(2>>>
+H  @65yDR,1,0o2v10[f1&]3f1
+I  @65yDR,1,0o2v10[f1&]3f2.r8
+H  @64 l16 o6v12[q2e-q6ccccccq2)2c(2q6cq2e-q6cq2fq6cccc]4
+I  M1,1,4,4@"strpls"q3o6v10e-f[@64 l16 o6v11 MF0q2crrr@"strpls"q4MF1(2ff(4fr(4f)10q2MF0@64crcrrfr]4
+C  [r1]4 [S0,0,0,0MF0@"¿—¿—"S100,0,0,0o4v14p2f8  S0,0,0,0@163q6ySL,4,$4fMF1v15o3p3g   q0MF0@"¿—¿—2"S100,0,0,0o4v10p1 c8f v14@"¿—¿—"p2cc ]8
+D  E255,255,255,255,0,255[v14[c16(]14r8   r1r1r1]2
+A  @213o4v12[f4.c8e-8.e-8.e-4f8c4e-8.e-8.e-8]4
+E  [r1]8
+F  [r1]8

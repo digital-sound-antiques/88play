@@ -1,0 +1,18 @@
+#mucom88 1.7
+#title Round Clear
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice bare2voice.dat
+#pcm bare2pcm.bin
+#date 2018/12/14
+#comment bare12
+
+A C112V1 t198@65yDR,1,4o2v10   l16 e4&e4&g2&a2&b4.^(e1&[e8&(]8r4v0
+B C112V1 @107o3v13D8  q4 l16e8e>e<ref+g8>g<ggedea&a8a>a<rea>)brbrb(<bago1@90v9 [e4&(]8 L r
+K C112   @1o1l16v50l16 [@1c4@3c8.@2c]3   @2c32c32ccc cc@1c@3c Lr
+D C112    w0@4P2q2l16v13[c(2ccc)2]8 Lr
+C C112V0   l16    [S0,0,0,0MF0@"ÀÑÀÑ"S100,0,0,0o4v14p2f8  p3S0,0,0,0@163q6ySL,4,$4aMF1v15o3p3g   q0MF0@"ÀÑÀÑ2"S100,0,0,0o4v10p1 c8f v14@"ÀÑÀÑ"p2cc ]4                               Lr
+H C112V1  q4@24      o7l16v13M6,1,8,4e(eeed<arb&(2b4&[b4&)]3b<<(d+f+b)>>v12>ddrer(8erv1er Lr4 v0
+I C112V1  D3q4@24o5l16v13M4,1,8,4e(e(eed<a @"strpls"v9p1>r >d)ee<b>ded<bgaaegaaga v11b>bab<<p3ddre(8rerv1e
+E C112V1  D16l16v12o4@3b4 aar e&e4<)b4(>c4  aea>c<b4     b8. <b Lr
+F C112V1  D10l16v12o4@3gabgeer<)b^4(>egb>e<e2f+4.^ [er(4]3 Lr

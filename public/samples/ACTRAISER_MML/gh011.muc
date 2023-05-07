@@ -1,0 +1,46 @@
+#mucom88 1.5
+#title Blood Pool ~ Casandora
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice actvoice.dat
+#pcm actpcm.bin
+#date 2018/12/9
+#comment gh011
+
+A t202C192K0l16   rLv11@23 o5q5 [[r8c+r]2rq0c+q7drrq0dq7ed    rrq7c+r rrdr rq0eq7f+r rq0 b>q7c+r    ]2
+B     C192K0l16   rLv11@23 o4q5 [[r8g+r]2rq0g+q7arrq0aq7ba >  rrq7g+r rrar rq0bq7>c+r r q0f+q7g+r   ]2
+C     C192K0l16   o3v13<g+> Lv13@23 q0 [c+2.&c+8.g+>c+2&c+8<a8g+8d16/<g+16> ]2  d16
+K   C192K0l16r  o1 L v40 @9  e1 e1  e1  e1
+
+H C192l16rL@23R4      o4K0v11   [q1rg+32g+32g+g+32g+32g+q7araq0aq7brbq0b q7arr >
+H                 q1rg+32g+32g+g+32g+32g+q7araq0aq7brbq0b q7ara    ]2
+I C192l16rL@23R4      o4K0v11   [q1rc+32c+32c+c+32c+32c+q7drdq0dq7ereq0eq7drr
+I               >>q1rc+32c+32c+c+32c+32c+q7drdq0dq7ereq0eq7drd    ]2
+J     C192K0l16  rL @23q7   v13o4D4 [c+c+ ]32
+G C192v54,21,28,21,21,21,21 @2K0l16     c32c32 L@2[crrc32c32]16
+
+A q4  g+4g4f+4f4  f+4f4  e4e-4
+B q4  c+4c4<b4b-4 b4b-4  a4a-4
+C q7a8>e-8d8<g+8[g8>d-8c8<f+8]2f8b8b-8e8
+J ( @40l32>>[c<g+]4[bg]4[b-f+]4[af]4 [b-f+]4[af]4[a-e]4[ge-]4
+G [r8c8]8
+H @"clari" rg+rg+rgrgrf+rf+rfrf  rf+rf+rfrfrerere-re-
+I @"clari" rc+rc+rcrcr<brbrb-rb- rbrbrb-rb-rarara-ra-
+K  [r2]8
+
+A  q7rgggq0f+q7grr     rgr f+rgr g+ raaaq0g+q7arr rarg+rara+
+B >q7rc+c+c+q0cq7c+rr  r c+rcrc+rd  rd+d+d+q0dq7d+rr rd+rdrd+re
+C    e-4^  e->e-<b-a8g+8a8a+8  f4^ f>fc<b8b-8b8>c8
+H  @23 e-.q0<g32>q7e-8rae->e-<  e-e-dde-e-ee  f.q0<a32>q7f8rbf>f< ffeefff+f+
+I    )3 <<@24yKA,4,31[rre-r]3rrer  rrfrrrfrrrfrrrf+r
+J  >(4 @"pic"q0 r8.[ag+gg+]2ag+  @40)2l16re-rdre-re(2 l32@"pic"r8.[bb-ab-]2bb- @40 l16 )2rfrerfrf+
+G  [r2]4
+
+A q4l24 [bbbb2 [b]7/rr   ]2bb>[cccc2 [c]7/rr   ]2   cc
+B q4l24 [ffff2 [f]7/rr   ]2ff [f+f+f+f+2 [f+]7/rr ]2 f+f+
+C [q7<g8.>e-a4 q1l24<gg>e-arr<gg>e-arr  ]2 [ q7<g+8.>e16a+4q1<g+g+>ea+rr<g+g+>ea+rr]2
+G l32[c(10ccc)10]32
+H q3>[r4a4r8arr8ar]2           [ r4a+4r8a+rr8a+r]2
+I (3@23q3>>[r2f8b>r<f8br]2    [r2f+8>c<rf+8>c<r]2
+J  l32[aae-e-gge-e-]8  [a+a+eeg+g+ee]8
+K >K3g2g4g4g2g4g4g+2g+4g+4g+2g+4g+4

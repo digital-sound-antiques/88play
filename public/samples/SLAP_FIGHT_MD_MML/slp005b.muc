@@ -1,0 +1,28 @@
+#mucom88 1.5
+#title ”òãÄ
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice voice.dat
+#pcm mucompcm.bin
+#date 2018/12/17
+#comment slp005b
+
+A t198@23  \=2,4 o6v12l16M24,1,8,4q4 ref32&{f32>c}c& L[c2c8(3c)3<b8(3b)3g(3g)3 a8(3a)3d&d2^ ef>c2 (2<{d>c})2c8(3c)3<b8(3b)3g(3g)3 /a8&{a>d}d&d2^ <ef>c& ]2  <b-4^b->c32&{c32f}f&f2   q4
+I   @93  o6 l32 r4  L v9[e(3>c<)3/f\>c\<]38  <[b-\>e-\/g\]3   ffgab->cdefgab->cdef
+H   @130 o4v14l16r4 L q2[gfed  ]28   [e-dc<b->]2   fedc <b-agf>
+K o1l16v50@1c@2ccc L [@1c8@2c8 ]15@1c@2ccc  [@1c8@2c8]14@2c32c32cc@1ccc@2cc
+B    l16 r8.@23o4v9 g L [v9g2.^8&{g8>g}g1&)g2.^8&{g8>g}/g1 ]2  g4^gggfrrfrrfr
+C   @23  r4 o6 l16L v9q4r8D4> M24,1,8,4[c2c8(3c)3<b8(3b)3g(3g)3 a8(3a)3d&d2^ ef>c2 (2<{d>c})2c8(3c)3<b8(3b)3g(3g)3 /a8&{a>d}d&d2^ <ef>c& ]2  <b-4^b->cf&f2
+D   r4 L@0v9 o5[c2c8.<b8.g8a2.b4> c2c8.<b8.g8  /a2a4b4   ]2   b-2>c2
+E   r4 L@0v9 o4[g1    g4  r8l32>>>c<bagfedc<bagfedc<b agfedc<ba> g2.^8 /g1 ]2 g2a2
+F l16r4 L@0v9 o4[f4 )<d4>c4<b4>[f]4 l32>>>c<bagfedc(<bagfedc<bagfedc<ba>   l16f4<d4>c4<b4> /[f]16 ]2 [e-]8 [f]8
+
+A   [[<g8.a8.>d8&d2  ]2   <g8.a8.>c8.<b-8.a8g8 /g4.agf+2  ]2 f+<b>f+g+8 c+g+a+8d+a+>c&{c<c}ef>c&
+C   [[<g8.a8.>d8&d2  ]2   <g8.a8.>c8.<b-8.a8g8 /g4.agf+2  ]2 f+<b>f+g+8 c+g+a+8>      (2q0[{f8<f}(2 ]2r
+H  [[g]16 [f]16 [e-]16  /[d]16  ]2 f+f+f+g+8g+g+a+8a+a+>cr4
+K [@1c8@2c8@1cc@2c8]14 [@2c@1c/c ]4@2crrcc
+B @23o5v11q0l32[[d8(3d16)3d\g\a\b\>l16c\\<b\a\g\ ]2 l32d8.d\g\a\b-\g8.d8c8<b-8 /l32a\>c\d\g\a\>c\d\g\  <<a\>c\d\f+\a\>c\d\f+\   ]2 q4 l16 c+<g+>c+d+8<a+>d+f8cfg&{g<g}<g8.&
+I << [  [[g\a\b\]5g\  ]2  [g\a\b-\]5g\  / [a\>c\d\]5<a\  ]2  l32 f+g+a+b>c+d+ <g+a+b>c+d+ef+g+ <a+>cde-fgab- [>c<bag(3]2 r16
+D    l16 [ o4g2^8a8b8>c8d1<g1 /g2 a2    ]2 <b8.>)c+4)d+4[fr/r(2]2
+E D-16l16  [ o4g2^8a8b8>c8d1<g1 /g2 a2    ]2 <b8.>)c+4)d+4[fr/r(2]2
+F    l16 [ o3g2^8a8b8>c8d1<g1 /g2 a2    ]2 c+8.)d+4)f4[gr/r(2]2

@@ -1,0 +1,55 @@
+#title pcmt16d
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice dr_voice.dat
+#pcm dr_pcm.bin
+#date 2018/12/9
+#comment
+   pcmt16d2
+             shout down !
+A L t152@10 C64v12l16o3q2  p3[g8>g8f8<g>g8cc+8d8f</g&]8 f
+C L        C64@11 o6l16v11q0p3 a2.&a8. b1 >c1 d @7)) q2[rd>d</d]4(( q0@11f1 e1 d1 q1r<dddfffgggbbb>ddff
+B L        C64@11 o6l16v8r8 q0p3 a2.&a8. b1 >c1 d @7)) q2[rd>d</d]4(( q0@11f1 e1 d1 q1r<dddfffgggbbb>ddff
+H L        C64@11 o6l16v11q0p3 f2.&f8. g1 a1  b@7  q2>r[rd>/d<d]4 q0@11 c1 c1 <b1   q1r<bbb>dddfffgggbbdd
+I L        C64@11 o6l16v11q0p3 M1,1,8,4,15 d2.&d8. d1 d1  g1                  g1 g1 g1     q1r<gggbbb>dddfffggbb
+J L C64@4  l16v13M1,1,18,4,15o6q0 p3 K0agf q2 g4&g2 >cd2.&d[fec]5 fgab2.&b8.  a8b>c<b4 fgag4 cdefagd2&d8.  c<b>c<b8gf2  c<b>cd&d1
+K L C64 [v120o1l16 [@1c8c8@2c8 @1c@2c8@1c@2c8@1c8@2c8]3 @1c8c8@2c8 /@1c@2c8@1c@2c8 @3c32c32>bg< @4c]2 @1cc8@3c32c32cc>fff32f32f
+
+C  r1r1r1r2.@11o6v9 MF0q0l32de)ff+)gg+)aa+l16  q5[b2b8.b8.b8a2a8.a8.a8 ]4
+B  r1r1r1r2.@11o6v6MF0q0l32de)ff+)gg+)aa+l16  q5[b2b8.b8.b8a2a8.a8.a8 ]4
+H  r1r1r1r2.@11o6v9 q0 l32<b>c)c+d)d+e)ff+l16q5[g2g8.g8.g8f2f8.f8.f8 ]4
+I  r1r1r1r1@3 o6v12 q3D3rdgdf8dg8df8dga>c  f4e4d4c4  <b1 r1 r4rb>cdg4b4 a4f4>c4d4 <b1     r1
+J  r1r1r1r1@3 o6v9 q3MF0D-3rr4dgdf8dg8df8dga>c  f4e4d4c4  <b1 r1 r4rb>cdg4b4 a4f4>c4d4 <b1  r1
+A  [g8>g8fefe8c<b-ab->d<g>d <f8>fe8c<b-8 >fe8c<b-8b8]6
+K  o1[[@1c8@2c8 @1c8@2c8@1c8@2c@1c8/@1c@2c8 ]4 @2ccc ]4
+
+
+C    [g8.a8.g8.a8.g8a8b-8.>c8.<b-8.>c8.<b-8>c8     ]2
+B    [g8.a8.g8.a8.g8a8b-8.>c8.<b-8.>c8.<b-8>c8     ]2
+H l8 [e-.f.e-.f.e-f g.a.g.a.ga                     ]2
+A [e-8>e-8<e->e-<e->e-<gga-a-b-b->e-e-<f8>f<f8>f<f>f<aab->c8cff  ]2
+I [b-4b-argrarb-r>crd/d8.c&c2r<ab->c ]2  cdc<a&a2 f4
+J [b-4b-argrarb-r>crd/d8.c&c2r<ab->c ]2  cdc<a&a2 f4
+
+A [<ggbb>ccddgg<bb>ccdd/<ggbb>ccdd ffddf+f+dd  ]2
+I g1 r1 r1
+J g1 r1 r2.
+C    [c8.<b&b4a8.b&b4 />c8.<b8.>d8&d2  ]2
+B    [c8.<b&b4a8.b&b4 />c8.<b8.>d8&d2  ]2
+H l16[a8. g&g4f8.g&g4 / a8. g8. b8&b2  ]2
+
+J @4q1  <raa8arar>crcrcrcd&d1&d1
+A q1 rff8frfrfrfrfr   ySR,1,1 ySR,2,0 ySR,3,0  <fg&
+C  q1   <   r ff8frfr arararab&
+B  q1   <   r ff8frfr arararab&
+H  q1    <    r>cc8crcr frfrfrfg&
+I @4 q4o5l16v5r gg8grgr>crcrcrcd&
+K [@1c8@2c8]6 @1c8@3c8 @1c8@3c8 [@1c8@2c8]3  @3c32c32c>b<@4c @1c @5o2ff8f8f8a8a8a8a
+
+C b1&b1
+B b1&b2.^8
+H g1&g1
+G q4c4c4c4c4c4c4c4q18c32c32ccc
+A g1&g1
+I d1&d1
+K @1o1c& c4.c8c2 c4.c8c4@3c32c32c>bg<

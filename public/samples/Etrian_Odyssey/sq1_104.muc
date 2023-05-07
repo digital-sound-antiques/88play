@@ -1,0 +1,121 @@
+#mucom88 1.5
+#title sq1_104
+#composer Yuzo Koshiro
+#author WING GHOST
+#voice voice.dat
+#pcm sq1pcm.bin
+#date 2018/12/8
+#comment sq1_104
+
+A t218 @70  o3 v15 q0  p3
+B      @123 o5 v13 q0  p3
+C      @123 o4 v13 q0  p3
+D      @1   o5 v14        l4
+E      @1   o4 v14        l4
+F      @1   o3 v14        l4
+G      v63,31,28,25,10,20,0 l8 p$30 p$31 p$32 p$33 p$34 p$35
+H      @91  o4 v10     p3
+I     @91  o4 v10     p3
+J     @91  o3 v10     p3
+K          o1     q0  p3 l8
+
+# *1{@1v50p3}
+# *2{@2v50p3}
+# *3{@3v50p3}
+# *4{@4v120p3}
+# *5{@5v120p3}
+# *7{@7v30p3}
+# *8{@8v40p1}
+# *9{@9v40p3}
+# *10{@10v40p2}
+
+A l16 [ar]9>crcrcr<brbra+ra+r[ar]8a+ra+rr2.
+B l8  [erq8(11e)11q0]3 q8g4.f+4f4q0   [er/q8(11e)11q0]3 q8f4r2.
+C l8  [arq8(11a)11q0]3 q8>c4.<b4a+4q0 [ar/q8(11a)11q0]3 q8a+4r2.
+H l16 q5[ar8.(10ar)10]3 q12>d4.c+4c4< q5[ar8./(10ar)10]3 >>crcrr2.
+I l16 q5[er8.(10er)10]3 q12 g4.f+4f4  q5[er8./(10er)10]3  @109o5v10l8[c(f<(a+(c(]2
+J l16D3 q5[ar8.(10ar)10]3 q12>c4.<b4a+4 q5[ar8./(10ar)10]3 D0r@109o5v10l8[a+(c<(f</(f(]2q0f16
+D r1 r1 r1 r1
+E r1 r1 r1 r1
+F r1 r1 r1 r1
+G @13c@9[c]23 @7c@3c@8c@16 p$14 c16c16@17 p$34 c@16 p$24 cr@1c
+K *5c4*1[c]22*5c4.*8c16c16*9c*10c4*1c
+
+
+A L [l8 [[a>a<aa^>a<a>a<]2 g>g<gg^>g<g>g< f>f<ff^>f<f>f<]2
+B L [v11o4q4[e1& e4e2e4 d4.d&d2 c4.c&c2]2
+C L [v11o3q4[a1& a4a2a4 g4.g&g2 f4.f&f2]2
+H L [   v11o5p3l8q5    [e4.eb2& br>c4<b4/e4  d4r g&g4c<b> c4rf2r]2 >c4 d4r<g&g4>c<b> c4r<a2r
+I L [@91v8 o5p3l8q5D3 r[e4.eb2& br>c4<b4/e4  d4r g&g4c<b> c4rf2r]2 >c4 d4r<g&g4>c<b> c4r<a2r
+J L [@91v11o5p3l8q5    [c4.cg2& grg4g4/c4 <b4r>d&d4<r4  a4r>c2r]2 g4   b4r d&d4r4    a4rf2r
+D L [e.r8b2.q4>c<be     d.q0g.c8<b8>q4c.q0f.r e.r8b2.q4>c<b>c q0d^16r.r16c8<b8>c^16r16<a^16r16>c8r8
+E L [e.b2.^16r16>c<be d.g2^8c.f2^8          e.b2.^16r16>c<b>cb^16r16g2^8f.f^16r16a8r8
+F L [b.>g8>g2.<ggc  b. d2^8 a. >c.r<<      b.>g8>g2.q4g2q0gd.d2^8c.r8r2
+  L [b.>g2.^16r16ggc <b.>d2^8<a.>c2^8<      b.>g2.^16r16gggb.>d2^8c.r8r2
+G L [@5c4@10c@8c@9cc@10c@8c [@9c@8c@10c@8c@9cc@10c@8c]7
+K L [*5c4*2c4*1cc*2c4 *1c4*2c4*1cc*2c*7c [*1c4*2c4*1cc*2c4 *1c4*2c4*1cc*2c*7c]3
+
+
+A [[e>e<ee^>e<e>e<]2 / [f>f<ff^>f<f>f<]2]2 f>f<ff^>f<f>f< g>g<gg^>g<g>g< [a>a<aa^>a<a>a<]2 [f>f<ff^>f<f>f<]2
+B  [g4.g&g2& gg4.g2 / a&a4>c&c2 c4.f&f2 <]2 a4.a4.a4. g4.g2 g4.a4.a4& a)q0>c<b>cdc<b>cq4 c4.d4.d4& dq0edefede
+C >[d4.d&d2& dd4.d2 / e&e4g&g2  g4.>c&c2<]2 e4.e4.e4. d4.d2 d4.e4.e4& e)q0agabaga     q4 g4.a4.a4& aq0>c<b>cdc<b>c<
+H g1& grd4<b4>d4 c4rf2r  f4ra2r g1& grd4g4b4 >d4rc&c2  rc<b>cdc<bg  g4ra&a2& a2.r4 b4r>c&c2& c2.r4
+I g1& grd4<b4>d4 c4rf2r  f4ra2r g1& grd4g4b4 >d4rc&c2  rc<b>cdc<bg  g4ra&a2& a2.r4 b4r>c&c2& c2.r8 D0
+J d1& dr<b4g4b4  a4r>c2r c4rf2r d1& dr<b4>d4g4 b4ra&a2  ragabagd    d4re&e2& e2.r4 g4ra&a2& a2.r4
+D <b.g.d2<gb>d e^16r16c2^16r16c^16r16f.a   b.g.d2<gb>d g^16r16a2^16r8.g8d8<b8>g8e8d8<b8>d8re1^.rg8ra1^.r
+E g.d.<b2dgb>  c^16r16<a2^16r16a^16r16>c.f g.d.<b2dgb> d^16r16e2^16r8.d8<b8g8>d8c8<b8g8b8r>c1^.re8re1^.r
+F [r1]12
+G @5c4@10c@8c@9cc@10c@8c [@9c@8c@10c@8c@9cc@10c@8c]7 [@13c@8c@10c@8c@9cc@10c@8c / @9c@8c@10c@8c@9cc@10c@8c]2 @9c@10c16@2c16@24 p$14 c p$34 c16@16c16@9c@25 p$24 c@10c16@2c16c
+K *5c4*2c4*1cc*2c4 *1c4*2c4*1cc*2c*7c [*1c4*2c4*1cc*2c4 *1c4*2c4*1cc*2c*7c]3 [*5c4*2c4*1cc*2c4 / *1c4*2c4*1cc*2c*7c]2 *1c*2c16c16*8c*9c16c16*1c*10c*2p3c16c16c
+
+
+A o3   l16 [ar]9>crcrcr<brbra+ra+r / [ar]8a+ra+rr2.]2
+B o5v13l8  [erq8(11e)11q0]3 q8g4.f+4f4q0     / [er/q8(11e)11q0]3 q8f4r2.q0]2
+C o4v13l8  [arq8(11a)11q0]3 q8>c4.<b4a+4q0   / [ar/q8(11a)11q0]3 q8a+4r2.q0]2
+H o4v10l16 q5[ar8.(10ar)10]3 q12>d4.c+4c4< / q5[ar8./(10ar)10]3 >>crcrr2.]2 o4
+I o4v10l16 q5[er8.(10er)10]3 q12 g4.f+4f4  / q5[er8./(10er)10]3 r@109o5v10l8[a+c<(f</f(]2q0f16]2 o4l16
+J o3v10l16D3 q5[ar8.(10ar)10]3 q12>c4.<b4a+4 / q5[ar8./(10ar)10]3D0  @109o5v10l8[cf<(a+c(]2       ]2 o3l16
+D r1 r1 r1 r1]2
+E r1 r1 r1 r1]2
+F r1 r1 r1 r1]2
+G @13c@9[c]23 @7c@3c@8c@16 p$14 c16c16@17 p$34 c@16 p$24 c/r@1c]2@1c@11c
+K *5c4*1[c]22/*5c4.*8c16c16*9c*10c4*1c]2*5c4.*8c16c16*9c*10c*1c*3c
+
+
+A [ar]9>d+rd+rd+rdrdrc+rc+r [dr]9frfrfrererd+rd+r [dr]9g+rg+rg+rgrgrf+rf+r
+B [erq8(11e)11q0]3 q8a+4.a4g+4q0  [[arq8(11a)11q0]3 / q8>c4.<b4a+4q0]2 q8>d+4.d4c+4<q0
+C [arq8(11a)11q0]3 q8>d+4.d4c+4q0 [[drq8(11d)11q0]3 / q8f4.e4d+4q0  ]2 q8g+4.g4f+4q0
+H q5[ar8.(10ar)10]3 q12>f4.e4d+4  [q5[dr8.(10dr)10]3 / q12g4.f+4f4  ]2 q12a+4.a4g+4
+I q5[er8.(10er)10]3 q12a+4.a4g+4  [q5[ar8.(10ar)10]3 / q12>c4.<b4a+4]2 q12>d+4.d4c+4
+J q5[ar8.(10ar)10]3 q12>d+4.d4c+4 [q5[dr8.(10dr)10]3 / q12f4.e4d+4  ]2 q12g+4.g4f+4
+D r1 r1 r1 r1
+E r1 r1 r1 r1
+F r1 r1 r1 r1
+G @13c@9[c]15 @13c@9[c]13@11c16@2c16@11c16@2c16
+K *5c4*1[c]13*7c *5c4*1[c]12*2c16c16c16c16
+
+
+A crcrr2r8<a+r> r1 ererr2r8dr r1
+B ggr2rf r1 bbr2ra r1<
+C ccr2r<<<(a+& a+1)>>> eer2r<<(d& d2.>de<
+H >q5drdrr2r8cr r1 f+rf+rr2r8er r2.<q0d8e8
+I q5grg @109o5v6q0  r8.dc<(gd(c<g(d<g @91o5v10q5f @109o5v6q0 r8.c<a+(fc<(a+f(c<fr4.    @91o5v10q5brb @109o5v6q0 r8.f+e<(bf+(e<b(f+<b @91o5v10q5a @109o5v6q0 r8.ed<(ae(d<a(e<ar4.
+J       @109o5v10q0D0  dc<(gd(c<g(d<g>>>r4.             v10     c<a+(fc<(a+f(c<f>>>r8 v2c<a+(fc<a+(fc<f>>> v10     f+e<(bf+(e<b(f+<b>>>r4.             v10     ed<(ae(d<a(e<a>>>r8 v2ed<(ae(d<ae<a>>>
+D r1 r1 r1 r1
+E r1 r1 r1 r1
+F r1 r1 r1 r1
+G [@3cc@8c@16 p$14 c16c16@17 p$34 c@2cc@3c r@3c@8c@17 p$14 / c@8c@17 p$34 c@8c@16 p$24 c16c16]2 c16@16c16c16r16@17 p$34 c16@16c16c16r16 p$24 c16c16
+K [*5c4.*8c16c16*9c*2cc*5c4*3c4/*8c4*9c4*10c16c16]2*8c16c16c*9c16c16c*10c16c16
+
+
+A < [a+r(6a+ra+r)6]4a+r(6a+r)6a+r(6a+r)6 >[cr(6crcr)6]4cr(6cr)6cr(6cr)6  l8d>d<de4>e<e<f4>f<fg4>g<ga+4>a+<a+a+>a+<a+a+>c+& c+2r2
+B v11l8 [fe/c]5c4      [gf+/d]5d4     ag+eb4abg4c>cd4<fga+2.ca+>c+2.r4.
+C v11l4 q4[a+.]4q0a+2  q4>[c.]4q0c2 q4d.e.r8<f.r8g.r8q0a+1c+2.r.
+H    o5v9 q0l16 f8ecr8[f8e8/cr]4c8.r g8f+dr8[g8f+8/dr]4d8.r l8ag+e16r16b.r16ab>c.r16<g>g16r16f.r16cde8.&e2r16deg4fc<g+gfcd
+I @91o4v10q0l8  [fr/r]5f.r16         [gr/r]5g.r16             a.r.b4^16r.>c4.rd4.re2..rg+4..r.r2
+J @91o3v10q0l8  [a+r/r]5a+.r16      >[cr/r]5c.r16             d.r.e4^16r.f4.rg4.ra+2..r>c+4..r.r2
+D  o5l8  [f.r.]5r  [g.r.]5r  a4rb4r4>c4rcd4rde l16(ed<a+fed<a+fed)a+8a+8>c+2.r4.
+E o5l8  [rcr]5r   [rdr]5r   rer4.er4.fr4.gr4  r2r<deg+2.r4.
+F o4l16 [r4gr]5r8 [r4ar]5r8 r4a8r4.b8r8r1r1r1
+G [@5crr@1crrcrrcrrcrcr]2 @13c@8c@2c@9cr@2cc@13c r@16 p$14 c p$34 c @5cr@2c@1c@5cr@1c@10cr@9c@1c@10c@5c r1
+K [*5c4.*1c4.c4.c4.c4c4]2 *5c4*2c*1c4*2cc*5c4*8c*9c*5c4*2c*1c*5c4*1c*2c4*1cc*2c*5c1r

@@ -1,0 +1,49 @@
+#mucom88 1.5
+#title Stealthy Steps
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice stkvoice.dat
+#pcm stkpcm.bin
+#date 2018/12/14
+#comment stk020
+
+B t198    V-1C160  L [@192 o8l16v11D150[b(2bbb)2]2  [@192 (2bb  )2
+B         (2  @193  b8)4]2]16
+C   C160l16 M1,1,-40,250  L [ q3S0,0,0,0MF0@"ภัภั"S100,0,0,0o4v14p2f@"ภัภั2"v12c [S0,0,0,0@163q8ySL,4,$4fMF1v15o3p3g+ q3MF0@"ภัภั2"S100,0,0,0o4v10p1 f v14@"ภัภั" /@61v12p3<<a>>@"ภัภั" a8cc v13f32f32 ]2 >v10@"ภัภั2" p2cc@"ภัภั"p1<ac>]32
+A  C160 @"808kik" o3v15K-0L [a8a8&a2.&a1  ]16
+K  C160 o1l16q4 Lv50 [[@1c8c8)40@2crrc     rc(40@1cr)40@2/cr(40r8          ]8 cccc(40 ]4
+H  C160 L [r1]4 q1MF0H0,0,0@"ap3"   o3v12l16[[arar>cdre-/re-d8c<e-ga&]2 r4re-g8]2
+I  C160 L [r1]4 q1MF0H0,0,0@"ap3"D4 o2v12l16[[arar>cdre-/re-d8c<e-ga&]2 r4re-g8]2
+D  C160P2E255,255,255,255,0,255w0L [l16v11[c(]9   [l32v7ccc)c)c)c)rrrrr8/r2r16]2 ]16
+E  C160l16.M1,1,-60,250v2E255,255,255,255,0,255o7   r1L[ [r1]2   v2[d)]8 [d(]8 r2    ]8
+F  C160l16.M1,1,-60,250v0E255,255,255,255,0,255o7r24r1L[ [r1]2   v0[d)]8 [d(]8 r2    ]8
+
+H   @"ap4"[a1.&a4^eg8 ]2  @24 v10o6 q6M8,1,6,5[ar(5a)5rgr(5g)5rar(5a)5>c8</gr(5g)5]2 gara2&a4.garg8re4rdcd<garr    [r1]3
+I   [@"ap4"a2[@"ภัภั3">>(rb8r)<</r4r2]2 r@"ap4"eg8 ]2  @24 v11o4 q6M8,1,6,5[ar(5a)5rgr(5g)5rar(5a)5>c8</gr(5g)5]2 gara2&a4.garg8re4rdcd<garr   @"ภัภั3"v11 [r2>rb8<r/r4]4
+
+B         [[ @192 o8l16v11D150[b(2bbb)2]2  /[ @192 (2bb  )2
+B     (2  @193  b8)4]2]2 (2bb  @193 b8r4  ]2
+B  [@192 o8l16v11D150[b(2bbb)2]2  [ @192  (2bb  )2
+B         (2  @193  b8)4]2]12
+
+H    @"sax"o7r2.M24,1,6,5 H3,0,1q3v8      r160
+I    @"sax"o7   M24,1,6,5 H3,0,1q3v4 r8   r160
+H  e-([d&(]3[d&)]6d8c2&c4^<a>e-d&d8<ga8.>e-d8.<ga8.&(a2.r8>eg&)g2&g&a&M130,1,-1,250e1&eM30,1,6,5d1r[<ga>c/r]5 <a>d2c4.   <a2&[a8&(]4[a4&)]4[a16&(]8  r1 %39r
+I   e-([d&(]3[d&)]6d8c2&c4^<a>e-d&d8<ga8.>e-d8.<ga8.&(a2.r8>eg&)g2&g&a&M130,1,-1,250e1&eM30,1,6,5d1r[<ga>c/r]5 <a>d2c4.   <a2&[a8&(]4[a4&)]4[a16&(]6  r1r8 %19r
+
+  @%192;efctes
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,16,16
+  $000,$01F,18,18
+  $03F,$02F,$02F,$04F
+  $03C               
+  @%193;efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,10,10
+  $000,$01F,15,15
+  $03F,$02F,$02F,$04F
+  $03C

@@ -1,0 +1,36 @@
+#mucom88 1.5
+#title SUNRISE BLVD.
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice shinobivoice.dat
+#pcm shinobipcm.bin
+#date 2018/12/12
+#comment sin014
+
+A t198 @104o4l16v0[c+16&)]8v2[b-&)]9 b- r2.r8  L @176v7o3p1H3,0,0[e-1a8.&b-&b-2.&e-1 /a8.&b-8.&> e-8&e-2 ]2
+C      @104o4l16v0D4[c+8&)]7c+8 r1 L @176v7o3p2H3,0,0[e-1a8.&b-&b-2.&e-1 /a8.&b-8.&> e-8&e-2 ]2
+B      @162 o4l16v9 r1r2 yTL,1,08yTL,2,14yTL,3,0M1,1,40,60,15 r2 MF0 o3 q1 L [[e-8re-rrrre-8re-re->e-<e-/a8.b-rb-8r  e-b->e-8d-8f+d-   ]2/<a8.b-8.>e-8.<a8.b-e-ab->]2
+K   K5o1v40 l16r1r2.r8       @2 c32c32c32c32   L [[[@1c8@2c@1crc@2c8]3/@1cc@2c8@1cc@2c8]2/@1c@5ccc@1c@5>aaa<]2
+H  @33l16v0o6H3,2,2[g8 &)]8    g2r2  L H3,0,0 o5[@159q2  v9b-8.b-r<b-8.> b-8.b-r@23  >)2q0b-rr  /@159<e8.f&f4>     @23  e-rd-rf+rd-r     ]4
+I  @33l16v0o6H3,2,2[c+8 &)]8   c+2r2 L H3,0,0 o5[@159q2  v9e-8d-e-r4e-8d-e-r@23)2  q0b-rr    /(@159 a8.b-&b-4 )    @23D4e-rd-rf+rd-r D0]4
+G v52,21,21,21,8,21,21 r1r1L l16@8[crcrcrcr]16  [c32c32cccccrr     r8ccr8cc ]8
+
+H v9@159o5    g8.g+ r8a8.b-8.&b-4
+I v9@159o5    d8.d+ r8e8.f8.&f4
+B <a8.a+8.b8.>c8.&c4
+K  @1cc@2c@1c@2c32c32ccc
+A <a8.a+8.b8.>c8.&c4
+C <a8.a+8.b8.>c8.&c4
+
+K [ [@1c8@2c@1c8/c@2c8  ]8   @2ccc ]2
+B  < [e-8re-re-8.  r2  d-8rd-rd-8.r2  b-8rb-rb-8. b-fb->d-fd-8. <
+H           [ b-8rb-rb-  r8 >p1b-rb-rb-rb-rp3<a-8ra-ra-r8  >(r8a-4.)< f8rfrf
+I           [f+8rf+rf+  r8 >p1e-rd-re-rd-rp3<e8rerer8     >(r8e4.)< c+8rc+rc+
+C  @159o5v9p3[f8rfrf     r8 r2           e-8re-re-r8  r8>(e-4.)< c8rcrc
+A  @131o5r4rv9 p3M14,1,14,4q1b->d-<b->e-8d-<b-r>d-8. r4r<a-b-b8.>g+e4r  <r8b-8a-f+fe-8ff+f4&f&fre-rfre-rff+ra-&a-4
+
+H r8r2f8rfrfr4 (>e-ra-r>d-r      ) ]2
+I r8r2c+8rc+rc+ ( r4g+r>c+rf+r   )]2
+C <r8r2b-8rb-rb-( r4>b-r>e-rg+r  ) ]2
+B e-8re-re-8rr8>e-8<b-8f+8    ]2
+A r4r>d-e-re-re-rf+4 r4rd-<b-rb-rb-ra-b-8. r4 rq0ff+>M26,1,-2,200,15d-&d-4&H3,5,2d-2.<H0,0,0M14,1,14,4MF0 r<b->d-e-f+e-rr

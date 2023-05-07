@@ -1,0 +1,95 @@
+#mucom88 1.5
+#title Fighting in the Street
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice stkvoice.dat
+#pcm stkpcm.bin
+#date 2018/12/14
+#comment stk004
+
+K C112 L  t198 o1v60l16  [@1c4  ]12   @2)60cccc c8cc8cc8cccc(60
+A C112 L  MF0q0v7 @186 o3     r1r1f1&f1&
+B C112 L  q0 [r1]3@148o6   M1,1,-9,250l16v4  D4  r8[b8&)]7
+I C112 L  q0 [r1]3@148o6   M1,1,-9,250l16v6      [b8&]7b8&
+H C112 L @"Îß°×ÍÞ"o3l16q0 [v14[f8.(2]2[f8.(]6[f8.]2  v14e-8  ]2
+C C112 L  MF0q0v7 @186 o3 D6  r1r1f1&f1&
+D C112 L  [r4]16E255,255,255,190,1,20l16v12w0P2q2
+E C112 L  [r1]4
+ G C112 L v61,31,21,21,21,21,21   @1[c4]250
+
+K  [[@1c8)60@4c8@2c8   @4c@2c(60 @1c@2c)60@4c8 @2/c8 @4c (60@2c ]4  cccc(60]4
+K  [@1c8)60@4c8@2c8   @4c@2c/(60 @1c@2c)60@4c8 @2 c8 @4c (60@2c ]4  @2cccc cccc(60
+D [[cc(c)c]3cccc]20
+H v13 [[f8>f<fff8b-8/b-8 b-a-8b-a- ]4b-8a-b-8a-b-]4
+H  [f8>f<fff8b-8/b-8b-a-8b-a- ]3  a-8a-b-8>c8  d-8d-d-d-d-8c8. c8c8c8  <
+A    [f1&]7 @23l16o6 [r1]4 r2.M24,1,8,5 [[  v9 ce-fe- [f&(]4[f8&)]5f8 /[a-r(3]3v9 [b-r(3]3    ]2  /q1v9 a-a-a-a-a-8q0g[b-r(3]2b-]2 v9 a-a-a-a-q0b-8a->c&c2
+B MF0@23l16o5 [r1]4  M11,1,-40,200[>>p2v11[f8.(3]3v0f8.r4/r1<<]4r2. [[  v9 r4 M11,1,-40,200>>p2f8.(3f8.)3<<M24,1,8,5 p3v11[f&(]4[f8&)]2f8)/[a-r(3]3v9 [b-r(3]3 ]2  q1/a-a-a-a-a-8q0g[b-r(3]2b- ]2 v11a-a-a-a-q0b-8a->c&c2
+I  [v4M1,1,9,250<c1&>MF0f1(]2 MF0  @216 p3 o5v10   q3
+C  [f1&]3r1 MF0 @216  o5v9  D0l16q3   p1
+E  E255,255,255,255,0,255o6v4 [r1]12 E255,255,255,190,1,10o4l16v12[r8ce-fe-frr2r1]4
+
+K [@1c8)60@4c8@2c8   @4c@2c(60 @1c@2c)60@4c8 @2c8 @4c (60@2c ]7  @2)60ccccc8cc8r4.r     (60
+D  [[cc(2cc)2]3cccc]7crrrcrrr rrrrrrrr
+I     [ (ff)>e-<(ff)>e-<(ff)>q0e-e-e-f<(f)>fq3<(f)>e-<(ff)>e-<(ff)>e-<(f)>   /a-<(ff)>a-<(f)>a-b-<(f)>e-   ]8 f<(ff)>f<(f)>e-e-<(f)>e-<
+C   [[rra-rra-r/ra-a-a-b-a-b-8a-       ]2  / >e-8 e-e-e-e-fr<a->]8   b-rrb-ra-a-rr   <
+
+
+
+
+
+
+H  [[f8>f<fff8b-8 b-8b-a-8b-a-]3/f8ffff8f8b-8a-b-8a-b-]2  ffff fr ff rb-8a-b-8a-b-
+I     [f f>e-<ff>e-<ff>q0e-e-e-e-e-q3f<f>e-<ff>e-<ff>e-<f>    a-<ff>a-<f>a-b-<f>e-<  ]3
+I     f f>e-<ff>e-<ff>q0e-e-e-e-e-q3f<f>e-  <fffffrffr2
+C   [[rra-rra-r/ra-a-a-a-a-b-8a-       ]2   >e-8 e-e-e-e-fre-<   ]3
+C   rra-rra-rra-a-a-a-a-b-8a-     >e-e-e-e-e-re-e-r2   <
+A  @186o3v9MF0[f1&]6f1@148o5v8q4[gD30+]5rgD20+gD20+D0r2
+B  [r1]4MF0@23l16o5  M11,1,-40,200p2[>>v11[f8.(3]3v0f8.r4/r1<<]2  r4.rp3MF0o3rr2
+E [r1]8
+
+
+K [[@1c8)60@4c8@2c8   @4c@2c(60 @1c@2c)60@4c8 @2/c8 @4c (60@2c ]10 cccc(60]2
+D [cc(c)c]80
+H [[[f8>f<fff8b-8 / b-8b-a-8b-a-]4 b-8a-b-8a-b- ]2
+I  [ (ff)>e-<(ff)>e-<(ff)>q0e-e-e-e-e-fq3<(f>)e-<(ff)>e-<(ff)>e-<(f)>   a-<(ff)>a-<(f)>a-b-<(f)>e-   ]10
+C  [[rra-rra-r/ra-a-a-a-a-b-8a-       ]2   >e-8 e-e-e-e-fre-]10
+A   MF1   @23o6 v8q2[ffffb8fb-2r ffffb8fb-8a->c^4r ]4
+E  [ E255,255,255,190,0,10 o4 v11q2[ffffb8fb-2r ffffb8fb-8a->c^4r ]4
+C
+B   [ MF0@23l16o5  M11,1,-40,200p2[q0>>v11[f8.(3]3v0f8.r8v11q3ff<<]8
+
+
+H > d-8<a-8>d-d-8d-8   d-8<a->d-8d-8 c8<g8>cc8c8 c8<g>c8<b->c  ]2
+A    @24v12o7  q4[frrr]7frp2a-r
+A  MF1   [p3@23o6 v8q2ffffb8fb-4.^ p2)2@24>a-r<(2p3@23 ffffb8fb-8a->c4p2)2@24a-r(2]4
+A   p3 @24v12o7  q4[frrr]7frrr
+B  MF0v7 @192o4D4q5p3l16[p1fD-10+p2fD-10+p3(f8)D-10+]8  D0      ]2
+E r1r1                               ]2
+
+
+
+H  [[f8e-f8e-f8e-f8e-f8/a-8]2  e-e ]3
+H  f8e-f8e-f8e-f8e-f8a-8   f8e-f8e-f8e-c8<bb-8e-e
+H  [[f8>f<fff8b-8 / b-8b-a-8b-a-]4 b-8a-b-8a-b- ]4
+K  [ [[@1c8)60@4c8@2c8   @4c@2c(60 @1c@2c)60@4c8 @2c8 @4c (60@2c ]3
+K  /@1c8)60@4c8@2c8   @4c@2c(60 @1c)60@2c@4c8 @2c8 cc (60  ]2 @2)60cc@4c@2cc8cc8cc@4c@2cccc(60  ]3
+D [c(c)cc]96
+C ;[@"kick1"o2v15 a4]32
+C @59o5v13r8[c8rc8.c8.c8./c4]8d8 ;[@"kick1"o2v15 a4]32
+C  @134o3v9 q4  [ (ff)>e-<(ff)>e-<(ff)>q0e-e-e-q4f<(f)>f<(f)>e-<]16 ; (ff)>e-<(ff)>e-<(f)>   a-<(ff)>a-<(f)>a-b-<(f)>e-   ]8
+A @180o4   [[v9 [c8.(2]4c8 v9 e-8 /[c8.(2]4r4]2    [c8.(2]2 rv9 e-8.e-8f8f8]6
+B  @180o3 q3[[v9 [a-8.(2]4a-8 v9 >c8</[a-8.(2]4r4]2 [a-8.(2]2rv9 >c8.c8c+8c+8]2
+I @180o3   [[v9 [f8.(2]4f8   v9 a-8/[f8.(2]4r4]2 [f8.(2]2rv9 a-8.a-8b-8b-8 ]4
+B  [[v9 @180o3 a-8.(2a-8.)@23>>>>[M1,1,40,250c& %5c    %2r (3]2r4<<<< MF0@180v9l16>c8</[a-8.(2]4r4]2 [a-8.(2]2rv9>c8.c8c+8c+8<]4
+E [r1]16
+
+I    @23o6 M24,1,8,5v8q2[ffffb8rr2r rrrrb8fb-8/a->c4^r<]2 r4.r
+I    [ffffb8fb-2r /ffffb8fb-8a->c4^r]2  @"kick1"o3v15c4c4c4c4
+E     o4 v12q2[ffffb8rr2r rrrrb8fb-8/a->c4^r<]2 r4.r
+E    [ffffb8fb-2r /ffffb8fb-8a->c4^r]2  r1
+
+
+
+
+
+

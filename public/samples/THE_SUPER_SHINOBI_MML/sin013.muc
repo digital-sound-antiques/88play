@@ -1,0 +1,46 @@
+#mucom88 1.5
+#title LIKE A WIND
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice shinobivoice.dat
+#pcm shinobipcm.bin
+#date 2018/12/12
+#comment sin013
+
+A t198C112 o3v10@172>l16q0[crc8e-re-8frf8f+rgr]3  crrr r4r4r4
+K     C112 o1v40l16[@1c8@2c8@1cc@2c8@1c8@2c8@1cc@2c8  ]3 @1crrcrrc@6c@1c8c8  c8@2 %2c %12cl16
+B     C112 @123o4l16v8q1 [crc8e-8.frf8.f+rgr    ]3 crrrr4r4r4
+H     C112 @123o4l16v8q1 [grg8b-8.>crc8.c+rdr   ]3<grrrr4r4r4
+I     C112 l16v10@123o5H7,7,0q3r2.r8crr2r8.ccccrr1r1  H0,0,0
+D     C112 r1r1r1r1
+E     C112 r1r1r1r1
+C     C112 @59v12p1l16o6D4K-5[cc8r]12c8c8ccc8ccccc8r8
+
+A L [[c8c<b->]3c<b->ce-[f8fe-]3fe-ff+g8gfg8gfgb-gfg<ab-b>/ c8c<b->c8c<b->  ce-fgb->e-<b-g]2  c >c<b-gff+ge- fe-c<b->c8cd
+K L [[@1cc@2c8@1cc@2c8@1cc@2c@1ccc@2c8]3/@1cc@2c8@1cc@2cc@1cc@2cc@1c@2ccc  ]2@1cc@2c8@1c@2ccc@5 %4c %3cl16cc>gggee<
+B L      [q6c8rcrc8rc8rc8rM10,1,10,200,15q0c8q6MF0f8rfrf8rf8rf8rf8g8rgrg8rg8rg8rg8&c8rcrc8rc8r/c8rc8]2    c8.&q0cd
+H L l16  [q6g8gggg8gg8gg8gM10,1,10,200,15q0g8>q6MF0c8cccc8cc8cc8cc8d8dddd8dd8dd8dd8&<g8gggg8gg8g/g8gg8]2  g8.&q0ga
+C L @59v14p1[[c8c8ccc8/c8c8c8c8]4ccccc8c8 ]2
+I L l16@123v7  [q6c8rcrc8rc8rc8rM10,1,10,200,15q0c8q6MF0f8rfrf8rf8rf8rf8g8rgrg8rg8rg8rg8&c8rcrc8rc8r/c8rc8]2    c8.&q0cd
+D L E100,100,255,255,1,10  o5v8    r1r1r1r1r1r1r1r1
+E L E100,100,255,255,1,10  o5v8D-16r1r1r1r1r1r1r1r1
+F
+
+A [e-8e-8<b-8b->f8.c   rr4 e-8e-8<b-8b-/gr2>  ]2    gr2
+B q2[e-4<b-8.>f8.c       rr4 e-re-8<b-8b-/gr2>  ]2  gr2
+H q2[b-4f8.>c8.<g       rr4  b-rb-8 f8f/  dr2 ]2   >dr2<
+K l16[[@1c8@2c8@1cc@2c/@1crc@2c8@1c8@2cc  ]2/@1cr@6c8c8c8.]2  @5 %3c %4c&c16c16>a16a16 %3e %4el16ecc<
+C r1 r8r8r8r8.rc8c8c8 r1r8r8r8r8c8c8c8c8
+I q2[e-4<b-8.>f8.c       rr4 e-re-8<b-8b-/gr2>  ]2  gr2
+D r1r1r1r1
+E r1r1r1r1
+
+A [[c8c<b-]4 [a-8a-/g]4 >c[f8fe-]3fe-ff+   /[g8gf]2gfgfgb->d<b- ]2  gfgfb-gfe-gfe-cfe-<b-b
+K [@1cc@2c8@1cc@2c8@1cc@2c/@1ccc@2c8]8 ccccc
+B (q0[c1<a-1>f1g1  ]2 )
+H (q0[g1 e-1>c1d1  ]2 )
+I    @108o4 p1v7 D0l16[c4r8g8f4e-4c4r8g8f4e-4  c4r8g8f4e-4d4e-4f4g4  ]2
+C K0 @108o4 p2v7 D4l16[c4r8g8f4e-4c4r8g8f4e-4  c4r8g8f4e-4d4e-4f4g4  ]2
+D  E255,255,255,255,0,255o4v8l16[g2.c4g2.c4f1g1  ]2
+E  E255,255,255,255,0,255o4v8l16[g2.c4g2.c4f1g1  ]2
+

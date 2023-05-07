@@ -1,0 +1,50 @@
+#mucom88 1.5
+#title Filmoa
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice actvoice.dat
+#pcm actpcm.bin
+#date 2018/12/9
+#comment gh002
+
+K L t204o1v50l16[q5@12eeq0e8]8v30@11[c(28cc)28]4  cccc r4  rrrr rr8rc32c32ccc
+A L K-0 @"psg003"   o4v14l16q0  c4<b-4a-4g4 f+4 M24,1,20,80f+4 MF0>f+4f+4 g4 ySR,4,13<gg8g g8gg gg8g ySR,4,10g4rrrrgg>g<ggg>g<g
+B L K-0 @"psg003"yKA,4,15yDR,4,15 l16o5v10 q1 rg>ce-d<g>g<g>fc>c<c e-c>c<c   d<af+a>d4^ af+a>cde-c   (<gda-d>c<dbd>e-<g>d<g>a-<b>g<b   <de-f<b>cd<gab> cde-f<b>cd >  )
+H L K-0 @"psg004" l32\=3,4 q0v9 o5[c(2c)2g\>c\<g\]4 a\>c\e-\c\a\e-\>c\<a\>e-\c\<a\e-\a\e-\c\<a\    d4e-4f4f+4 >>g\f\d\<b\g\f\d\<b\g\  )2a\b\>c\d\e-\f\d\  (2
+C L K-0 @"psg003"yKA,4,15yDR,4,15 l16o5v8D4  q1 rr8 g>ce-d<g>g<g>fc>c<ce-c>c<c d<af+a>d4^ af+a>cde-c  ( <gda-d>c<dbd>e-<g>d<g>a-<b>g<b  <de-f<b>cd<gab>cde-f<b>cd  > )
+I L K-0 @"psg004" l16o5v9  D4 q2rce-gb-r>dr <a-4g4      <a4^>af+a>caf+a>c<af+c <bg>c<g>e-<g>d<g>gdfd>c<gbg    <de-f<b>cd<gab>cde-f<b>cd
+J L @"kick1"o2v15l16[c4]8 rccrccrccrccrrrr r4r4rccccrcc
+D L [r1]4
+
+B  M16,1,6,6R8                 [e-4rrcde-8cde-rgr f4.c2/cd  ]2  r8
+C  M16,1,6,6R8                 [e-4rrcde-8cde-rgr f4.c2/cd  ]2  r8
+A q3ySR,4,14ySL,4,$28 [>c8cc>c8<ccrc8c>c<cc8 <a8aa>a8<aa ra-a-a->b-<b-b-b-  ]2
+J [crrcrrrrcrrcrcrccrrcrrrrcccrrrrr]6
+K [[r4c4]7r4c8cc  ]3
+H (R6 l16[<<crc>c8r<g8^^gfe-fge- a>cfcaf>c<a<a->cfa-/<b->dfg    ]2 gfe-d
+I (R6 l16[ g2r8cre-rgr/>)afa>c8<ac8(<a-fcf<gb->d<b->]2 a4^fcfa-fcf<gb->d<b-
+D w10q7v10E255,255,255,1,255,255P2l16[crccrrccrcrccrrr]12
+
+B [d4rr<b>cd8<b>cdfe-d  e-4rrcde-8cde-gfe- f4r<fb->df<b->dffa-gf  g8.f8./e-8 b-8.a-8.g8  ]2   g8b8.>c8.d8
+C [d4rr<b>cd8<b>cdfe-d  e-4rrcde-8cde-gfe- f4r<fb->df<b->dffa-gf  g8.f8./e-8 b-8.a-8.g8  ]2   g8b8.>c8.d8
+A  [g8gg>g<ggrrrbr>b<bbr >c8cc>c<ccrrr<ar>a<aar d8dd>d<drdrr<b-r>b-b-<b-r > e-8e-e->e-<e-e-/r  d8dd>d<ddd ]2 e- g8gg>g<ggg
+H q4)2[fb>d<b>fdfd <g+b>d<b>fdfd <g>ce-ce-ce-c<g+>ce-c<a>ce-c <b-fb->df rde-frde-frdr e-de-fgfga-/b->cdc<b-a-gf ]2  <gb>dfgb>df
+I  [>f2g+2 g2g+4a4 b-4.b->cdr<b->cdr<b-r>  e-8.<b-8.>e-8/g8.f8.e-8 ]2 d8.c8.<b8
+
+B  e-8.d8.c8.d8.e-8c8  <a8.f+8.e-8 c8.<b8.a8 >c2.^8cg g1
+C  e-8.d8.c8.d8.e-8c8  <a8.f+8.e-8 c8.<b8.a8 >c2.^8cg g1
+A ySR,4,8a-4a-4a-4a-4 f+4f+4f+4f+4   g4g4g4g4 g4g4gg>g<ggggg
+H    c2^8<a-e-a->ce-8<f+8.e-8.c8 <f+2  g2f2  g4b4>d4g4
+I  >a-1   e-8.c8.<a8  e-2         d2d2   d4g4 b4>d4
+J [crrrcrrr]8
+K [rrrrcrrr]7cc8cc8cc
+D [rrcc]16
+
+A [[c8>c<crc>c<c ]2   a-a->a-<a-ra->a-<a-  ff>f<fgg>g<g     ]2
+B <[[ g>ce-gfc >c<c  e-c>c<c/fdbd  ]2 /d<b>b<b>]2dfgb
+C <[[ g>ce-gfc >c<c  e-c>c<c/fdbd  ]2 /d<b>b<b>]2df
+H  [e-4d4f4d4  e-4d4f4d4      ]2
+I [c4c4c4<b4  a-4a-4>c4<b4   ]2
+J [crrrcrrr]8
+K  [rrrrcrrr]7cc8cc8cc
+D [rrE255,255,255,1,255,255q7w10ccccE255,255,255,190,1,10w0q0cr]8

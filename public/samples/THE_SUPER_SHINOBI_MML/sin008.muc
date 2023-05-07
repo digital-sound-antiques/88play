@@ -1,0 +1,59 @@
+#mucom88 1.5
+#title CHINA TOWN
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice shinobivoice.dat
+#pcm shinobipcm.bin
+#date 2018/12/12
+#comment sin008
+
+A C112 t198
+I C112
+B C112
+C C112
+H C112
+K C112
+D C112
+E C112
+F C112
+G C112
+
+A L@175o5 D4v7    l16     q3[ddddcrdr<grar  rrrr /dddddr(3dddddr)3rrrr  ]4 r1
+C L@175o5 D0v2    l16 r4  q3[ddddcrdr<grar  rrrr /dddddr(2dddddr)2rrrr  ]4 r1
+I L[r1]7l16@103o4v5  H7,4,1d2.&dr8.@108 v4      H4,3,0
+H L[r1]7l16@103o4v5D2H7,4,1d2.&dr8.@108 v4D6    H4,3,0
+B L     @172o3l8 v11 d4rdrddrrrrrr2b-4rb-rb-rrrrrrr2g4rgrggrrrrrr2d4rdrddrrrrrrrrr
+K Lo1v50l16[@1g8@6c8@2c8@1g8@4cc@1g8@2c8@1g8/@1g8  g8@2c8@6c8@4cc @5c8@2c8@5 g8 ]4 g4@4c4c8@1c16c16@2c4
+D L    E255,255,255,190,1,10o5v10l16q3   [ddddcrdr<grar  rrrr/dddddrrrrrrrrrrr  ]4 r1
+E L    E255,255,255,255,0,255o3v8 l16   D16   [d1&d2f8e4dc d1 a1 g1 g2c2/d1r1 ]2  d1&d1
+F L    E255,255,255,255,0,255o3v8 l16          [d1&d2f8e4dc d1 a1 g1 g2c2/d1r1 ]2  d1&d1
+G     v52,21,21,21,18,21,21 l8 @8 L [c]56 crcrcrcr
+
+K [@1g8@6c8@2c8@1g8@4cc@1g8@2c8@1g8 @1g8  g8@2c8@6c8@4cc/@5c8@2c8@5 g8 ]8 @2c8cccc
+I  o4a1.g4a4d1.c4d4g1.g4f4e1&e2.d4  a1. g4a4d1.  c4d4g1.g4a4>c1.
+H  o3a1.g4a4d1.c4d4g1.g4f4e1&e2.d4  a1. g4a4d1.  c4d4g1.g4a4>c1.
+B [d4rdrddrrrrrrl16(<a>cdfdc) l8b-4rb-rb-rrrrrrr2g4rgrggrrrrrr2  / d4rdrddrrrrrr d16c16g16a16>c8<]2 >c4rcrcrr<rrccrg16f16g16a16>c8<
+A  o5    [ddddcrdr<grar rrrr  dddddrcrdrgrar/>cr<]7  gr[gr>ccccdrcr<grrrrr>]2
+C  o5    [ddddcrdr<grar rrrr  dddddrcrdrgrar/>cr<]7  gr[gr>ccccdrcr<gr/rrrr>]2
+D  o5    [ddddcrdr<grar rrrr  dddddrcrdrgrar/>cr<]7  gr[gr>ccccdrcr<grrrrr>]2
+G [c]128
+E  d1&d2f8e4dc d1 a1 g1 g2.a4g1.r2
+F  d1&d2f8e4dc d1 a1 g1 g2.a4g1.r2
+
+I o5<a4>c4d2.<a4g2.a4 d1&d4.c8e8f8e4 d1&d1&d1&>c4<b-4a4g4
+H o4<a4>c4d2.<a4g2.a4 d1&d4.c8e8f8e4 d1&d1&d1&>c4<b-4a4g4
+A @108v2o4 D0a2.f4d2e4e4 <a1 a1 a1&a2.>&g4a1&a1
+B [>d4rdrd>d<d ccrcrrrr <b-4rb-rb->b-<b->ccrcrrrr  ]4
+C  D4v7[dddd<drdr>drdr<drdr>]16
+D  [dddd<drdr>drdr<drdr>]16
+E o4E255,255,255,255,0,255v6f2.d4c2.c4<f1g1d1d1d1d1>
+F o4E255,255,255,255,0,255v6f2.d4c2.c4<f1g1d1d1d1d1>
+K [@1g8@6c8@2c8@1g8@4cc@1g8@2c8@1g8 @1g8  g8@2c8@6c8@4cc/@5c8@2c8@5 g8 ]8 @2c8ccc8
+G [c]128
+
+I a1>d1a1&a4g4f4g4e1&e2.c4d1&d1
+H a1>d1a1&a4g4f4g4e1&e2.c4d1&d1
+A o3)d1e2.f8g8a1<a1>d1e2.f8g8a1&a1
+F d2.a4g2.a4d1&d4.c8e8f8g8e8 d1&d1&d1&d1
+E d2.a4g2.a4d1&d4.c8e8f8g8e8 d1&d1&d1&d1
+

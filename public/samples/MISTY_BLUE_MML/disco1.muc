@@ -1,0 +1,109 @@
+#mucom88 1.5
+#title Misty Blue
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice mistyvoice.dat
+#pcm mistypcm.bin
+#date 2018/12/16
+#comment disco1
+
+K t189C96l16v46o1@1e@5p1aaa@6p3ccp2>aa<p3
+G C96l16v52,29,21,11,15,21,24p$15@1r2
+A C96o3  r2
+B C96o3  r2
+C C96o3  r2
+H C96o3  r2
+I C96o3 r2
+J C96o3 r2
+D C96o3 r2
+E C96o3 r2
+F C96o3 r2
+
+K [p3@8f4@3f4[@1e4@3f4]6f@6p1bbbp3ecp2>aa<@8p3f4@3f4  [@1f4@3f4]5@1f8@6g8g8e8c8@6eeeeee
+A [@125o3l16v12q3[e8>ee<]8[c8>cc<]8<[a8>aa<]4[b8>bb<]4>[c8>cc<]4<[b8>bb<]4>[[e8>ee<]8[c8>cc<]8[a8>aa<]8[b8>bb<]8  ]2
+B [  @85 o5v4q6 p3 l16H1,4,0b1a1    a1 g1    g1a1 b1  q0a2b2
+C [  @85 o5v4q6 p3 l16H1,4,0g1f+1   f+1 e1   e1f+1 g1 q0e2f+2
+H [  @85 o5v4q6 p3 l16H1,4,0e1d1    d1 <b1>  c1d1 e1  q0c+2d+2
+I [  @85 o6v8 q7 D6p3l16brbrbr8brbrbbr8. [ararar8araraar8.]2 [grgrgr8grgrggr8.]2 ararar8araraar8. brbrbr8brbrbbr8.  r1
+J [   @108o3v4D4p3b2>f+32&g4.&g16.f+2d+32&d4.&d16.d1e2.f+4l8g2ceba+32&a16.&a2&agf+g1&g@93o5v5l16[b>f+b<f+]4
+G [[@8cccc]32
+D [E255,255,255,190,0,10o2    v15[e8&(]4 e1.& c1&c2& e4&g4 &a1&b1>c1l16v9o5     rq3[b>f+b</b]4
+E [E255,255,255,190,0,10o2D24v15[e8&(]4 e1.& c1&c2& e4&g4 &a1&b1>c1l16v9o7 D16rq3[b>f+b</b]4
+F [E255,255,255,190,0,10o5D16v11q3l16grgrgr8grgrggr8. [f+rf+rf+r8f+rf+rf+f+r8.]2 [ererer8erereer8.]2 f+rf+rf+r8f+rf+rf+f+r8. grgrgr8grgrggr8.r1
+
+K [@8d4@3f4[@1e4@3f4]13/@1e4@3f4@1e4@3f8ff ]2 @1ep1@6bbbp3@1e8.p1@6cp3@1e@6p1bbbp3ccp2>aa<p3
+C @93 v8   p3o5q3l8H0,0,0 [r2ef+ga4g4.f+g4.r2ef+gb4ba4ger  a2 ereeb4.a4ga4/f+&f+1r1]2b&b1 r2r8b8a8g8
+B @93 v4 D4p3o5q3l8H0,0,0r[r2ef+ga4g4.f+g4.r2ef+gb4ba4ger  a2 ereeb4.a4ga4/f+&f+1r1]2b&b1 r1
+G [@8cccc]64
+H p1@91o3v7[e8&(]8[r1]6q0@108v1o4g2f+2g1&g2.<b4>c1&c2.g4a1&a1 r1r1
+I p2@91o3v7[e8&(]8[r1]6q0@108v1o4g2f+2g1&g2.<b4>c1&c2.g4a1&a1 @85q6o5v7p3[bbb8brbbrbbbbrbb]2
+J q0[@90o1v8e8l16@59 v11o4p2[aa(2a)2a(2aa/aa)2]16 ]2
+D [r1]8o5v9E255,255,255,190,1,10[e32f+32b8.(]6   r2 r1r1r1r1o4v8[f+f+f+8f+rf+f+rf+f+f+f+rf+f+]2
+E [r1]8o2v15E255,255,255,190,1,10e1.r2 r1r1r1r1o4v9eee8ereereeeereed+d+d+8drd+d+rd+d+d+d+rd+d+
+F [r1]8o7v8E255,255,255,190,1,10[e32f+32b8.(]6   r2 r1r1r1r1o4v8[f+f+f+8f+rf+f+rf+f+f+f+rf+f+]2
+
+K @8d4@3f4[@1e4@3f4]7
+G [@8cc@40cc@8c@40ccc]15r2
+A  [c8>cc<c8>cc<d8>dd<d8>dd[<e8>ee<]4]2
+I @104v7o5q3D8[p1ggp3ggp2ggp3gg p1f+f+p3f+f+p2f+f+p3f+f+[p1ggp3ggp2ggp3gg]2]2
+D E255,255,255,170,0,255v10o5q3[ee(2eeee)2eedd(2dddd)2dd[ee(2eeee)2ee]2       ]2
+H p1   @21o5r1r8q2v10D0ere8der2r1dere8derr2
+J p2   @21o5r1r8q2v10D4ere8der2r1dere8derr2
+B p3l16@21o4r1  q2v8 D0ere8der2r1dere8derr2
+E E255,255,255,170,0,255v10o5q3[cc(2cccc)2cc<aa(2aaaa)2aa[bb(2bbbb)2bb]2]2
+C l8            e2d4.e&e2rbage4e4ddde4.r4ref+g&
+F E255,255,255,170,0,255v10o5q3[gg(2gggg)2ggf+f+(2f+f+f+f+)2f+f+[gg(2gggg)2gg]2]2
+
+K @8d4@3f4[@1f4@3f4]5@1e@6aaa@1e@6aaa  ddrdrddd
+A <[a8>aa<]4[b8>bb]4[c8>cc<]4<[b8>bb<]2bbrbrbbb>
+C g2rf+ga&a2rgab4.b4bagb4r4.r2
+I [p1gp3g(2p2gp3g)2]4[p1ap3a(2p2ap3a)2]4 [p1bp3b(2p2bp3b)2]4r1
+D o5[gg(2gg)2]4[aa(2aa)2]4    [bb(2bb)2]4    r1
+E o5[ee(2ee)2]4[f+f+(2f+f+)2]4[gg(2gg)2]4 r1
+F o5[cc(2cc)2]4[dd(2dd)2]4    [ee(2ee)2]4 r1
+B   v1@108o4q8c1d1 e1 f+2r2
+H p3v1@108o3q8g1a1 b1>e2 r2
+J p3v1@108o3q8l8e>)2ef+g(2<e2f+>)2f+ga(2<f+2g1 b2 r2  l16
+
+G [@8cc@40cc@8c@40ccc]16
+K [@8d4@3f4[@1f4@3f4]5/@8d4@3f4@1f8f8@3f@1fff]2 @1fp1@6fffp3@3f8@1fffffr@6cccc
+A [[e8>ee<]4[g8>gg<]4[a8>aa<]4>[c8>cc<]3d8>dd< ]2
+C l8   o5v8p3[b4grf+e4d4eerge4 eagagaga/gb4argarb&]2 >e4.d4e4d4<
+J l8@93o5v8p3[b4grf+e4d4eerge4 eagagaga/gb4argarb&]2 >e4.d4e4d4<
+B o3[b1>d1e1e2e4f+4]2
+H o3[g1b1>c+1c2c4d4]2
+I D0[@134o4q4v9 D0[p1ep3ep2ep3e]4[p1gp3gp2gp3g]4[p1ap3ap2ap3a]4>/[p1cp3cp2cp3c]3p2dp3dp1dp3d]2 @85o6v8q6eeeee8eereerf+f+f+f+
+D [E255,255,255,190,0,10o2    v15[e8&(]4&)e2g1a1 /)c2c4d4 ]2
+E [E255,255,255,190,0,10o2D24v15[e8&(]4&)e2g1a1 /)c2c4d4 ]2
+D   q3o5v11ccccc8ccrccrdddd
+E D0q3o4v11ggggg8ggrggraaaa
+F E255,255,255,170,0,255v10q2D12l16o4[[eb>e<b]4[g>dgd<]4[a>eae<]4>[cg>c<g]3da>d<a]2
+
+G /[@8cc@4c8@8cccc]4                                               ]2
+K /@8d4@3f4@1e4@3f4 @1ep2@6bbbp3p3@3f@6cccp3@1e@6p1bbbp3ccp2>aa<p3 ]2
+A /r1r1                                                            ]2
+B /r1r1                                                            ]2
+C /r1r1                                                            ]2
+D /r1r1                                                            ]2
+E /r1r1                                                            ]2
+F /r1r1                                                            ]2
+H /r1r1                                                            ]2
+I /r1r1                                                            ]2
+J /r1r1                                                            ]2
+
+G [@8cc@40cc@8c@40ccc]16
+K [@8d4@3f4[@1f4@3f4]5/@8d4@3f4@1f8f8@3f@1fff]2 @1fp1@6fffp3@3f8@1fffffr@6cccc
+A o3[[e8>ee<]4[g8>gg<]4[a8>aa<]4>[c8>cc<]3d8>dd< ]2
+C l8[b4grf+e4d4eerge4 eagagaga/gb4argarb&]2 >e4.d4e4d4<
+J l8[b4grf+e4d4eerge4 eagagaga/gb4argarb&]2 >e4.d4e4d4<
+B o3[b1>d1e1e2e4f+4]2
+H o3[g1b1>c+1c2c4d4]2
+I D0[@134o4q4v9 D0[p1ep3ep2ep3e]4[p1gp3gp2gp3g]4[p1ap3ap2ap3a]4>/[p1cp3cp2cp3c]3p2dp3dp1dp3d]2 @85o6v8q6eeeee8eereerf+f+f+f+
+D [E255,255,255,190,0,10o2    v15[e8&(]4&)e2g1a1 /)c2c4d4 ]2
+E [E255,255,255,190,0,10o2D24v15[e8&(]4&)e2g1a1 /)c2c4d4 ]2
+D q3o5v11ccccc8ccrccrdddd
+E D0q3o4v11ggggg8ggrggraaaa
+F o4[[eb>e<b]4[g>dgd<]4[a>eae<]4>[cg>c<g]3da>d<a]2
+
+K @14b4@3f4[@1f4/@3f4]3@3f8@14a8b4@3f4@1f4@3f4@1f@6aaacccc@1ccrcrccc
+G [@9c@8ccc]8

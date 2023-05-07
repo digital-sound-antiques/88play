@@ -1,0 +1,172 @@
+#mucom88 1.7
+#title Blast Power!
+#composer Yuzo Koshiro
+#author WING GHOST
+#voice voice.dat
+#pcm bosco_pcm.bin
+#date 2019/1/2
+#comment X68000 BOSCONIAN
+
+  @1
+   7,  2
+  31,  8,  3,  5,  2, 41,  1,  1,  3
+  31,  5,  4,  5,  2, 39,  0,  5,  2
+  31,  4,  2,  5,  1, 31,  0,  3,  7
+  28, 30,  6,  6,  0,  0,  2,  1,  4
+
+  @2
+   7,  2
+  31,  8,  1,  5,  2, 41,  1,  1,  3
+  31,  5,  2,  5,  2, 39,  0,  5,  2
+  31,  4,  0,  5,  1, 31,  0,  3,  7
+  28, 10,  2,  6,  0,  0,  0,  1,  4
+
+  @3
+   3,  7
+  28, 16,  0, 15, 15, 10,  0,  6,  1
+  31, 15,  0, 15,  0, 10,  2,  1,  6
+  31, 15,  0, 15,  0, 10,  0,  3,  0
+  31, 15,  0, 15,  0,  0,  0,  2,  5
+
+  @4
+   7,  4
+  31,  0,  0,  0,  0, 33,  0,  8,  7
+  31, 10,  0,  6,  1,  4,  0,  8,  7
+  31,  0,  0,  0,  0, 24,  0,  4,  3
+  31, 10,  0,  6,  1,  0,  0,  4,  3
+
+  @5
+   5,  6
+  31,  0,  0,  7,  0, 20,  0,  5,  7
+  20,  0,  0,  7,  0, 10,  0,  2,  3
+  20,  0,  0,  7,  0,  0,  0,  3,  7
+  20,  0,  0,  7,  0,  0,  0,  1,  3
+
+  @6
+   7,  2
+  31,  8,  1,  5,  2, 41,  1,  1,  3
+  31,  5,  2,  5,  2, 39,  0,  5,  2
+  31,  4,  0,  5,  1, 31,  0,  3,  7
+  28, 10,  2,  6,  0,  0,  0,  1,  4
+
+  @7
+   7,  3
+  31, 21, 19,  6,  2,  0,  0, 15,  2
+  31, 21, 12,  6,  2, 35,  0, 11,  2
+  31, 21, 13,  6,  3, 32,  0,  7,  3
+  31, 19, 16,  9,  2,  0,  0,  2,  3
+
+  @8
+   7,  2
+  31, 10,  7,  8,  2, 33,  0,  0,  7
+  21,  8,  8,  7,  5, 23,  3, 11,  7
+  31,  5,  6,  7,  1, 37,  0,  0,  3
+  31,  8,  6,  7,  5,  0,  0,  1,  7
+
+A t225
+B 
+C 
+D 
+E 
+F 
+G 
+H 
+I 
+J 
+K 
+
+
+C C192 L @8 v13 q0 p3 l16 S0,0,0,50
+C [ o3 q8g+g+q0g+8r>g+8.<g+8&>g+<g+r>f+g+r<  q8ggq0g8>g<g8. q0 %7g& %17{gb}& l16 br>e8<br /
+C   o3 q8f+f+q0f+8rb8.>e8edrf+8.<  q8f+f+q0f+8r>f+8r<f+f+8f+>f+8e&f+ ]2
+C   o3 q8f+f+ q4f+8>q2f+<q4f+8rf+8>q2f+r<q4f+8>q2f+r q0 <f+8.g16^4 a8. %20b&{b12>a}&b8 l16
+C [ o4q9c+8.q3c+q6c+8q0b&>q3c+r<c+rc+q6c+8q0b&>q3c+  <q9c+8.q3c+r8>q0f+&q3g+r8<ed+c+q9b8.
+C   q3cq6c8q3cq6c8q0a+&>q3cr<crcq6c8q0a+&>q3c / o4q6c8q3ccq0a+&>q3c<q0f&q3gr8<d+dc>q9c8. ]2  o4q6d8q3dd>q0c&q3d<q0g&q3aeq6e8q3e>q6e8<e8
+C [ o3 q8 g+ q4g+8q2g+>q4g+8<g+8g+8>q0f+&q2g+< q8 g+g+> q0 e&q2f+  <q3 gg q6 g8 q4b8q2b>q4c+8q2c+q4d8 q0 e24&{e12d}q4d8
+C   <q8 f+ q4f+8q2f+>q0e&q2f+<q4f+8 q8 f+f+> q0e&q2f+q0c+&q2d<q0b&>q2c+  <q8 f+f+ q4f+8r>f+8r< q8 f+ q4f+8q2f+>q0e&q2f+<q0b&>q2c+
+C   <q8 g+g+> q4g+8r<q2g+rq4g+8q2g+>q0f+&q2g+<q4g+8>q0e&q2f+  <q4g8>g8r<q2grq4g8q2g>q0f&q2g< q8 gg q4 g8
+C   q8 f+ q4f+8q2f+q4b8q2f+>q4c+8 q8 c+< q4f+8b8f+8  f+8>f+8r<f+8 q8 f+f+> q4f+8<q2f+ q10 f+f+ q4 f+8  ]2
+C ) o3 p2 q4b8q8bbrb>b<bq0a&q2brbq8bbq2>b<b  >q8cc q0 %10g& %14{g>c}&q4c8<g8c8 l16 q8ccq0a+&>q2c<q4c8
+C   <q0a&q2bq8bb>q0a&q2bq0e&q2f+<q8bb>q0d&q2e<q8bbq0a&q2b  >q8ccq4c8q0a+&>q2c<q8cccc> q0 %10d& %14{de}&q4e8< l16 q8ga
+C   <q16b8q8bbq4b8>q0a&q2b<q8bb>q0a&q2bq0e&q2f+<q0a&q2b  >q8cq16c8q8c>c<cq16c8q6ccddee> q0 %10e&{e24<a}& %6a
+C   l16<q0a&q2brq8b>q0a&q2br<q4b8q8b>q0a&q2b<q8bbq4b8  >q8cc> q0 %10c& %14{cd}&q4d8< l16 q8 gg> q0 %10g& %14{ga}& l16 ar q0 g12&{g24<a}&a8
+C ( p3 <q4f+8q8f+f+f+f+>c+<f+f+f+>f+<f+)>erq0e&q2f+
+
+A C192 L @1 v11 p3 l16 q12 [ o5 b2>e2<  b2>e2<  b1 / r o5 b2... ]2  ) o5 q4 b8.>c&c4 ) d8.e&e4
+A q4 [ f+8.f+r4rf+rf+rf+8.  f+8.f+r4.f+f+r4  f8.fr4rfr / frf8.  f8.fr4.ffr4 ]2 f&f4  q12 g2a2
+A v11 [ [ o5 q12 b2>e2<  b2>e2<  b1 / r o6 b2... ]2  r o6 q4 brb r2. ]2
+A @2 v8 p3 q0 [ o5 f+1  g1  f+1  g1 ]2  o5 a2 ) aar ) a4r
+
+B C192 L @1 v11 p3 l16 q12 [ o5 f+1 f+1 f+1 / r32 o6 f+2.... ]2  ) o5 q4 g+8.a&a4 ) b8.>c+&c+4
+B [ o6 d+8.d+r4rd+rd+rd+8.  d+8.d+r4.d+d+r4  d8.dr4rdr / o6 drd8.  d8.dr4.ddr4 ]2 o6 d&d4  q12 e2f+2
+B q2 v11 [ [ o5 q12 f+1  f+1  f+1 / r32 o6 f+2.... ]2  r o6 q4 f+rf+r2. ]2
+B @2 v8 p3 q0 [ o5 d1  e1  d1  e1 ]2  o5 e2 ) eer ) e4r
+
+E C192 L @2 v12 l16 [ o4 e1  e1  e1 / o5 e1 ] 2 ( o4e8.f&f4 ) g8.a&a4
+E [ o4 b8.br4rbrbrb8.  b8.br4.bbr4  a+8.a+r4ra+r / o4 a+ra+8.  a+8.a+r4.a+a+r4 ]2 o4 a+&a+4  >c2d2
+E v12 [ [ o4 e1  e1  e1 / o5 e1 ]2  r o5 erer2. ]2
+E v10 [ o3 b1  >c1<  b1>  c1 ]2  o4 c+2 ) c+c+r ) c+&c+4
+
+F C192 L @2 v12 l16 D18 [ o4 e1  e1  e1 / o5 e1 ] 2 ( o4e8.f&f4 ) g8.a&a4
+F [ o4 b8.br4rbrbrb8.  b8.br4.bbr4  a+8.a+r4ra+r / o4 a+ra+8.  a+8.a+r4.a+a+r4 ]2 o4 a+&a+4  >c2d2
+F v12 [ [ o4 e1  e1  e1 / o5 e1 ]2  r o5 erer2. ]2
+F v10 [ o3 b1  >c1<  b1>  c1 ]2  o4 c+2 ) c+c+r ) c+&c+4
+
+H C192 L @3 M30,2,14,4 o6 v11yTL,1,23 yTL,2,23 yTL,3,23 q0 p2 D0 l16 b2.e8<ab&  be<ab& %64b& %32{b>e}& l16 e8dc+&  c+8dc+8f+8.b8.e8<a8>d  c+eg+>c+<b>f+e<ba>ed<ag+>dc+<g+
+H bf+e<b v9yTL,1,28 yTL,2,28 yTL,3,28 >bf+e<b v7yTL,1,34 yTL,2,34 yTL,3,34 >bf+e<b v11yTL,1,23 yTL,2,23 yTL,3,23 b>ef+e  b8.a8.> %10e& %14{eb}& l16 b8ba8ae8  c+8.f+8.b8f+8.b8.>e8
+H @4 MF0 o3 v11 yTL,2,17q0 p2 D0 b8.>c&c4 )yTL,2,14 d8. )yTL,2,12 e&e4
+H f+1&  f+4&d+2&b4&  f1&  f1  f+1&  f+4d+4&<b4>f+4  f1 v9yTL,2,22 <g>cegec<gea>df+af+d<af+
+H @5 M30,2,14,4 o5 v10 q0 p3 D0 yTL,2,28 [ r1 ]7  r2.b>cdd+
+H [ o6 e<ba ]5 o5 b  [ o6 f+e<b ]5 r  o6 l24 c+dd+ed+dc+dc+<b>c+<b l16 aedc+f+e<b>e  [ o5 c+32d32 ]2 o5 c+8c+f+a+>c+f+<a+>c+f+a+c+f+a+
+H r8>f+4.&f+e<bf+>c+<bf+e  [ o6 f+e<b / o6 e<bf+]3 r  [ o6 c+24d24e24 ]4 o6 f+4r4  r8>c+rrdrre4.r8
+H @6 MF0 o5 v8 p3 q0 D4 [ f+1 g1 f+1 g1 ]2  o5a2 ) aar ) a4r
+
+I C192 L @3 M30,2,14,4 o6 v8yTL,1,31 yTL,2,31 yTL,3,31 q0 p3 D2 l16 r8 b2.e8<ab&  be<ab& %64b& %32{b>e}& l16 e8dc+&  c+8dc+8f+8.b8.e8<a8>d  c+eg+>c+<b>f+e<ba>ed<ag+>dc+<g+
+I v10yTL,1,26 yTL,2,26 yTL,3,26 bf+e<b v8yTL,1,31 yTL,2,31 yTL,3,31 >bf+e<b v6yTL,1,36 yTL,2,36 yTL,3,36 >bf+e<b v9yTL,1,28 yTL,2,28 yTL,3,28 b>ef+e  b8.a8.> %10e& %14{eb}& l16 b8ba8ae8  c+8.f+8.b8f+8.b8.>e8
+I @4 MF0 o3 v9 yTL,2,22q0 p1 D4 b8.>c&c4 )yTL,2,20 d8. )yTL,2,17 e&e8.
+I f+1&  f+4&d+2&b4&  f1&  f1  f+1&  f+4d+4&<b4&>f+4  f2.&f8.  v9yTL,2,22 <g>cegec<gea>df+af+d<af+
+I @5 M30,2,14,4 o5 v6 q0 p1 D4 yTL,2,39 [ r1 ]7 r3r3r12rb>cdd+
+I [ o6 e<ba ]5 o5 b  [ o6 f+e<b ]5 r  o6 l24 c+dd+ed+dc+dc+<b>c+<b l16 aedc+f+e<b>e  [ o5 c+32d32 ]2 o5 c+8c+f+a+>c+f+<a+>c+f+a+c+f+a+
+I r8>f+4.&f+e<bf+>c+<bf+e  [ o6 f+e<b / o6 e<bf+]3 r  [ o6 c+24d24e24 ]4 o6 f+4r4  r8>c+rrdrre4.r
+I [ r1 ]4
+I @5 o4 v9 q0 p2 D4 yTL,2,31b>df+b abf+a ef+de <abf+ag>  ce<g>c e<g>ce gceg> cegf+<b>  d<f+bd f+<bf+b> df+<b>d f+b>c<g  ecge c<g>ec <ge>c<g ec
+I @4 MF0 o4 v9yTL,2,22 q0 p1 D0 c+e )yTL,2,20  a>c+ )yTL,2,17 <ea )yTL,2,14 >c+er8 (yTL,2,17 p2 l32 agf p3 (yTL,2,20 edc p1 <b (yTL,2,22 ag (yTL,2,25 f(yTL,2,28 e (yTL,2,30 d
+
+J C192 L @3 M30,2,14,4 o6 v11yTL,1,23 yTL,2,23 yTL,3,23 q0 p1 D4 l16 b2.e8<ab&  be<ab& %64b& %32{b>e}& l16 e8dc+&  c+8dc+8f+8.b8.e8<a8>d  c+eg+>c+<b>f+e<ba>ed<ag+>dc+<g+
+J bf+e<b v9yTL,1,28 yTL,2,28 yTL,3,28 >bf+e<b v7yTL,1,34 yTL,2,34 yTL,3,34 >bf+e<b v11yTL,1,23 yTL,2,23 yTL,3,23 b>ef+e  b8.a8.> %10e& %14{eb}& l16 b8ba8ae8  c+8.f+8.b8f+8.b8.>e8
+J @4 MF0 o2 v9 yTL,2,22q0 p3 D2 b8.>c&c4 )yTL,2,20 d8. )yTL,2,17 e&e4
+J f+1&  f+4&d+2&b4&  f1&  f1  f+1&  f+4d+4&<b4&>f+4  f1  v9yTL,2,22 eg>ce c<gec f+a>df+ d<af+d
+J @7 o4 v13 q0 p2 D0 [ a4 ]64
+J @8 o3 v14 p1 D4 q4b8q8bbrb>b<bq0a&q2brbq8bbq2>b<b  >q8cc q0 %10g& %14{g>c}&q4c8<g8c8 l16 q8ccq0a+&>q2c<q4c8
+J   <q0a&q2bq8bb>q0a&q2bq0e&q2f+<q8bb>q0d&q2e<q8bbq0a&q2b  >q8ccq4c8q0a+&>q2c<q8cccc> q0 %10d& %14{de}&q4e8< l16 q8ga
+J   <q16b8q8bbq4b8>q0a&q2b<q8bb>q0a&q2bq0e&q2f+<q0a&q2b  >q8cq16c8q8c>c<cq16c8q6ccddee> q0 %10e&{e24<a}& %6a
+J   l16<q0a&q2brq8b>q0a&q2br<q4b8q8b>q0a&q2b<q8bbq4b8  >q8cc> q0 %10c& %14{cd}&q4d8< l16 q8 gg> q0 %10g& %14{ga}& l16 ar q0 g12&{g24<a}&a8
+J @4 o4 v9yTL,2,22 q0 p2 D0 ea )yTL,2,20 >c+e )yTL,2,17 <a>c+ )yTL,2,14 ear8 (yTL,2,22 p2 l32 ragf p3 (yTL,2,25 edc p1 <b (yTL,2,28 ag (yTL,2,30 f (yTL,2,33 e
+
+# *30{ %1c [ (2%1c ]6 %5r )12 }
+D C192 L @0 o1 v12 P2 w2 [ *30 ]112  r1
+D [ [ *30 ]3 r16r16r16 [ *30 ]6 r8*30r16 ]8 [ [ [ *30 ]56 / [ *30 ]4 r4 ]2 r2 ]2
+D [ *30 ]136  r2
+
+# *1{@1v60}
+# *2{@2v100}
+# *6{@6v100}
+# *7{@7v150}
+# *10{@10v150}
+# *11{@11v50}
+# *13{@13v100}
+# *14{@14v100}
+# *15{@15v100}
+
+K C192 L o1 q0 p3 l16
+K [ [ *1 c8cc *2 c8. *1 cc8c8 *2 c4 ]2  *1 c8ccc *2 c8. *1 c8c8 *2 c8. *1 c / *1 cc8c *2 c8. *1 cc *13 p2 ccc p3 *14c32c32c p1 *15cc p3 ]2  *7 c8.c&c4c8.c&c4
+K *1 cc *10 c8 *13 p2 c32c32c *14 p3 c *15 p1 c p3 *1 c *7 c8c8c8.  *1 c *10 c8 *1 c *11 cc *1 c *11 c *2 cc *13 p2 cc *14 p3 c32c32c *15 p1 cc p3
+K *1 cc *10 c8 *1 c *2 c *1 ccc *7 c8c8c8.  *1 c *2 c8. *11 cc *2 c8 *1 c *2 c8. *1 cc *2 cc
+K *1 cc *7 c4 *15 p1 c p3 *1 c *6 c8. *7 c8c8.  *1 c *2 c8 *1 c *11 ccc8 *2 cc8. *14 c32c32c *15 p1 cc p3
+K *1 cc *10 c8 *15 p1 c24 p3 *2 c8c8c12&c *1 cc *2 ccc  *1 cccr *2 c8 *10 c8 *1 c *13 p2 ccc *14 p3 cc *15 p1 cc p3
+K [ [ *1 c8cc *2 c8. *1 cc8c8 *2 c4 ]2  *1 c8ccc *2 c8. *1 c8c8 *2 c8. *1 c  *1 cc8c *2 c8. *1 c / crcr *2 cccc ]2  *1 c *13 p2 ccc *14 p3 c32c32c *15 p1 cc p3
+K [ *1 c8cc *2 c8. *1 cc8c8 *2 c4 ]3   *1 cc8c *2 c8. *1 ccrcr *2 c32c32ccc
+K *1 c32c32c *7 c4 *1 c8cc8c *2 c4  *1 c8cc *2 c8. *1 cc8c8 *2 c4  *1 c8ccc *2 c8. *1 c8c8 *2 c8. *1 c  cc8c *2 cc *10 c8 *1 c *2 c32c32cc *13 p2 cc *14 p3 c *15 p1 c p3
+K [ *1 c8cc *2 c8. *1 ccrcr / *2 c4 ]4 *2 c8cc
+K [ *1 c8 *10 c8 *2 c8. *1 cc *2 c *10 c8 *2 c8. *1 c  c8 *10 c8 *2 c8. *1 c / c *2 c *10 c8 *2 cc8. ]2 *2 cccc *14 cc *15 p1 cc p3
+K *1 c8 *10 c8 *2 c8. *1 cc *2 c8c *1 c *2 ccc

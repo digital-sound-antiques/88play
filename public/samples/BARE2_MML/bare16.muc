@@ -1,0 +1,89 @@
+#mucom88 1.7
+#title Dreamer
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice bare2voice.dat
+#pcm bare2pcm.bin
+#date 2018/12/14
+#comment bare16
+
+  @%192;   efctes
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,17,17
+  $000,$01F,18,18
+  $03F,$02F,$02F,$04F
+  $03C
+  @%193;   efcte2
+  $032,$073,$032,$073
+  $000,$000,$000,$000
+  $01F,$01F,$01F,$01F
+  $080,$080,11,10
+  $000,$01F,16,15
+  $03F,$02F,$02F,$04F
+  $03C
+# *0{@192o8v12q0  D270}
+# *1{@58o5v15D0 q2 }
+# *2{@193o8v12q2D270 }
+# *3{@"ÀÑÀÑ"S100,0,0,0o4v12}
+# *4{@163 q5 ySL,4,$4f  o3v13 }
+# *5{@"ÀÑÀÑ2"S100,0,0,0o4v12}
+
+A C112 V0 k0Lt199 \=2,4
+B C112 V0 k0L
+C C112 V0   L
+D C112 V0 k0L
+E C112 V0 k0L
+F C112 V0 k0L
+H C112 V0 k0L
+I C112 V0 k0L
+K C112 V0   L
+
+K o1v100l16 [@1c4]28    [@3c@2ccc]4
+A @"¿³ÙÍÞ4"  yDR,2,13q2o3v14l8 l16[[g4g8.df8f8/g8f8]4 >c8e-8< ]2 yDR,2,10
+B  @"ap7"o5v11q1[[[d8d8.d8.]2[c8c8./c8.]2  /c8.  ]2 f8.       ]2
+H  @"ap7"o4v11q1[[[b-8b-8.b-8.]2[a-8a-8./a-8.]2/ a-8.]2 >c8.  ]2
+I  l16@"ap7"o5v11q1[[@"ap7"[g8g8.g8.]2[f8f8./f8.]2 / f8@232o5g  ]2 a-8@232o5g    ]2
+D @0    v10l16o4 q0[[gb->dfafd<b-]2[fa->ce-ge-c<a-]2    ]4
+E @0 D16v8 l16o4r8q0 [[gb->dfafd<b-]2[fa->ce-ge-/c<a->]2/c<a-   ]4
+F @0 [r1]4 Lv10l16o4 q0   r[[gb->dfafd<b-]2[fa->ce-ge-c/<a-]2/a-  ]2
+C [r1]4 L*0(2l16[*0(2cc*2(2c8*0(2cccc]8
+
+
+A  l16q2[[g4g8.gf8f8/g8>c8<]3 />d8d-8 c8.<g> c8.c+ d8d8cd8c ]2 <g8b-8>c8.<g>c8.c+d8d8cd8d; b->c8ce-fe-f8 f8f+8
+K  l16[@1c8.c@3c8.@2c@1c@2crr@3c8.@2c]8
+B l16     q4  o5[[r8d8d8.drdrr/c8c8r8 d8d8.drdrrf8f8]2 d8d8r8  e-8e-8.e-rfrrf8f8]2
+H l16     q4  o4[[<g8>b-8  b-8.b-<g>b-<g8>/a8a8  <g8>b-8b-8.b-<g>b-<g8>>c8c8]2  <b-8b-8 <c8>b-8b-8.b-<d>>c<<d8>>c8c8   ]2
+D l16@4)3 q4 D2o3[[ r8 g8 g8.grgrr f8f8 / r8g8g8.grgrra8a8]2 r8g8g8.grf+rrf+8f+8    ]2
+I    q3D0 M16,1,8,4o6@24[>d1&d2^8.r(4d8.r)4<  f8gf\gfg[b-8.r(4]2)8 f8gf\gfg>c8.<b-&b-4     ]2
+E )2 D18M16,1,20,4o5@0[>d1&d2^8.r(4d8.r)4<  f8gf\gfg[b-8.r(4]2)8 f8gf\gfg>c8.<b-&b-4     ]2
+F   D10M16,1,20,4o4@0[>d1&d2^8.r(4d8.r)4<  f8gf\gfg[b-8.r(4]2)8 f8gf\gfg>c8.<b-&b-4     ]2
+C  l16[*0c(3*2c)*4g *0c*1c*0(2cc)2*1(2c)2*0(2c*4g*0  cc /*1c*4q2c*0c*2c]8   *1cccc
+
+I >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bg ]2 g8/>d2^8.rf8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2>g4f4d4d-d-c<b-b-r >f2e-8d8c8<b-8
+E >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bb ]2 g8/>d2^8.rf8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2>g4f4d4d-d-c<b-b-r >f2e-8d8c8<b-8
+F >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bg ]2 g8/>d2^8.rf8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2>g4f4d4d-d-c<b-b-r >f2e-8d8c8<b-8
+K  l16[@1c8.c@3c8.@2c@1c@2crr@3c8.@2c]8
+C  l16[*0c(3*2c)*4g *0c*1c*0(2cc)2*1(2c)2*0(2c*4g*0  cc /*1c*4q2c*0c*2c]8   *1cccc
+A  [[c4c8.<b->c<b-g8b-8b8]2  /[g4g8.d/f8f8g8d8]2 ff+g8b-8b8 ]2 g>g8<gg>f8<gg>d8<gg>d-8<g >cc8c<b-b-8b-gg8g gab-g
+B [[r8e-8e-8.e-re-rrd8e-8 ]2[r8d8d8.drdrrf8f8]2     ]2
+H [[<c8>c8c8.c<c>c<g8>c8c8]2 [<<g8>b-8b-8.b-<g>b-<g8>>c8c8]2    ]2
+D [[r8g8g8.grgrrg8g8]2 [r8g8g8.grgrra8a8]2          ]2
+
+I  >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bg ]2 /g8 >d2.f8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2 b-8a8&a1 >l8cc+df16d2r16
+E >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bb ]2 /g8 >d2.f8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2 b-8a8&a1 >l8cc+df16d2r16
+F >[[cr(4cr)4c8.<b->c<b->c8/<b-b-bg ]2 /g8 >d2.f8c8d<f8.g(4f8.g)4rg8a8b-8g8 ]2 b-8a8&a1 >l8cc+df16d2r16
+K  l16[@1c8.c@3c8.@2c@1c@2crr@3c8.@2c]8
+C  l16[*0c(3*2c)*4g *0c*1c*0(2cc)2*1(2c)2*0(2c*4g*0  cc /*1c*4q2c*0c*2c]8   *1cccc
+A >[c4c8.<b->c<b-g8b-8b8]2  [g4g8.df8f8g8d8]2
+A >[c4c8.<b->c<b-/g8b-8b8]2 >c8 e-8c8<aa8aaa8a>cc8cccc+c+ d8dcd8.cdc<a8>cdfg
+B [[r8e-8e-8.e-re-rrd8e-8 ]2/[r8d8d8.drdrrf8f8]2     ]2
+H [[<c8>c8c8.c<c>c<g8>c8c8]2/[<<g8>b-8b-8.b-<g>b-<g8>>c8c8]2    ]2
+D [[r8g8g8.grgrrg8g8]2 /[r8g8g8.grgrra8a8]2          ]2
+
+B r8e-8e-8.e-rgrrg8g8  rrf8f8.fr>frrf8f8
+H r8c8c8.crcrrc8c8     rr c8c8.cr>crrc8c8
+D r8g8g8.grgrra8a8     rrf+rf+8.f+r>f+rrf+8f+8
+F [g1&]3g1
+C @24o6v10[g1&]3g2gab->cdfgb-

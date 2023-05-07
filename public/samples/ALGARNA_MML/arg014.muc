@@ -1,0 +1,16 @@
+#mucom88 1.5
+#title ¶×¸°Ñ É ÏÁ
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#date 2018/12/26
+#comment arg014
+
+D       K0 C96LE255,255,255,190,0,10l16 o4 q3v11  [f+2>e4dc+8<b&b2bf+f+eef+ab e2>e4df+ab&b2&b8a8e f+8.]2
+E t197  K0 C96LE255,255,255,190,1,10v12l16 o2  q3 [[b8bb>b8<bb]2 [a8aa>a8<aa]2 [g+8g+g+>g+8<g+g+]2 [g8>gg<]2[a8>aa<]2 ]2
+F       K0 C96LE255,255,255,190,0,10v9 l16o4  q3[[dr<brbrabrf+8rabr>d&]2 dr<brbrabre8rg+br>d&  drgrbgr<a8>reraerr ]2
+
+D [E255,255,255,190,1,10v11q3[o4bbrbbr>/c4cr<a+a+ra+a+r >   ]2 q1E255,255,255,170,0,255v11c&[c(]5v11 f+&[f+(]5 ]2
+F [E255,255,255,190,1,10v10q3[o4f+f+rf+f+r/g4greereer       ]2 q1E255,255,255,170,0,255v10g&[g(]5v10>c+&[c+(]5 ]2
+E [o1b>b<b>b<b>b<e>e<e>e<e>e<f+>f+<f+>f+<f+>f+]4
+
+

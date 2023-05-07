@@ -1,0 +1,59 @@
+#mucom88 1.5
+#title Hold me tonight
+#composer Yuzo Koshiro
+#author Yuzo Koshiro
+#voice mistyvoice.dat
+#pcm mistypcm.bin
+#date 2018/12/16
+#comment disco4
+
+A    C96t189@166o6q5 r2L l16v6K-2 [ [ererreererrerrer grgrrggrgrrgrrgr drdrrddrdrrdrrdr/ererreererrerrer]2 ererreererrerrer
+B    C96@166o6    q5 r2L l16v6K-2 [ [crcrrccrcrrcrrcr ererreererrerrer<brbrrbbrbrrbrrbr/>crcrrccrcrrcrrcr<]2 brbrrbbrbrrbrrbr
+C    C96@166o6    q5 r2L l16v6K-2 [ [ararraararrarrar>crcrrccrcrrcrrcr<grgrrggrgrrgrrgr/ararraararrarrar]2 g+rg+rrg+g+rg+rrg+rrg+r
+H    C96@155o3l16v14 K-2 q3r2 L [ [[a8>ar<]4>[c8>cr<]4<[g8>gr<]4/[a8>ar<]4]2[e8>er<]4
+I    C96l16v6  r2 L [ r1r1r1r8    o5 p2q0v7@21d)g)>[d<gdg (2]6    r4r1r1r1
+J    C96l16v6  r2 L [ r1r1r1r8 D4 o4 p1q0v6@21d)g)>[d<gdg (2]6    r4r1r1r1
+D  C96E255,255,255,190,1,10q3 r2 L [r1]16 v13l16o5[l8r8ggfg.g.fl16grb-rfrgrl8 r2rffff.a.f/l16grgrfrgrr2 ]2  d4f+4a4>d4<
+E  C96E255,255,255,190,1,10q2 r2 L [r1]16    v13l16o4[l8r8ggfg.g.fl16grb-rfrgr l8r2rffff.a.f/l16grgrfrgrr2 ]2  d4f+4a4>d4<
+F  C96E255,255,255,190,1,10q3 r2 L [r1]16D18v12l16o5[l8r8ggfg.g.fl16grb-rfrgrl8 r2rffff.a.f/l16grgrfrgrr2 ]2  d4f+4a4>d4<
+K   C96@9o1v55D14900b4D0f4 L [[@8v80o1g4@3g+8@12e8[o1@1l8g@12e@3g+@12e]5/[@1g@12e@3g+/@12e]2@1g16g16]2@1g @10(50b16b16)50@3g+@12e@1g16@10(50p2f16p3b16b16)50@3g+16@1g16g16g16]7
+G   C96v52,21,21,20,12,21,21l16r2L [@8cccc]128
+
+H  K0[[g8>gr<]6g8>gg<g8>gr<[e-8>e-r<]4 >[c8>cr<]2[d8>dr<]2 ]2               ]2
+D q7(2[r1r1r8g8g8g8g8.a8.b-8>c4<b-4a4b-4]2       )2  q3
+E q7(2[r1r1r8g8g8g8g8.a8.b-8>c4<b-4a4b-4]2       )2  q3
+F q7(2[r1r1r8g8g8g8g8.a8.b-8>c4<b-4a4b-4]2       )2  q3
+A K0  [[drdrrddrdrrdrrdr]3          c8ccr4   d8drdr8.        ]2 ]2
+B K0  [[b-rb-rrb-b-rb-rrb-rrb-r]3   g8ggr4   a8arar8.        ]2 ]2
+C K0  [[grgrrggrgrrarrgr]3          e-8e-e-r4f+8f+rf+r8.     ]2 ]2
+I p3[@152o3q3v9 [p1gp2gp1g8p2g8p1gp2g]2p3r8@59o5v11grgrgrggggrggg v9 @160o4r8q4grgrgrgggg8ggg r8crcrcrdddd8ddd ]2                               ]2
+J [@152o3q3v9 D8[ggg8g8gg]2 r1@167p3r8o3v7D0 q4b-rb-rb-rb-b-b-b-rb-b-b-r8e-re-re-rf+f+f+f+8f+f+f+ ]2                                                                     ]2
+
+G   [@8cccc]64
+H [ [[e-8>e-r<]2e-8>e-e-<e-8>e-r<<b-8>b-r<b-8>b-r<b-8>b-b-<b-8>b-r ]3 [c8>cr<]4[d8>dr<]4 ]2
+D l16[r8e-re-rfrg8.f8.e-8drfrdr<b-r r2>]2  r8e-8e-8f8g8.f8.g8b-4f4d4<b-4>c2.r8g8a1
+E l16[r8e-re-rfrg8.f8.e-8drfrdr<b-r r2>]2  r8e-8e-8f8g8.f8.g8b-4f4d4<b-4>c2.r8g8a1
+F l16[r8e-re-rfrg8.f8.e-8drfrdr<b-r r2>]2  r8e-8e-8f8g8.f8.g8b-4f4d4<b-4>c2.r8g8a1
+I ([[r8e-re-re-re-re-e-8e-e-r<r8b-rb-rb-rb-rb-b-8b-b-r >  ]3 crcrcrcrcccc8cccdrdrdrdrdddd8ddd                ]2
+J ([[r8grgrgrgrgg8ggr r8drdrdrdrdd8ddr                    ]3 erererereeee8eeef+rf+rf+rf+rf+f+f+f+8f+f+f+     ]2
+A @109o3v6[b-1<b-1>]3 c1[d4&)2]4
+B @109o3v6[g1f1    ]3 g1[a4&)2]4
+C @109o3v6[e-1d1   ]3 e1[f+4&)2]4
+A v7[b-1<b-1>]3        c1[d4&)]4
+B v7[g1f1    ]3        g1[a4&)]4
+C v7[e-1d2>)d4c4(]2 e-1d1e1[f+4&)]4
+
+D  [r8b-rb-rb-rb-8.a8.g8/frgrfrdr r2    ]3 f4d4b-4>d4 c1 d4c4<b-4>c4
+E  [r8b-rb-rb-rb-8.a8.g8/frgrfrdr r2    ]3 f4d4b-4>d4 c1 d4c4<b-4>c4
+F  [r8b-rb-rb-rb-8.a8.g8/frgrfrdr r2    ]3 f4d4b-4>d4 c1 d4c4<b-4>c4
+
+A   @166o6q5 v6[grgrrggrgrrgrrgr frfrrffrfrrfrrfr  grgrrggrgrrgrrgr ararraararrarrar                ]2
+B   @166o6q5 v6[drdrrddrdrrdrrdrb-rb-rrb-b-rb-rrb-rrb-r>crcrrccrcrrcrrcrdrdrrddrdrrdrrdr            ]2
+C   @166o5q5 v6[b-rb-rrb-b-rb-rrb-rrb-r >drdrrddrdrrdrrdr ererreererrerrerf+rf+rrf+f+rf+rrf+rrf+r   ]2
+H   [o3[g8>gr<]4[b-8>b-r<]4>[c8>cr<]4[d8>dr<]4   ]2
+I  v7@152o3p1  q0[g1b-1>c1d1  ]2
+J  v7@152o3p2D8q0[g1b-1>c1d1  ]2
+D  [d8<g4>d8r2r8d8d8d8d8c8<b-8>d8 c4<g8>c4.<b-8/a4.>d4d4d4 ]2<a8&a2b-4a4
+E  [d8<g4>d8r2r8d8d8d8d8c8<b-8>d8 c4<g8>c4.<b-8/a4.>d4d4d4 ]2<a8&a2b-4a4
+F  [d8<g4>d8r2r8d8d8d8d8c8<b-8>d8 c4<g8>c4.<b-8/a4.>d4d4d4 ]2<a8&a2b-4a4
+G  [cccc]32
