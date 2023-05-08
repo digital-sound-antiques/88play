@@ -18,7 +18,6 @@ import {
 import { useContext } from "react";
 import { EditorContext } from "../contexts/EditorContext";
 import { PlayerContext } from "../contexts/PlayerContext";
-import { unmuteAudio } from "../utils/unmute";
 
 type SampleEntry = {
   id: string;
