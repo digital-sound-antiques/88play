@@ -18,6 +18,7 @@ import {
 import { useContext } from "react";
 import { EditorContext } from "../contexts/EditorContext";
 import { PlayerContext } from "../contexts/PlayerContext";
+import { unmuteAudio } from "../utils/unmute";
 
 type SampleEntry = {
   id: string;
@@ -363,6 +364,8 @@ export function SampleDialog(props: { open: boolean; onClose?: () => void }) {
   const editorContext = useContext(EditorContext);
   const playerContext = useContext(PlayerContext);
   const onClickItem = async (e: SampleEntry, section: SampleSection) => {
+    await playerContext.unmute();
+    
     await editorContext.reducer.onFileOpen(
       e.files.map((file) => ["samples", section.folder, file].join("/"))
     );
