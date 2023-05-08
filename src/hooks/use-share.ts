@@ -31,15 +31,10 @@ export function useShare() {
     const entries = Object.values(rmap);
     for (let i = 0; i < entries.length; i++) {
       const entry = entries[i];
-      const { type, name, id } = entry;
+      const { id } = entry;
       if (id != null) {
-        console.log(entry);
         if (!(await checkDataExists(id))) {
-          console.log(`#${type} ${name} (${id}) dose not exist on the server.`);
-          const res = await uploadData(entry);
-          console.log(res);
-        } else {
-          console.log(`#${type} ${name} found.`);
+          await uploadData(entry);
         }
       }
       setProgress?.((0.5 * i) / entries.length);

@@ -1,20 +1,20 @@
 import { Download } from "@mui/icons-material";
 import {
   Button,
-  ButtonProps,
   Dialog,
   DialogActions,
   DialogContent,
   Divider,
   Menu,
-  MenuItem,
+  MenuItem
 } from "@mui/material";
 import { useContext, useRef, useState } from "react";
 import { EditorContext } from "../contexts/EditorContext";
 
+import md5 from "md5";
 import { Mucom88 } from "mucom88-js";
 import { StorageContext } from "../contexts/StorageContext";
-import md5 from "md5";
+import { ToolBarButton } from "./ToolBarButton";
 
 function saveAs(input: Uint8Array | string, filename: string) {
   const blob = new Blob([input]);
@@ -25,23 +25,23 @@ function saveAs(input: Uint8Array | string, filename: string) {
 }
 
 function removeExt(file: string) {
-  const parts = file.split('.');
+  const parts = file.split(".");
   if (parts.length > 1) {
-    return parts.slice(0, parts.length -1);
+    return parts.slice(0, parts.length - 1);
   }
   return parts;
 }
 
-function getBasename(mml: string) {  
+function getBasename(mml: string) {
   let m = mml.match(/^;?#88play name=(.+)$/m);
   if (m != null) {
     return removeExt(m[1].trim());
-  } 
+  }
   m = mml.match(/^#comment\s+([A-Z0-9_\-.]+)\s*$/i);
-  if (m != null && m[1]!.length <= 16) {
+  if (m != null && m[1].length <= 16) {
     return removeExt(m[1]);
   }
-  return md5(mml).slice(0, 8);  
+  return md5(mml).slice(0, 8);
 }
 
 export function ExportMenu(props: {
@@ -107,21 +107,19 @@ export function ExportMenu(props: {
   );
 }
 
-export function ExportButton(props: ButtonProps) {
+export function ExportButton() {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
-      <Button
+      <ToolBarButton
         ref={buttonRef}
+        icon={<Download fontSize="small" />}
+        label="Export"
         onClick={() => setOpen(true)}
-        {...props}
-      >
-        <Download fontSize="small" />
-        &nbsp;Export
-      </Button>
+      />
       <ExportMenu
         open={open}
         anchorEl={buttonRef.current}

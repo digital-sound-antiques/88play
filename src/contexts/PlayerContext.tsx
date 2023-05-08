@@ -33,8 +33,7 @@ export interface PlayerContextState {
 function autoResumeAudioContext(audioContext: AudioContext) {
   if (isIOS && isSafari) {
     document.addEventListener("visibilitychange", () => {
-      console.log(`visibility change / state=${audioContext.state}`);
-      if ((audioContext.state as any) == "interrupted") {
+      if ((audioContext.state as unknown) == "interrupted") {
         /* unawaited */ audioContext.resume();
       }
     });
@@ -83,7 +82,8 @@ const defaultContextState: PlayerContextState = createDefaultContextState();
 
 export const PlayerContext = React.createContext({
   ...defaultContextState,
-  reducer: new PlayerContextReducer(() => {}),
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  reducer: new PlayerContextReducer(()=>{}),
 });
 
 function usePrevious<T>(value: T) {
@@ -118,7 +118,7 @@ async function prepareAttachments(
   const res: MucomDecoderAttachment[] = [];
 
   for (const name in rmap) {
-    const { type, id } = rmap[name]!;
+    const { type, id } = rmap[name];
     if (id != null) {
       const data = await loadLocalOrNetworkResource(storageContext, id);
       if (data != null) {

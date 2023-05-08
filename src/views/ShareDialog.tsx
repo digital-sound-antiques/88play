@@ -7,6 +7,7 @@ import {
   FormControl,
   TextField,
 } from "@mui/material";
+
 import { useTranslation } from "react-i18next";
 
 export function ShareDialog(props: {
@@ -14,17 +15,19 @@ export function ShareDialog(props: {
   url?: string | null;
   onClose?: () => void;
 }) {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
+
   return (
     <Dialog open={props.open} maxWidth="xs" fullWidth>
       <DialogContent>
-        <DialogContentText>{t('shareMessage')}</DialogContentText>
-        <FormControl fullWidth sx={{my: 1}}>
+        <DialogContentText>{t("shareMessage")}</DialogContentText>
+        <FormControl fullWidth sx={{ my: 1 }}>
           <TextField
+            onFocus={(event) => event.target.select()}
             InputProps={{ readOnly: true }}
             variant="standard"
             value={props.url ?? ""}
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", userSelect: "all" }}
           />
         </FormControl>
       </DialogContent>

@@ -1,9 +1,9 @@
 import { Settings } from "@mui/icons-material";
-import { ButtonProps, IconButton } from "@mui/material";
 import { useState } from "react";
 import { SettingsDialog } from "../views/SettingsDialog";
+import { ToolBarButton } from "./ToolBarButton";
 
-export function SettingsButton(props: ButtonProps) {
+export function SettingsButton() {
   const [open, setOpen] = useState(false);
 
   const onClick = async () => {
@@ -12,9 +12,7 @@ export function SettingsButton(props: ButtonProps) {
 
   return (
     <>
-      <IconButton color="primary" onClick={onClick} {...props}>
-        <Settings fontSize="small" />
-      </IconButton>
+      <ToolBarButton onClick={onClick} icon={<Settings fontSize="small" />}/>
       <SettingsDialog open={open} onClose={() => setOpen(false)} />
     </>
   );

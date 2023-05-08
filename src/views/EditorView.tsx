@@ -1,11 +1,10 @@
 import { Box, SxProps, Theme } from "@mui/material";
-import AceEditor from "react-ace";
-import { EditorContext } from "../contexts/EditorContext";
-import { FileDropContext } from "../contexts/FileDropContext";
 import { useContext, useEffect, useRef, useState } from "react";
-import ReactAce from "react-ace/lib/ace.js";
+import AceEditor from "react-ace";
 import "../ace/mode-mucom.js";
+import { EditorContext } from "../contexts/EditorContext";
 import { EditorSettingsContext } from "../contexts/EditorSettingContext.js";
+import { FileDropContext } from "../contexts/FileDropContext";
 
 type EditorViewProps = {
   sx?: SxProps<Theme>;
@@ -16,7 +15,7 @@ export function EditorView(props: EditorViewProps) {
   const settings = useContext(EditorSettingsContext);
 
   const [size, setSize] = useState({ width: 0, height: 0 });
-  const aceRef = useRef<ReactAce>(null);
+  const aceRef = useRef<AceEditor>(null);
   const boxRef = useRef<HTMLDivElement>(null);
 
   const onResize = () => {

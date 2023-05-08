@@ -1,14 +1,26 @@
-export const dataStorage =
-  "http://localhost:9199/play-f7a8b.appspot.com/databin";
-export const textStorage =
-  "http://localhost:9199/play-f7a8b.appspot.com/textbin";
-export const dataApi =
-  "http://localhost:5001/play-f7a8b/asia-northeast1/databin";
-export const textApi =
-  "http://localhost:5001/play-f7a8b/asia-northeast1/textbin";
+const apiSet = {
+  prodction: {
+    dataApi: "https://asia-northeast1-play-f7a8b.cloudfunctions.net/databin",
+    textApi: "https://asia-northeast1-play-f7a8b.cloudfunctions.net/textbin",
+    getDataUrl: (key: string) =>
+      `https://firebasestorage.googleapis.com/v0/b/play-f7a8b.appspot.com/o/databin%2F${key}?alt=media`,
+    getTextUrl: (key: string) =>
+      `https://firebasestorage.googleapis.com/v0/b/play-f7a8b.appspot.com/o/textbin%2F${key}?alt=media`,
+  },
+  develop: {
+    textApi: "http://localhost:5001/play-f7a8b/asia-northeast1/textbin",
+    dataApi: "http://localhost:5001/play-f7a8b/asia-northeast1/databin",
+    getTextUrl: (key: string) =>
+      `http://localhost:9199/play-f7a8b.appspot.com/textbin%2F${key}`,
+      getDataUrl: (key: string) =>
+      `http://localhost:9199/play-f7a8b.appspot.com/databin%2F${key}`,
+  },
+};
+
+const api = apiSet.prodction;
 
 export async function downloadBinary(id: string): Promise<Uint8Array> {
-  const url = `${dataStorage}%2f${id}`;
+  const url = api.getDataUrl(id);
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open("GET", url, true);
@@ -28,7 +40,7 @@ export async function downloadBinary(id: string): Promise<Uint8Array> {
 }
 
 export async function uploadBinary(u8a: Uint8Array): Promise<string> {
-  const url = dataApi;
+  const url = api.dataApi;
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open("POST", url, true);
@@ -48,7 +60,7 @@ export async function uploadBinary(u8a: Uint8Array): Promise<string> {
 }
 
 export async function uploadText(text: string): Promise<string> {
-  const url = textApi;
+  const url = api.textApi;
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open("POST", url, true);
@@ -68,7 +80,7 @@ export async function uploadText(text: string): Promise<string> {
 }
 
 export async function checkDataExists(id: string) {
-  const url = `${dataStorage}%2f${id}`;
+  const url = api.getDataUrl(id);
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open("HEAD", url, true);

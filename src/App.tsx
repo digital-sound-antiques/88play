@@ -8,11 +8,13 @@ import {
   Toolbar,
   Typography,
   createTheme,
+  useMediaQuery,
+  Theme,
 } from "@mui/material";
 
 import { PlayControl } from "./views/PlayerControl";
 
-import { brown } from "@mui/material/colors";
+import { brown, teal } from "@mui/material/colors";
 
 import { EditorView } from "./views/EditorView.js";
 import { ResourceAlert } from "./views/ResourceAlert.js";
@@ -38,7 +40,7 @@ const theme = createTheme({
       main: brown[300],
     },
     secondary: {
-      main: brown["A700"],
+      main: teal["A700"],
     },
     text: {
       primary: brown[100],
@@ -92,6 +94,9 @@ export function AppRoot() {
       size: 160,
     });
   };
+
+  const isXs = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
+
   return (
     <Box
       sx={{
@@ -109,16 +114,18 @@ export function AppRoot() {
           <Nightlife sx={{ mr: 0.25 }} />
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             88play&nbsp;
-            <Typography variant="caption">
-              powered by{" "}
-              <Link
-                underline="hover"
-                href="https://github.com/onitama/mucom88"
-                target="_blank"
-              >
-                OPEN MUCOM88
-              </Link>
-            </Typography>
+            {!isXs ? (
+              <Typography variant="caption">
+                powered by{" "}
+                <Link
+                  underline="hover"
+                  href="https://github.com/onitama/mucom88"
+                  target="_blank"
+                >
+                  OPEN MUCOM88
+                </Link>
+              </Typography>
+            ) : null}
           </Typography>
           <Box sx={{ width: 128 }}>
             <VolumeControl />
@@ -162,7 +169,7 @@ export function AppRoot() {
             px: 2,
           }}
         >
-          <Typography variant="caption" color="#fff">
+          <Typography variant="caption">
             88play v{packageJson.version}
           </Typography>
           <Link

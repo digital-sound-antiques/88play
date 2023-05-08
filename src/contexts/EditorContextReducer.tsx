@@ -53,9 +53,7 @@ export class EditorContextReducer {
         }
         parts.push(text);
         const mml = parts.join("\n");
-        console.log(mml);
         const rmap = getResourceMap(mml);
-        console.log(rmap);
         await downloadResources(this.storage!, rmap);
         return [mml, rmap];
       }
@@ -92,7 +90,6 @@ export class EditorContextReducer {
       if (entry != null) {
         const data = await loadBlobOrUrl(file);
         const dataId = await this.storage!.put(data);
-        console.log(dataId);
         if (dataId != null) {
           entry.id = dataId;
         }
@@ -193,7 +190,6 @@ export async function downloadResources(
     const id = entry.id;
     if (id != null) {
       if (!(await storage.hasKey(id))) {
-        console.log(`missing ${id}, downloading...`);
         try {
           const remoteData = await downloadBinary(id);
           const res = await storage.put(remoteData);

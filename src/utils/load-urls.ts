@@ -11,13 +11,12 @@ export const convertUrlIfRequired = (url: string) => {
 export function getMMLAndTitle(data: Uint8Array) {
   const mml = decodeAsText(data);
   const m = mml?.match(/^#title\s+([^\s]+).*$/);
-  let title = m != null ? m[1] : null;
+  const title = m != null ? m[1] : null;
   return { title, mml };
 }
 
 export function decodeAsText(u8: Uint8Array): string {
   let encoding = detectEncoding(u8);
-  console.log(`encoding=${encoding}`);
 
   if (encoding == "euc-jp" || encoding == "iso-2022-jp") {
     encoding = "shift-jis";
@@ -29,10 +28,14 @@ export function decodeAsText(u8: Uint8Array): string {
     encoding = "utf-8";
   }
 
-  return new TextDecoder(encoding as TextDecoderEncoding).decode(u8).replace(/\r\n/g, '\n');
+  return new TextDecoder(encoding as TextDecoderEncoding)
+    .decode(u8)
+    .replace(/\r\n/g, "\n");
 }
 
-export async function loadBlobOrUrlAsText(file: Blob | URL | string): Promise<string> {
+export async function loadBlobOrUrlAsText(
+  file: Blob | URL | string
+): Promise<string> {
   if (file instanceof Blob) {
     return loadBlobAsText(file);
   } else {
@@ -56,7 +59,9 @@ export async function loadBlobAsText(blob: Blob): Promise<string> {
   });
 }
 
-export async function loadBlobOrUrl(file: Blob | URL | string): Promise<Uint8Array> {
+export async function loadBlobOrUrl(
+  file: Blob | URL | string
+): Promise<Uint8Array> {
   if (file instanceof Blob) {
     return loadBlob(file);
   } else {

@@ -1,9 +1,10 @@
 import { Pause, PlayArrow, Replay, Stop } from "@mui/icons-material";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { AudioPlayerState } from "webaudio-stream-player";
 import { PlayerContext } from "../contexts/PlayerContext";
 import { TimeSlider } from "../widgets/TimeSlider";
+import { toTimeString } from "../utils/format-utils";
 
 export function PlayControl() {
   const context = useContext(PlayerContext);
@@ -11,14 +12,25 @@ export function PlayControl() {
   const onStateChange = (ev: CustomEvent<AudioPlayerState>) => {
     setPlayState(ev.detail);
   };
+
+  const [timeInfo, setTimeInfo] = useState({ currentTime: 0, bufferedTime: 0 });
+
   useEffect(() => {
     context.player.addEventListener("statechange", onStateChange);
     return () => {
       context.player.removeEventListener("statechange", onStateChange);
     };
-  });
+  }, []);
 
-  let playIcon = playState == "playing" ? <Pause /> : <PlayArrow />;
+  useEffect(() => {
+    const id = setInterval(() => {
+      const { currentTime, bufferedTime } = context.player.progress.renderer;
+      setTimeInfo({ currentTime, bufferedTime });
+    }, 100);
+    return () => clearInterval(id);
+  }, []);
+
+  const playIcon = playState == "playing" ? <Pause /> : <PlayArrow />;
 
   if (context.currentItem == null) {
     return null;
@@ -40,46 +52,65 @@ export function PlayControl() {
         sx={{
           display: "flex",
           width: "100%",
-          maxWidth: "240px",
           flexDirection: "row",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           alignItems: "center",
+          px: 2,
         }}
       >
-        <IconButton
-          color="primary"
-          onClick={async () => {
-            context.reducer.stop();
-            await new Promise((resolve) => setTimeout(resolve, 100));
-            context.reducer.play();
+        <Typography variant="caption">
+          {toTimeString(timeInfo.currentTime)}
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flex: 1,
+            maxWidth: "256px",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "center",
           }}
         >
-          <Replay />
-        </IconButton>
-        <IconButton
-          color="primary"
-          sx={{ p: 0 }}
-          onClick={async () => {
-            if (playState == "playing") {
-              context.reducer.pause();
-            } else if (playState == "paused") {
-              context.reducer.resume();
-            } else {
-              await context.unmute();
-              context.reducer.play();
+          <IconButton
+            color="primary"
+            onClick={async () => {
+              context.reducer.replay();
+            }}
+            disabled={
+              context.player.state == "initial" ||
+              context.player.state == "aborted" ||
+              context.player.state == "disposed"
             }
-          }}
-        >
-          {playIcon}
-        </IconButton>
-        <IconButton
-          color="primary"
-          onClick={() => {
-            context.reducer.stop();
-          }}
-        >
-          <Stop />
-        </IconButton>
+          >
+            <Replay />
+          </IconButton>
+          <IconButton
+            color="primary"
+            onClick={async () => {
+              if (playState == "playing") {
+                context.reducer.pause();
+              } else if (playState == "paused") {
+                context.reducer.resume();
+              } else {
+                await context.unmute();
+                context.reducer.play();
+              }
+            }}
+          >
+            {playIcon}
+          </IconButton>
+          <IconButton
+            color="primary"
+            onClick={() => {
+              context.reducer.stop();
+            }}
+          >
+            <Stop />
+          </IconButton>
+        </Box>
+        <Typography variant="caption">
+          {toTimeString(timeInfo.bufferedTime)}
+        </Typography>
       </Box>
     </Box>
   );

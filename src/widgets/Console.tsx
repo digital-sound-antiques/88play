@@ -100,7 +100,6 @@ export function Console(props: { style?: CSSProperties | null }) {
       });
     }, 16);
     return () => {
-      console.log("unmount");
       clearInterval(id);
     };
   }, []);
@@ -129,7 +128,6 @@ export function Console(props: { style?: CSSProperties | null }) {
     <>
       <Box sx={{ height: "4px", backgroundColor: "background.paper" }}></Box>
       <Divider />
-      <style>{scrollBarStyle}</style>
       <div
         style={{
           position: "relative",
@@ -189,15 +187,3 @@ const overlayStyle: CSSProperties = {
   backgroundSize: "100% 2px, 2px 100%",
 };
 
-const scrollBarStyle = `
-::-webkit-scrollbar {
-    appearance: none;
-    width: 8px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: ${brown[200]};
-}
-::-webkit-scrollbar-track {    
-    background-color: #404040;
-}
-`;

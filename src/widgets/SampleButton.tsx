@@ -1,9 +1,9 @@
 import { LibraryMusic } from "@mui/icons-material";
-import { Button, ButtonProps } from "@mui/material";
 import { useState } from "react";
 import { SampleDialog } from "../views/SampleDialog";
+import { ToolBarButton } from "./ToolBarButton";
 
-export function SampleButton(props: ButtonProps) {
+export function SampleButton() {
   const [open, setOpen] = useState(false);
 
   const onClick = async () => {
@@ -12,10 +12,11 @@ export function SampleButton(props: ButtonProps) {
 
   return (
     <>
-      <Button onClick={onClick} {...props}>
-        <LibraryMusic fontSize="small" />
-        &nbsp; Samples
-      </Button>
+      <ToolBarButton
+        onClick={onClick}
+        icon={<LibraryMusic fontSize="small" />}
+        label="Samples"
+      />
       <SampleDialog open={open} onClose={() => setOpen(false)} />
     </>
   );

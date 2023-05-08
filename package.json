@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "http-server -c-1 ./dist --ssl --key ./cert/localhost+2-key.pem --cert ./cert/localhost+2.pem"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -17,7 +18,7 @@
     "@mui/material": "^5.12.0",
     "dockview": "^1.7.1",
     "md5": "^2.3.0",
-    "mucom88-js": "file:../mucom88-js",
+    "mucom88-js": "^0.1.0-alpha.1",
     "react": "^18.2.0",
     "react-ace": "^10.1.0",
     "react-beautiful-dnd": "^13.1.1",

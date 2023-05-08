@@ -30,11 +30,11 @@ export class PlayerContextReducer {
     item?: PlayItem | null
   ): PlayerContextState {
     const nextItem = item ?? state.currentItem;
-    let nextPlayState = nextItem != null ? "playing" : "stopped";
+    const nextPlayState = nextItem != null ? "playing" : "stopped";
     return {
       ...state,
       currentItem: nextItem,
-      playState: nextPlayState as any,
+      playState: nextPlayState,
       playStateChangeCount: state.playStateChangeCount + 1,
     };
   }
@@ -42,6 +42,16 @@ export class PlayerContextReducer {
   play(item?: PlayItem | null) {
     this.setState((state) => {
       return this._playReducer(state, item);
+    });
+  }
+
+  replay() {
+    this.setState((state) => {
+      if (state.playState == "playing") {
+        state.player.seekInFrame(0);
+        state.player.resume();
+      }
+      return state;
     });
   }
 
@@ -79,5 +89,7 @@ export class PlayerContextReducer {
     }));
   }
 
-  onPlayerStopped() {}
+  onPlayerStopped() {
+    //
+  }
 }
