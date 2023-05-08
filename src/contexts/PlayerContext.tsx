@@ -176,7 +176,7 @@ export function PlayerContextProvider(props: React.PropsWithChildren) {
 
   useEffectOnce(() => {
     const params = AppGlobal.getQueryParamsOnce();
-    setState({ ...state, idToOpen: params.get('id')});
+    setState({ ...state, idToOpen: params.get('open')});
   });
 
   useEffect(() => {
