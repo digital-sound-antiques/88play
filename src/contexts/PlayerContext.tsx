@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AudioPlayerState } from "webaudio-stream-player";
+import { useEffectOnce } from "../hooks/use-effect-once";
 import { MucomDecoderAttachment } from "../mucom/mucom-decoder-worker";
 import { MucomPlayer } from "../mucom/mucom-player";
 import { isIOS, isSafari } from "../utils/platform-detect";
 import { downloadBinary } from "../utils/share-utils";
 import { unmuteAudio } from "../utils/unmute";
+import AppGlobal from "./AppGlobal";
 import { MMLResourceMap } from "./EditorContext";
 import { getResourceMap } from "./EditorContextReducer";
 import { PlayerContextReducer } from "./PlayerContextReducer";
@@ -27,6 +29,7 @@ export interface PlayerContextState {
   currentItem?: PlayItem | null;
   playState: "playing" | "paused" | "stopped";
   playStateChangeCount: number;
+  idToOpen?: string | null;
   unmute: () => Promise<void>;
 }
 
@@ -170,6 +173,11 @@ export function PlayerContextProvider(props: React.PropsWithChildren) {
   const storageContext = useContext(StorageContext);
   const [state, setState] = useState(defaultContextState);
   const oldState = usePrevious(state);
+
+  useEffectOnce(() => {
+    const params = AppGlobal.getQueryParamsOnce();
+    setState({ ...state, idToOpen: params.get('id')});
+  });
 
   useEffect(() => {
     applyPlayStateChange(storageContext, oldState, state);

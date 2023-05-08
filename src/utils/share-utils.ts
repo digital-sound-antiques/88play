@@ -19,6 +19,8 @@ const apiSet = {
 
 const api = apiSet.prodction;
 
+export const shareApi = api;
+
 export async function downloadBinary(id: string): Promise<Uint8Array> {
   const url = api.getDataUrl(id);
   return new Promise((resolve, reject) => {

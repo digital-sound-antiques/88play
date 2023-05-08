@@ -32,6 +32,7 @@ import { useTranslation } from "react-i18next";
 import packageJson from "../package.json";
 import { AppToolBar } from "./widgets/AppToolBar.js";
 import { VolumeControl } from "./widgets/VolumeControl.js";
+import { ReadyToPlayDialog } from "./views/ReadyToPlayDialog.js";
 
 const theme = createTheme({
   palette: {
@@ -67,6 +68,7 @@ export function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppRoot />
+      <ReadyToPlayDialog />
     </ThemeProvider>
   );
 }

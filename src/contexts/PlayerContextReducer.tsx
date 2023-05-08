@@ -1,3 +1,5 @@
+import { loadBlobOrUrlAsText } from "../utils/load-urls";
+import { shareApi } from "../utils/share-utils";
 import { PlayItem, PlayerContextState } from "./PlayerContext";
 
 export class PlayerContextReducer {
@@ -91,5 +93,12 @@ export class PlayerContextReducer {
 
   onPlayerStopped() {
     //
+  }
+
+  async clearIdToOpen() {
+    this.setState((state) => ({
+      ...state,
+      idToOpen: null,
+    }));
   }
 }

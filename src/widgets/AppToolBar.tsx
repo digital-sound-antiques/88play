@@ -14,12 +14,13 @@ export function AppToolBar() {
   const editorContext = useContext(EditorContext);
 
   const onCompileClick = async () => {
+    await playerContext.unmute();
+
     const mml = editorContext.text;
     const m = mml?.match(/^#title\s+([^\s]+).*$/);
     const title = m != null ? m[1] : null;
     localStorage.setItem("88play.lastCompiledText", mml);
 
-    await playerContext.unmute();
     playerContext.reducer.play({ title, mml });
   };
 
