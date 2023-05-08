@@ -32,7 +32,7 @@ export function ShareButton() {
     setProgress(null);
     const res = await share(context.text, setProgress);
     setProgress(undefined);
-    setUrl("https://88play.app/" + res.id);
+    setUrl("https://f.88play.app/" + res.id);
     setState("done");
   };
 
