@@ -20,7 +20,7 @@ export function ShareDialog(props: {
   return (
     <Dialog open={props.open} maxWidth="xs" fullWidth>
       <DialogContent>
-        <DialogContentText>{t("shareMessage")}</DialogContentText>
+        <DialogContentText>{t("share.message")}</DialogContentText>
         <FormControl fullWidth sx={{ my: 1 }}>
           <TextField
             onFocus={(event) => event.target.select()}

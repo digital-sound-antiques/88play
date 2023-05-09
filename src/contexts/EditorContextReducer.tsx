@@ -1,6 +1,7 @@
 import { BinaryDataStorage } from "../utils/binary-data-storage";
 import { loadBlobOrUrl, loadBlobOrUrlAsText } from "../utils/load-urls";
 import { downloadBinary } from "../utils/share-utils";
+import AppGlobal from "./AppGlobal";
 import {
   EditorContextState,
   MMLResourceEntry,
@@ -28,11 +29,14 @@ export class EditorContextReducer {
     });
   };
 
+  setBusy(value: boolean) {
+    this.setState((state) => ({ ...state, busy: value }));
+  }
+
   loadAsMML = async (
     file: File | URL | string
   ): Promise<[string | null, MMLResourceMap | null]> => {
-
-    const name =this.getName(file);
+    const name = this.getName(file);
 
     if (/\.(bin|dat|mub)$/.test(name)) {
       return [null, null];
@@ -61,14 +65,18 @@ export class EditorContextReducer {
     return [null, null];
   };
 
-  getName = (file: File | URL | string ): string => {
-    if(typeof file === 'object' && 'name' in file) {
-      return (file as any).name;
-    } 
-    return file.toString().split('/').pop()!;
-  }
+  getName = (file: File | URL | string): string => {
+    if (file instanceof File) {
+      return file.name;
+    }
+    return file.toString().split("/").pop() ?? "88play.muc";
+  };
 
-  onFileOpen = async (files: FileList | (URL|string)[] | null): Promise<void> => {
+  onFileOpen = async (
+    files: FileList | (URL | string)[] | null
+  ): Promise<void> => {
+    this.setState((state) => ({ ...state, busy: true }));
+
     const state = await this.getLatestState();
     let resourceMap = { ...state.resourceMap };
     let mml = state.text;
@@ -76,16 +84,16 @@ export class EditorContextReducer {
     // load MML. only the first file is accepted.
     for (const file of files ?? []) {
       const res = await this.loadAsMML(file);
-      if (res[0] != null) {
-        mml = res[0]!;
-        resourceMap = res[1]!;
+      if (res[0] != null && res[1] != null) {
+        mml = res[0];
+        resourceMap = res[1];
         break;
       }
     }
 
     // load resources specified in MML
     for (const file of files ?? []) {
-      const name = this.getName(file)
+      const name = this.getName(file);
       const entry = resourceMap[name];
       if (entry != null) {
         const data = await loadBlobOrUrl(file);
@@ -106,6 +114,7 @@ export class EditorContextReducer {
       text: embedHashTag(mml, resourceMap),
       resourceMap,
       unresolvedResources,
+      busy: false,
     }));
   };
 
@@ -122,7 +131,21 @@ export class EditorContextReducer {
   };
 
   onChangeText = (value: string) => {
+    AppGlobal.removeQueryParam('open');
     this.updateText(value);
+  };
+
+  updateUnresolvedResources = async (
+    mml: string
+  ): Promise<MMLResourceEntry[]> => {
+    const resourceMap = getResourceMap(mml);
+    const unresolvedResources = await getUnresolvedResources(
+      this.storage!,
+      resourceMap
+    );
+    console.log(unresolvedResources);
+    this.setState((state) => ({ ...state, resourceMap, unresolvedResources }));
+    return unresolvedResources;
   };
 }
 

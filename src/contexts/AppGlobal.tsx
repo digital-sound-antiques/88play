@@ -7,12 +7,15 @@ const AppGlobal = {
   //   }
   // },
   url: new URL(window.location.href),
-  getQueryParamsOnce: () => {
+  getQueryParams: () => {
     const url = new URL(window.location.href);
-    const params = url.searchParams;
-    window.history.replaceState('', '', url.pathname);
-    return params;
-  }
+    return url.searchParams;
+  },
+  removeQueryParam: (name: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete(name);
+    window.history.replaceState('', '', url);
+  },
 };
 
 export default AppGlobal;

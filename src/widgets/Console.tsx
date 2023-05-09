@@ -61,6 +61,46 @@ function ConsoleLine(props: { text: string }) {
   );
 }
 
+function Caret() {
+  const color = brown[200];
+  return (
+    <>
+      <style>
+        {`
+        @keyframes blink {
+          0% {
+            opacity: 1.0;
+          }
+          25% {
+            opacity: 1.0;
+          }          
+          50% {
+            opacity: 0.0;
+          }
+          75% {
+            opacity: 1.0;
+          }
+          100% {
+            opacity: 1.0;
+          }
+        }
+        `}
+      </style>
+      <div
+        style={{
+          padding: 0,
+          margin: 0,
+          animation: "1s infinite normal blink",
+          color: color,
+          textShadow: `0 0 3px ${color}, 0 0 8px ${color}`,
+        }}
+      >
+        <span>{"\u2589"}</span>
+      </div>
+    </>
+  );
+}
+
 type ConsoleState = {
   lineNodes: ReactNode[];
   linesAdded: number;
@@ -134,7 +174,8 @@ export function Console(props: { style?: CSSProperties | null }) {
           width: "100%",
           height: "100%",
           overflow: "hidden",
-          fontFamily: "Monaco, Menlo, \"Ubuntu Mono\", Consolas, \"Source Code Pro\", source-code-pro, monospace",
+          fontFamily:
+            'Monaco, Menlo, "Ubuntu Mono", Consolas, "Source Code Pro", source-code-pro, monospace',
           fontSize: "11px",
           ...props.style,
           textAlign: "left",
@@ -161,7 +202,7 @@ export function Console(props: { style?: CSSProperties | null }) {
               padding: "16px",
             }}
           >
-            {...visibleLineNodes}
+            {[<Caret key="caret" />, ...visibleLineNodes,]}
           </div>
         </div>
         <div
@@ -186,4 +227,3 @@ const overlayStyle: CSSProperties = {
   zIndex: 2,
   backgroundSize: "100% 2px, 2px 100%",
 };
-

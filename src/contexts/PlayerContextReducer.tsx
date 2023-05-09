@@ -99,4 +99,8 @@ export class PlayerContextReducer {
       idToOpen: null,
     }));
   }
+
+  setBusy(value: boolean) {
+    this.setState((state) => ({ ...state, busy: value }));
+  }
 }

@@ -7,9 +7,7 @@ import {
   useState,
 } from "react";
 import {
-  EditorContextReducer,
-  getResourceMap,
-  getUnresolvedResources,
+  EditorContextReducer
 } from "./EditorContextReducer";
 import { StorageContext } from "./StorageContext";
 
@@ -25,6 +23,7 @@ export interface EditorContextState {
   text: string;
   resourceMap: MMLResourceMap;
   unresolvedResources: MMLResourceEntry[];
+  busy: boolean;
   openFile: () => void;
 }
 
@@ -32,12 +31,17 @@ const defaultContextState: EditorContextState = {
   text: localStorage.getItem("88play.lastCompiledText") ?? "",
   resourceMap: {},
   unresolvedResources: [],
-  openFile: () => {},
+  busy: false,
+  openFile: () => {
+    // noop
+  },
 };
 
 export const EditorContext = createContext({
   ...defaultContextState,
-  reducer: new EditorContextReducer(() => {}),
+  reducer: new EditorContextReducer(() => {
+    // noop
+  }),
 });
 
 export function EditorContextProvider(props: React.PropsWithChildren) {
@@ -46,17 +50,9 @@ export function EditorContextProvider(props: React.PropsWithChildren) {
   const { storage, rev } = useContext(StorageContext);
   const reducer = new EditorContextReducer(setState, storage);
 
-  const updateUnresolvedResources = async (mml: string) => {
-    const resourceMap = getResourceMap(mml);
-    const unresolvedResources = await getUnresolvedResources(
-      storage,
-      resourceMap
-    );
-    setState((state) => ({ ...state, resourceMap, unresolvedResources }));
-  };
-
   useEffect(() => {
-    updateUnresolvedResources(state.text);
+    reducer.updateUnresolvedResources(state.text);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rev]);
 
   const onFileInputChange = (ev: ChangeEvent<HTMLInputElement>) => {

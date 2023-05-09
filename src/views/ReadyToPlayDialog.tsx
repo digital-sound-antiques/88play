@@ -13,6 +13,8 @@ export function ReadyToPlayDialog() {
   const onClick = async () => {
     await playerContext.unmute();
 
+    playerContext.reducer.setBusy(true);
+
     const url = shareApi.getTextUrl(playerContext.idToOpen!);
     const mml = await loadBlobOrUrlAsText(url);
 
@@ -22,6 +24,7 @@ export function ReadyToPlayDialog() {
     
     localStorage.setItem("88play.lastCompiledText", mml);
 
+    playerContext.reducer.setBusy(false);
     playerContext.reducer.clearIdToOpen();
     playerContext.reducer.play({ title, mml });
   };

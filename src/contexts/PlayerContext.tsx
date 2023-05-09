@@ -1,4 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import { AudioPlayerState } from "webaudio-stream-player";
 import { useEffectOnce } from "../hooks/use-effect-once";
 import { MucomDecoderAttachment } from "../mucom/mucom-decoder-worker";
@@ -30,6 +35,7 @@ export interface PlayerContextState {
   playState: "playing" | "paused" | "stopped";
   playStateChangeCount: number;
   idToOpen?: string | null;
+  busy: boolean;
   unmute: () => Promise<void>;
 }
 
@@ -55,6 +61,7 @@ const createDefaultContextState = () => {
     currentItem: null,
     playStateChangeCount: 0,
     playState: "stopped",
+    busy: false,
     masterGain: 4.0,
     unmute: async () => {
       unmuteAudio();
@@ -86,7 +93,7 @@ const defaultContextState: PlayerContextState = createDefaultContextState();
 export const PlayerContext = React.createContext({
   ...defaultContextState,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  reducer: new PlayerContextReducer(()=>{}),
+  reducer: new PlayerContextReducer(() => {}),
 });
 
 function usePrevious<T>(value: T) {
@@ -116,7 +123,7 @@ async function loadLocalOrNetworkResource(
 
 async function prepareAttachments(
   rmap: MMLResourceMap,
-  storageContext: StorageContextState,
+  storageContext: StorageContextState
 ): Promise<MucomDecoderAttachment[]> {
   const res: MucomDecoderAttachment[] = [];
 
@@ -135,13 +142,19 @@ async function prepareAttachments(
 async function applyPlayStateChange(
   storageContext: StorageContextState,
   oldState: PlayerContextState | null,
-  state: PlayerContextState
+  state: PlayerContextState,
+  setBusy: (flag: boolean) => void
 ) {
   const play = async (item: PlayItem) => {
     const { mml, duration, fadeDuration } = item;
     const rmap = getResourceMap(mml);
-    const attachments = await prepareAttachments(rmap, storageContext);
-    await state.player.play({ mml, attachments, duration, fadeDuration });
+    setBusy(true);
+    try {
+      const attachments = await prepareAttachments(rmap, storageContext);
+      await state.player.play({ mml, attachments, duration, fadeDuration });
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (state.playState == "playing") {
@@ -169,48 +182,52 @@ async function applyPlayStateChange(
   }
 }
 
+function useExternalSyncEffect(state: PlayerContextState) {
+  useEffect(() => {
+    state.gainNode.gain.value = state.masterGain;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.masterGain]);
+
+  useEffect(() => {
+    const { masterGain } = state;
+    const data = { version: 1, masterGain };
+    localStorage.setItem("88play.playerContext", JSON.stringify(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.masterGain]);
+}
+
 export function PlayerContextProvider(props: React.PropsWithChildren) {
-  const storageContext = useContext(StorageContext);
   const [state, setState] = useState(defaultContextState);
-  const oldState = usePrevious(state);
+  const reducer = new PlayerContextReducer(setState);
 
   useEffectOnce(() => {
-    const params = AppGlobal.getQueryParamsOnce();
-    setState({ ...state, idToOpen: params.get('open')});
+    const params = AppGlobal.getQueryParams();
+    setState({ ...state, idToOpen: params.get("open") });
   });
 
   useEffect(() => {
-    applyPlayStateChange(storageContext, oldState, state);
-  }, [state.playStateChangeCount]);
-
-  useEffect(() => {
-    state.gainNode.gain.value = state.masterGain;
-  }, [state.masterGain]);
-
-  const reducer = new PlayerContextReducer(setState);
-
-  useEffect(() => {
+    const onPlayerStateChange = (ev: CustomEvent<AudioPlayerState>) => {
+      if (ev.detail == "stopped") {
+        reducer.onPlayerStopped();
+      }
+    };
     state.player.addEventListener("statechange", onPlayerStateChange);
     return () => {
       state.player.removeEventListener("statechange", onPlayerStateChange);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const save = () => {
-    const { masterGain } = state;
-    const data = { version: 1, masterGain };
-    localStorage.setItem("88play.playerContext", JSON.stringify(data));
-  };
-
+  const storageContext = useContext(StorageContext);
+  const oldState = usePrevious(state);
   useEffect(() => {
-    save();
-  }, [state.masterGain]);
+    applyPlayStateChange(storageContext, oldState, state, (flag: boolean) => {
+      setState((state) => ({...state, busy: flag}));
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.playStateChangeCount]);
 
-  const onPlayerStateChange = (ev: CustomEvent<AudioPlayerState>) => {
-    if (ev.detail == "stopped") {
-      reducer.onPlayerStopped();
-    }
-  };
+  useExternalSyncEffect(state);
 
   return (
     <PlayerContext.Provider

@@ -6,9 +6,11 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  Typography
+  DialogTitle,
+  Typography,
 } from "@mui/material";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { EditorContext } from "../contexts/EditorContext";
 import { useShare } from "../hooks/use-share";
 import { ShareDialog } from "../views/ShareDialog";
@@ -25,15 +27,35 @@ export function ShareButton() {
   const [progress, setProgress] = useState<number | null | undefined>(
     undefined
   );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [url, setUrl] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   const onClick = async () => {
     setState("inprogress");
     setProgress(null);
-    const res = await share(context.text, setProgress);
-    setProgress(undefined);
-    setUrl("https://f.88play.app/" + res.id);
-    setState("done");
+
+    try {
+      const unresolved = await context.reducer.updateUnresolvedResources(
+        context.text
+      );
+      if (unresolved.length > 0) {
+        throw new Error(
+          t("share.unresolvedMessage", { file: unresolved[0].name, tag: unresolved[0].type })!
+        );
+      }
+      const res = await share(context.text, setProgress);
+      setProgress(undefined);
+      setUrl("https://f.88play.app/" + res.id);
+      setState("done");
+    } catch (e) {
+      if (e instanceof Error) {
+        setErrorMessage(e.message);
+      } else {
+        setErrorMessage("Unknown Error");
+      }
+      setState("error");
+    }
   };
 
   return (
@@ -51,6 +73,7 @@ export function ShareButton() {
       <ProgressDialog open={state == "inprogress"} progress={progress} />
       <ErrorDialog
         open={state == "error"}
+        message={errorMessage}
         onClose={() => setState("initial")}
       />
     </>
@@ -78,11 +101,16 @@ function ProgressDialog(props: { open: boolean; progress?: number | null }) {
   );
 }
 
-function ErrorDialog(props: { open: boolean; onClose?: () => void }) {
+function ErrorDialog(props: {
+  open: boolean;
+  message?: string | null;
+  onClose?: () => void;
+}) {
   return (
     <Dialog open={props.open}>
+      <DialogTitle>Error</DialogTitle>
       <DialogContent>
-        <DialogContentText>Error</DialogContentText>
+        <DialogContentText>{props.message ?? "Error"}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.onClose}>Ok</Button>

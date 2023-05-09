@@ -7,14 +7,12 @@ import {
   ThemeProvider,
   Toolbar,
   Typography,
-  createTheme,
-  useMediaQuery,
-  Theme,
+  createTheme
 } from "@mui/material";
 
 import { PlayControl } from "./views/PlayerControl";
 
-import { brown, teal } from "@mui/material/colors";
+import { brown } from "@mui/material/colors";
 
 import { EditorView } from "./views/EditorView.js";
 import { ResourceAlert } from "./views/ResourceAlert.js";
@@ -30,9 +28,11 @@ import {
 import "dockview/dist/styles/dockview.css";
 import { useTranslation } from "react-i18next";
 import packageJson from "../package.json";
+import ghlogo from "./assets/github-mark-white.svg";
+import { GlobalProgress } from "./views/GlobalProgress.js";
+import { ReadyToPlayDialog } from "./views/ReadyToPlayDialog.js";
 import { AppToolBar } from "./widgets/AppToolBar.js";
 import { VolumeControl } from "./widgets/VolumeControl.js";
-import { ReadyToPlayDialog } from "./views/ReadyToPlayDialog.js";
 
 const theme = createTheme({
   palette: {
@@ -41,7 +41,7 @@ const theme = createTheme({
       main: brown[300],
     },
     secondary: {
-      main: teal["A700"],
+      main: brown["500"],
     },
     text: {
       primary: brown[100],
@@ -69,6 +69,7 @@ export function App() {
       <CssBaseline />
       <AppRoot />
       <ReadyToPlayDialog />
+      <GlobalProgress />
     </ThemeProvider>
   );
 }
@@ -97,8 +98,6 @@ export function AppRoot() {
     });
   };
 
-  const isXs = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
-
   return (
     <Box
       sx={{
@@ -115,19 +114,7 @@ export function AppRoot() {
         <Toolbar variant="dense">
           <Nightlife sx={{ mr: 0.25 }} />
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            88play&nbsp;
-            {!isXs ? (
-              <Typography variant="caption">
-                powered by{" "}
-                <Link
-                  underline="hover"
-                  href="https://github.com/onitama/mucom88"
-                  target="_blank"
-                >
-                  OPEN MUCOM88
-                </Link>
-              </Typography>
-            ) : null}
+            88play
           </Typography>
           <Box sx={{ width: 128 }}>
             <VolumeControl />
@@ -172,7 +159,26 @@ export function AppRoot() {
           }}
         >
           <Typography variant="caption">
-            88play v{packageJson.version}
+            <img src={ghlogo} width={10} height={10} />
+            &nbsp;
+            <Link
+              target="_blank"
+              underline="hover"
+              href="https://github.com/digital-sound-antiques/88play"
+            >
+              88play v{packageJson.version}
+            </Link>
+          </Typography>
+          <Typography variant="caption">
+            powered by&nbsp;
+            <Link
+              href="https://github.com/onitama/mucom88"
+              target="_blank"
+              underline="hover"
+              variant="caption"
+            >
+              Open Mucom88
+            </Link>
           </Typography>
           <Link
             href={t("urls.mmlReference")!}
