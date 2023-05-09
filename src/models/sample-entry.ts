@@ -36,6 +36,13 @@ export const sampleSections: SampleSection[] = [
         copyright: "J & Brezza",
         files: ["grider.muc", "voice.dat"],
       },
+      {
+        id: "tiny",
+        title: "FM + ADPCM Sample",
+        copyright: "Digital Sound Antiques",
+        license: "MIT License",
+        files: ["tiny.muc", "voice.dat", "mucompcm.bin"],
+      },
     ],
   },
   {

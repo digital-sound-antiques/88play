@@ -1,0 +1,42 @@
+;#name tiny.muc
+;#hash voice.dat 8b920725be4e41c1e50005dddbdd8822
+;#hash mucompcm.bin db66206edef7a3cbff79a72576d23aa6
+#mucom88 1.7
+#driver mucom88
+#title 88play Tiny Sample
+#composer DSA
+#author DSA
+#voice voice.dat
+#pcm mucompcm.bin
+
+A C192T120 L
+H C192T120 L
+I C192T120 L
+J C192T120 L
+G C192T120 L
+K C192T120 L
+
+A @151v14l16q6o3q0
+A [ e8>e<e>>d<q2eq6d>e<<d>e<q2dq6db>>c&d<<e  ]4  
+A [ d8>d<d>>c<q2dq6c>d<<c>d<q2cq6ca>a+&>c<<d ]2
+A [ e8>e<e>>d<q2eq6d>e<<d>e<q2dq6db>>c&d<<e  ]2   
+
+H @22v13o5l16q2p1
+I @22v13o5l16q2p2
+J @22v13o5l16q2p3
+H [b8rb8rb8rb8rbr>c8<]2 br2r4r8. r2r2
+I [g8rg8rg8rg8rgrg8 ]2  gr2r4r8. r2r2
+J [e8re8re8re8rerd+8]2  er2r4r8. r2r2
+H [a8ra8ra8ra8rara+8]2  br2r4r8. r2r2
+I [f8rf8rf8rf8rfrf+8]2  gr2r4r8. r2r2
+J [d8rd8rd8rd8rdrd+8]2  dr2r4r8. r2r2
+
+G v63,31,31,11,21,31,31
+G l16
+G [@4c@8ccr8cc@4c8@8cc / @1c8cc]4 @4c8c8
+
+K v80o1l16
+K [
+K [@1c8r8@2c8rc@1c@2crr / @2c8rr]4 / @2cccc
+K ]2
+K @1c@7ccc
