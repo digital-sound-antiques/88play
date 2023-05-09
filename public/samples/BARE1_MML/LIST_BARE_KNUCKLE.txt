@@ -1,5 +1,0 @@
-1. Fighting in the Street	stk004.muc
-2. Attack the Barbarian		stk013.muc
-3. Stealthy Steps		stk020.muc
-4. The Street of Rage		stk023.muc
-5. Moon Beach			stk027.muc

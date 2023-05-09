@@ -1,4 +1,0 @@
-1.  Filmoa			gh002.muc
-2.  Blood Pool ~ Casandora	gh011.muc
-3. Sacrifices			gh029.muc
-4. Space Fight			stg001.muc

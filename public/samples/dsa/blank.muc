@@ -1,0 +1,13 @@
+;#hash voice.dat 8b920725be4e41c1e50005dddbdd8822
+;#hash mucompcm.bin db66206edef7a3cbff79a72576d23aa6
+;#name blank.muc
+#mucom88 1.7
+#driver mucom88
+#title 88play MML Template
+#composer Unknown
+#author Unknown
+#voice voice.dat
+#pcm mucompcm.bin
+#comment No comment
+
+A C192T150 @9v10l4o4q2 cdefgab>c2

@@ -29,21 +29,23 @@ async function loadAsset(url: string): Promise<Uint8Array> {
   return new Uint8Array(await res.arrayBuffer());
 }
 
-
 class Fader {
   durationInFrame = 0;
   fadeDurationInFrame = 0;
   fadeStartFrame: number | null = null;
+  fadeOnLoop = false;
 
   updateFadeState(currentFrame: number, mucom: Mucom88) {
     if (this.fadeStartFrame == null) {
       if (currentFrame >= this.durationInFrame - this.fadeDurationInFrame) {
         this.fadeStartFrame = currentFrame;
       }
-      const maxCount = mucom.getStatus(MucomStatusType.MAXCOUNT);
-      const curCount = mucom.getStatus(MucomStatusType.INTCOUNT);
-      if (maxCount * 2 <= curCount) {
-        this.fadeStartFrame = currentFrame;
+      if (this.fadeOnLoop) {
+        const maxCount = mucom.getStatus(MucomStatusType.MAXCOUNT);
+        const curCount = mucom.getStatus(MucomStatusType.INTCOUNT);
+        if (maxCount * 2 <= curCount) {
+          this.fadeStartFrame = currentFrame;
+        }
       }
     }
   }
@@ -53,7 +55,10 @@ class Fader {
       const elapsed = currentFrame - this.fadeStartFrame;
       return Math.min(
         1.0,
-        Math.max(0, (this.fadeDurationInFrame - elapsed) / this.fadeDurationInFrame)
+        Math.max(
+          0,
+          (this.fadeDurationInFrame - elapsed) / this.fadeDurationInFrame
+        )
       );
     }
     return 1.0;
@@ -74,7 +79,7 @@ class MucomDecoderWorker extends AudioDecoderWorker {
 
   private _fader = new Fader();
 
-  async init(_: any): Promise<void> {
+  async init(_: unknown): Promise<void> {
     console.log("MucomDecoderWorker.init");
     await Mucom88.initialize();
     Mucom88.FS.writeFile("/2608_BD.WAV", await loadAsset(bd));
@@ -83,6 +88,15 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     Mucom88.FS.writeFile("/2608_RIM.WAV", await loadAsset(rim));
     Mucom88.FS.writeFile("/2608_TOM.WAV", await loadAsset(tom));
     Mucom88.FS.writeFile("/2608_TOP.WAV", await loadAsset(top));
+  }
+
+  getTimeTagValue(mml: string): number | null {
+    const m = mml.match(/^#time\s+([0-9]+).*$/m);
+    if (m != null) {
+      console.log(`#time ${m[1]} found.`);
+      return parseInt(m[1]);
+    }
+    return null;
   }
 
   async start(args: MucomDecoderStartOptions): Promise<void> {
@@ -97,8 +111,21 @@ class MucomDecoderWorker extends AudioDecoderWorker {
 
     this._decodeFrames = 0;
 
-    this._fader.durationInFrame = Math.floor((this.sampleRate * this._duration) / 1000);
-    this._fader.fadeDurationInFrame = Math.floor((this.sampleRate * this._fadeDuration) / 1000);
+    const timeTagValue = this.getTimeTagValue(args.mml);
+
+    if (timeTagValue != null) {
+      this._duration = Math.min(60 * 20 * 1000, timeTagValue * 1000);
+      this._fader.fadeOnLoop = false;
+    } else {
+      this._fader.fadeOnLoop = true;
+    }
+
+    this._fader.durationInFrame = Math.floor(
+      (this.sampleRate * this._duration) / 1000
+    );
+    this._fader.fadeDurationInFrame = Math.floor(
+      (this.sampleRate * this._fadeDuration) / 1000
+    );
     this._fader.fadeStartFrame = null;
 
     this._mucom.reset(this.sampleRate);
@@ -110,24 +137,28 @@ class MucomDecoderWorker extends AudioDecoderWorker {
   }
 
   async process(): Promise<Array<Int16Array> | null> {
+    if (this._mucom == null) {
+      return null;
+    }
+
     const currentTimeInMs = (this._decodeFrames / this.sampleRate) * 1000;
     if (this._duration + this._fadeDuration < currentTimeInMs) {
       return null;
     }
 
-    this._fader.updateFadeState(this._decodeFrames, this._mucom!);
+    this._fader.updateFadeState(this._decodeFrames, this._mucom);
     if (this._fader.getValue(this._decodeFrames) == 0.0) {
       return null;
     }
 
     const lch = new Int16Array(this.sampleRate);
     const rch = new Int16Array(this.sampleRate);
-    const buf = this._mucom!.render(this.sampleRate);
+    const buf = this._mucom.render(this.sampleRate);
 
     for (let i = 0; i < this.sampleRate; i++) {
       const fade = this._fader.getValue(this._decodeFrames++);
-      lch[i] = Math.round(fade * buf[i * 2] >> 1);
-      rch[i] = Math.round(fade * buf[i * 2 + 1] >> 1);
+      lch[i] = Math.round((fade * buf[i * 2]) >> 1);
+      rch[i] = Math.round((fade * buf[i * 2 + 1]) >> 1);
     }
 
     return [lch, rch];
@@ -148,5 +179,5 @@ class MucomDecoderWorker extends AudioDecoderWorker {
 console.log("mucom-decoder-worker");
 
 /* `self as any` is workaround. See: [issue#20595](https://github.com/microsoft/TypeScript/issues/20595) */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 new MucomDecoderWorker(self as any);
-

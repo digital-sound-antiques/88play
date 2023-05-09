@@ -1,9 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState
-} from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AudioPlayerState } from "webaudio-stream-player";
 import { useEffectOnce } from "../hooks/use-effect-once";
 import { MucomDecoderAttachment } from "../mucom/mucom-decoder-worker";
@@ -16,6 +11,7 @@ import { MMLResourceMap } from "./EditorContext";
 import { getResourceMap } from "./EditorContextReducer";
 import { PlayerContextReducer } from "./PlayerContextReducer";
 import { StorageContext, StorageContextState } from "./StorageContext";
+import { ConsoleContext, ConsoleContextState } from "./ConsoleContext";
 
 export type PlayItem = {
   title?: string | null;
@@ -140,6 +136,7 @@ async function prepareAttachments(
 }
 
 async function applyPlayStateChange(
+  consoleContext: ConsoleContextState,
   storageContext: StorageContextState,
   oldState: PlayerContextState | null,
   state: PlayerContextState,
@@ -151,7 +148,22 @@ async function applyPlayStateChange(
     setBusy(true);
     try {
       const attachments = await prepareAttachments(rmap, storageContext);
-      await state.player.play({ mml, attachments, duration, fadeDuration });
+      const res = await Promise.race<Error | void>([
+        state.player.play({ mml, attachments, duration, fadeDuration }),
+        new Promise<Error>((resolve) =>
+          setTimeout(
+            resolve,
+            2000,
+            new Error(
+              "Fatal Error: MUCOM88 compiler has hung up. Might be a bug of compiler?"
+            )
+          )
+        ),
+      ]);
+      if (res instanceof Error) {
+        await state.player.emergencyReset();
+        consoleContext.log(res.message);
+      }
     } finally {
       setBusy(false);
     }
@@ -218,12 +230,19 @@ export function PlayerContextProvider(props: React.PropsWithChildren) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const consoleContext = useContext(ConsoleContext);
   const storageContext = useContext(StorageContext);
   const oldState = usePrevious(state);
   useEffect(() => {
-    applyPlayStateChange(storageContext, oldState, state, (flag: boolean) => {
-      setState((state) => ({...state, busy: flag}));
-    });
+    applyPlayStateChange(
+      consoleContext,
+      storageContext,
+      oldState,
+      state,
+      (flag: boolean) => {
+        setState((state) => ({ ...state, busy: flag }));
+      }
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.playStateChangeCount]);
 

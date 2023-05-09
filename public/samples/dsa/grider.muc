@@ -1,0 +1,216 @@
+;#name grider.muc
+;#hash voice.dat 8b920725be4e41c1e50005dddbdd8822
+#mucom88 1.7
+#driver mucom88
+#title Gun Rider 88
+#composer J
+#author Brezza
+#voice voice.dat
+#date 2023/05/09
+#comment ported from grider.mgs
+
+A C192T165 r1
+B C192T165 r1 r32
+C C192T165 r1
+D C192T165 r1
+E C192T165 r1
+F C192T165 r1
+G C192T165 l16v63,31,31,21,21,31,31 
+G @8c4c4c8@1cc@10c@8c@4c8
+
+A L @9v13o4l16
+B L p1@9v10o4l16D1
+C L @151v13q1o3
+D L @1v14o5l16q0
+E L @1v14o5l16q0
+F L @1v14o5l16q0
+G L
+
+; 3,4
+A a4r8g2^8&g1 
+B a4r8g2^8&g1
+C l16 a8.a8.a8.>e<a8.>a<a8 a8.a8.a8 a>e<a8a>ac<b
+D a4(3a8)3g2^8&g1
+E e4(3e8)3e2^8&e1 
+F c4(3c8)3c2^8&c1
+G @5c8.@1b@6c8@1b8@4c8@1b8@6c8@1b8 @5c8.@1b@6c8@1b8@4c8@1b8@6c8.@1b 
+
+; 5,6
+A g4r8f+2^8^2 f4g4 
+B g4r8f+2^8^2 f4g4 
+C l16 a8.a8.a8.>e<a8.>a<a8 a8a>a8<a8af>cg8<g>g<b>c<
+D g4(3g8)3f+2^8^2 f8.(3f)3 g8.(3g)3 
+E d4(3d8)3d2^8^2  c8.(3c)3 d8.(3d)3 
+F a4(3a8)3a2^8^2  a8.(3a)3 b8.(3b)3 
+G @5c8.@1b@6c8@1b8@4c8@1b8@6c8@1b8 @5c8.@1b@7c8@1b8@6c@2b8.@6c8.@1b 
+
+;7,8
+A a4r8g2^8&g1 
+B a4r8g2^8&g1 
+C l16 a8.a8.a8.>e<a8.>a<a8 a8.a8.a8 a>e<a8a>ac<b
+D a4(3a8)3g2^8&g1 
+E e4(3e8)3e2^8&e1 
+F c4(3c8)3c2^8&c1 
+G @9b8@8c@9c@6c8@9b@8ccc@5c8@10c8@9b@1b @9b8@8c@9b@6c8@9b@8ccc@5b8@10c8@8c@9c 
+
+;9,10,11
+A g4r8f+2 a+8&a+1&a+1
+B g4r8f+2 a+8&a+1&a+1
+C l16 a8.a8.a8.>e<a8.>a<a+8&a+1&a+1
+D  g4(3g8)3f+2 a+8&a+1&a+1 
+E  d4(3d8)3d2  g8& g1& g1 
+F <a4(3a8)3a2> d+8&d+1&d+1 
+G @5c8@8c@9c @10c8@9c@10c @8c@10c@5c8 @10c8@8cc @9c@8cc @8c@9b8@8cc 
+G @9c@8c@4c8 @9c@8c@4c8 @5c8@8c@10c @5c@16c@24cc @6c@16c@24c@5c @2c@10c@6c@10c
+
+;12,13
+A v13@102o4q2
+B v11@102o4q2
+D @1o5
+E @1o5
+F @1o5 
+
+A l16 a1&a8b.(3a32)3>c.(3<b32>)3d.(3c32)3e.(3d32)3c.(3e32)3e.(3c32)3g.(3e32)3 
+B l16 a1&a8b.(3a32)3>c.(3<b32>)3d.(3c32)3e.(3d32)3c.(3e32)3e.(3c32)3g.(3e32)3 
+C a8a8>a8.<aa8>de<aa>c<b a8a8>a8<aaf>c8c<g>d8d<
+D  r4a8r8 g4r8 f+8^4 f+4f4f8g8 
+E  r4e8r8 d4r8 d8^4  d4c4c8d8 
+F <r4a8r8>c4r8<a8^4  a4a4a8a8 
+G [@9c8@8c@9c @6c8@9c@8c @8cc@5c8 @10c8@9c@8c]2 
+
+;14,15
+A f+^4(3g)3 d^4(3f+)3 e4^1< 
+B f+^4(3g)3 d^4(3f+)3 e4^1< 
+C a8a8>a8.<aa8>de<aa>c<b a8>a8<a>g8<a>f+8da8gf+d<
+D r4a8r8g4r8f+8^4f+4q6f8q8g4. 
+E r4e8r8d4r8d8^4d4c8d4. 
+F r4a8r8>c4r8<a8^4a4q6a8q8b4. 
+G [@9c8@8c@9c @6c8@9c@8c / @8cc@5c8 @10c8@9c@8c]2 @4c8@9c@4c @10c@6c@10cc
+
+;16,17
+A l16 a1&a8b.(3a32)3>c.(3<b32>)3d.(3c32)3e.(3d32)3c.(3e32)3e.(3c32)3g.(3e32)3 
+B l16 a1&a8b.(3a32)3>c.(3<b32>)3d.(3c32)3e.(3d32)3c.(3e32)3e.(3c32)3g.(3e32)3 
+C a8a8>a8.<aa8>de<aa>c<b a8a8>a8<aaf>c8c<g>d8d<
+D r4a8r8g4r8f+8^4f+4f4f8g8 
+E r4e8r8d4r8d8^4d4c4c8d8 
+F r4a8r8>c4r8<a8^4a4a4a8a8 
+G [@9c8@8c@9c @6c8@9c@8c @8cc@5c8 @10c8@9c@8c]2 
+
+;18,19
+A f+^4(3g)3d^4(3f+)3 a8^8^1 
+B f+^4(3g)3d^4(3f+)3 a8^8^1 
+C d8>d<d8d>cd<d>a8<d>c<d>d8 <d8>d<e8>e8<ef>f8<g8>dga<
+D r4f+8r8d4r8a8&a1 
+E r4d8r8<a4r8>f+8&f+1 
+F r4a8r8f+4r8>d8&d1 
+G @5c8@8c@9c @10c8@9c@8c cc@5c8 @10c8@9c@8c @5c8@8c@9c @6c8@9c@8c @4c8@9c@8c @6c@16c@24cc
+
+;20,21
+A f1^8<a.(3f32)3>c.(3<a32>)3f.(3c32)3a.(3f32)3f.(3a32)3a.(3f32)3>c.<(3a32)3 
+B f1^8<a.(3f32)3>c.(3<a32>)3f.(3c32)3a.(3f32)3f.(3a32)3a.(3f32)3>c.<(3a32)3 
+C f8f8>f8.<ff>c<f8f>f<f8 f8f8>f8.<f f>c<f8f>f<fg
+
+D @1 
+E @1
+F @1
+D l4 f.c.<a f.a.>c 
+E l4 c.<a.f c.f.a> 
+F l4<a.f.c <a.>c.f> 
+G [ @5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @10c8cc
+
+;22,23
+A b^4(3a)3g^4(3b)3d4^1 
+B b^4(3a)3g^4(3b)3d4^1 
+C e8e8b8.eebe8e>e<e8 e8e8b8.e ebe8ebfe
+D g.d.<b g.b.>d 
+E d.<b.g d.g.b> 
+F b.g.d <b.>d.g 
+G [ @5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @24c@16c@24cc
+
+;24,25
+A f1^8<a.(3f32)3>c.(3<a32>)3f.(3c32)3a.(3f32)3f.(3a32)3c.(3f32)3a.(3c32)3 
+B f1^8<a.(3f32)3>c.(3<a32>)3f.(3c32)3a.(3f32)3f.(3a32)3c.(3f32)3a.(3c32)3 
+C f8f8>f8.<ff>c<f8f>f<f8 f8f8>f8.<f f>c<f8f>f<fg
+D l4 f.c.<a f.a.>c 
+E l4 c.<a.f c.f.a> 
+F l4<a.f.c <a.>c.f> 
+G [@5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @10c8cc
+
+;26 27
+A e^4(3a)3f+^4(3e)3g+4(3f+)3r g+8.(3g+)3a8.(3g+)3b8.(3a)3 o6 )e8^1^16. 
+B e^4(3a)3f+^4(3e)3g+4(3f+)3r g+8.(3g+)3a8.(3g+)3b8.(3a)3 o6 )e8^1^16. 
+C e8e8b8.e ebe8e>e<e8 e8bf+8>ef+<f+ g+>g+8<a8>e<b>b<
+D e.e.e    e8ef+g+. 
+E <b.b.b    b8b>de. 
+F g+.g+.g+ g+8g+ab. 
+G @6c8@1c8 c8@6c8 @1c8c8 @6c8@1c8 @6c8@1c8 @2c8@5c8@2c@16c@20c@16c@2cccc
+
+;28,29
+A l16 dc.d.c<b>c. <b32aba32g32a32gf32e32d32e32 
+B l16 dc.d.c<b>c. <b32aba32g32a32gf32e32d32e32 
+C a8a8>a8.<a a>e<a8a>a<a8 a8a8>a8.<a a>e<a8a>acb<
+D @1v14o5l16 
+E @1v14o5l16
+F @1v14o5l16
+D  r4a8(3a8)3r8g4 f+8^1 
+E  r4e8(3e8)3r8e4 d8^1 
+F <r4c8(3c8)3r8c4<a8^1>> 
+G [@5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @10c8cc
+
+;30,31
+A l16 d1& (2 d6d6d6 d8.c8.<b8> )
+B l16 d1& (2 d6d6d6 d8.c8.<b8> ) 
+C a8a8>a8.<aa>e<a8a>a<a8 a8>a<b8>b8<b>c>c8<d8>cd<d <
+D r4a8.(3a)3r8g4f+8 )>d4c8<b8>c12<b12a12g8g+8(
+E r4e8.(3e)3r8e4d8^1 
+F r4c8.(3c)3r8c4<a8^1> 
+G [@5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @24c@16c@24cc
+
+;32,33
+A l16 c1^4 c8.<b8.>c8. d8e& 
+B l16 c1^4 c8.<b8.>c8. d8e& 
+C a8a8>a8.<a a>e<a8a>a<a8 a8a8>a8.<a a>e<a8a>acb<
+D r4a8.(3a)3r8g4f+8 > d2c2 < 
+E r4e8.(3e)3r8e4d8^1 
+F r4c8.(3c)3r8c4<a8^1> 
+G [@5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @10c8cc
+
+;34, 35
+A e1^8 g8 ) l12 eae be>c< e>d<e 
+B e1^8 g8 ) l12 eae be>c< e>d<e 
+C a8a8>a8.<a a>e<a8a>a<a8 > ef+dd8d>cd<d>a8<dd>cd<d <
+D r4a8.(3a)3r8g4f+8 > d4c8<b8>c12<b12a12g8g+8 
+E r4e8.(3e)3r8e4d8^1 
+F r4c8.(3c)3r8c4<a8^1> 
+G [@5c8@8cc @10c8@8c@9c @8c@10c@5c8 / @10c8@8c@9c]2 @10c8cc
+
+;36, 37
+A o5@9l16 q0
+B o5@9l16 q0
+A d+&e4..e8(3e)3d8(3e)3c(3d)3 g^4(3c)3d^4(3g)3e(3d)3c8& 
+B d+&e4..e8(3e)3d8(3e)3c(3d)3 g^4(3c)3d^4(3g)3e(3d)3c8& 
+C f4>c8.<ff>c<f8f>ef<f g8g8>g8.<gg>g<g8g>g<fe
+D f2.f8g8^1 
+E c2.c8d8^1 
+F <a2.a8b8^1> 
+G [ @5c4 @6c8.@1c @4c@2c@1c8 / @6c8.@1c ]2 @6c8@2cc
+
+;38, 39
+A c2 c8(3c)3d8(3c)3c(3d)3 < b8(3>c<)3 g8(3b)3d(3g)3 <b8(3>d<)3>d8(3b)3g(3d)3 
+B c2 c8(3c)3d8(3c)3c(3d)3 < b8(3>c<)3 g8(3b)3d(3g)3 <b8(3>d<)3>d8(3b)3g(3d)3 
+C f4>c8.<ff>c<f8f>ef<f  g8g>d8<g8g>b>c8<b8gd<b
+D  f2.f8g8^1 
+E  c2.c8d8^1 
+F <a2.a8b8^1> 
+G [ @5c4 @6c8.@1c @4c@2c@1c8 / @6c8.@1c ]2 @6c8@2cc
+
+;40, 41, 42, 43
+A a2a8(3a)3b8(3a)3>c(3<b>)3 <b2b8.(3b)3a12b12>c12 d2.^8c+d e1 
+B a2a8(3a)3b8(3a)3>c(3<b>)3 <b2b8.(3b)3a12b12>c12 d2.^8c+d e1 
+C f4>c8.<ff>c<f8f>ef<f g8g8>g8.<g fg>cdfg8d <
+C a8a>e8<a8aa>e<a8a>a<a8 >a8<aa>a<a8a >a8<a>a8a<aa
+D f2.f8g8^2 b4.a8&a1&a1 
+E c2.c8d8^2 g4.e8&e1&e1 
+F <a2.a8b8^2>d4.c+8&c+1&c+1> 
+G [ @5c4 @6c8.@1c @4c@2c@1c8 / @6c8.@1c ]2 @6c8@2cc
+G [ @5c4 @6c8.@1c / @4c@2c@1c8 @6c8.@1c ]2 @5c@2c@16cc @22c@16c@18cc

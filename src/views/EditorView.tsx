@@ -1,7 +1,10 @@
 import { Box, SxProps, Theme } from "@mui/material";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import AceEditor from "react-ace";
+import { Ace } from "ace-builds/ace";
+import "ace-builds/src-min-noconflict/ext-searchbox";
 import "../ace/mode-mucom.js";
+import { ConsoleContext } from "../contexts/ConsoleContext.js";
 import { EditorContext } from "../contexts/EditorContext";
 import { EditorSettingsContext } from "../contexts/EditorSettingContext.js";
 import { FileDropContext } from "../contexts/FileDropContext";
@@ -12,6 +15,7 @@ type EditorViewProps = {
 
 export function EditorView(props: EditorViewProps) {
   const context = useContext(EditorContext);
+  const console = useContext(ConsoleContext);
   const settings = useContext(EditorSettingsContext);
 
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -20,8 +24,8 @@ export function EditorView(props: EditorViewProps) {
 
   const onResize = () => {
     if (boxRef.current != null) {
-      const width = boxRef.current!.clientWidth;
-      const height = boxRef.current!.clientHeight;
+      const width = boxRef.current?.clientWidth ?? 0;
+      const height = boxRef.current?.clientHeight ?? 0;
       setSize({
         width,
         height,
@@ -29,10 +33,28 @@ export function EditorView(props: EditorViewProps) {
     }
   };
 
+  const annotations: Ace.Annotation[] = useMemo(() => {
+    const res: Ace.Annotation[] = [];
+    for (const line of console.incomingLines) {
+      const m = line.match(/#error.*in\s*line\s*([0-9]+)/);
+      if (m != null) {
+        res.push({
+          row: parseInt(m[1]) - 1,
+          column: 0,
+          text: "Syntax Error",
+          type: "error",
+        });
+      }
+    }
+    return res;
+  }, [console.incomingLines]);
+
   const resizeObserver = new ResizeObserver(onResize);
 
   useEffect(() => {
-    resizeObserver.observe(boxRef.current!);
+    if (boxRef.current != null) {
+      resizeObserver.observe(boxRef.current);
+    }
     return () => {
       resizeObserver.disconnect();
     };
@@ -56,18 +78,22 @@ export function EditorView(props: EditorViewProps) {
       >
         <AceEditor
           ref={aceRef}
+          annotations={annotations}
           theme="mucom"
           value={context.text}
           fontSize={settings.fontSize}
           wrapEnabled={settings.wrap}
           mode="mucom"
           onChange={context.reducer.onChangeText}
-          name="mml"
+          name="mml_editor"
           editorProps={{ $blockScrolling: true }}
           style={{
             position: "relative",
             width: size.width + "px",
             height: size.height + "px",
+          }}
+          setOptions={{
+            indentedSoftWrap: false,
           }}
         />
       </FileDropContext>

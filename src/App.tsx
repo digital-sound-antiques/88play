@@ -169,17 +169,6 @@ export function AppRoot() {
               88play v{packageJson.version}
             </Link>
           </Typography>
-          <Typography variant="caption">
-            powered by&nbsp;
-            <Link
-              href="https://github.com/onitama/mucom88"
-              target="_blank"
-              underline="hover"
-              variant="caption"
-            >
-              Open Mucom88
-            </Link>
-          </Typography>
           <Link
             href={t("urls.mmlReference")!}
             target="_blank"

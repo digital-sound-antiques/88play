@@ -25,7 +25,7 @@
     "react-dom": "^18.2.0",
     "react-file-drop": "^3.1.6",
     "react-i18next": "^12.2.2",
-    "webaudio-stream-player": "^1.0.1"
+    "webaudio-stream-player": "^1.0.2"
   },
   "devDependencies": {
     "@types/i18next-browser-languagedetector": "^3.0.0",

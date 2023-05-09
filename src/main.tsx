@@ -6,10 +6,10 @@ import "@fontsource/roboto/700.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
-import "./index.css";
-import { PlayerContextProvider } from "./contexts/PlayerContext";
-import { EditorContextProvider } from "./contexts/EditorContext";
 import { ConsoleContextProvider } from "./contexts/ConsoleContext";
+import { EditorContextProvider } from "./contexts/EditorContext";
+import { PlayerContextProvider } from "./contexts/PlayerContext";
+import "./index.css";
 
 const banner = ` █████╗  █████╗ ██████╗ ██╗      █████╗ ██╗   ██╗
 ██╔══██╗██╔══██╗██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝
@@ -19,22 +19,22 @@ const banner = ` █████╗  █████╗ ██████╗ �
  ╚════╝  ╚════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝ 
 PC-8801 FM/SSG emulator, powered by Open Mucom88`;
 
-import "./i18n/i18n";
-import { StorageContextProvider } from "./contexts/StorageContext";
 import { EditorSettingsContextProvider } from "./contexts/EditorSettingContext";
+import { StorageContextProvider } from "./contexts/StorageContext";
+import "./i18n/i18n";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <StorageContextProvider>
-      <EditorSettingsContextProvider>
-        <EditorContextProvider>
-          <PlayerContextProvider>
-            <ConsoleContextProvider banner={banner}>
+    <ConsoleContextProvider banner={banner}>
+      <StorageContextProvider>
+        <EditorSettingsContextProvider>
+          <EditorContextProvider>
+            <PlayerContextProvider>
               <App />
-            </ConsoleContextProvider>
-          </PlayerContextProvider>
-        </EditorContextProvider>
-      </EditorSettingsContextProvider>
-    </StorageContextProvider>
+            </PlayerContextProvider>
+          </EditorContextProvider>
+        </EditorSettingsContextProvider>
+      </StorageContextProvider>
+    </ConsoleContextProvider>
   </React.StrictMode>
 );

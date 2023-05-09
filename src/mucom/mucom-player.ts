@@ -14,7 +14,7 @@ export class MucomPlayer extends AudioPlayer {
       },
       rendererWorkletUrl: workletUrl,
       rendererWorkletName: "renderer",
-      recycleDecoder: true,
+      recycleDecoder: false,
       numberOfChannels: 2,
     });
   }

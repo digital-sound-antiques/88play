@@ -1,20 +1,18 @@
 import {
   CSSProperties,
-  ReactNode,
   useContext,
   useEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 
-import { ConsoleContext } from "../contexts/ConsoleContext";
 import { Divider } from "@mui/material";
-import { Box } from "@mui/system";
 import { brown } from "@mui/material/colors";
+import { Box } from "@mui/system";
+import { ConsoleContext } from "../contexts/ConsoleContext";
 
 function ConsoleLine(props: { text: string }) {
-  const text =
-    props.text == "" ? "\u00A0" : props.text.replaceAll(" ", "\u00A0");
+  const text = props.text == "" ? "\u00A0" : props.text;
 
   const m = text.match(/^(#[a-z0-9]+)(.*)$/i);
   const emColor = "#9f9";
@@ -102,13 +100,13 @@ function Caret() {
 }
 
 type ConsoleState = {
-  lineNodes: ReactNode[];
+  lines: string[];
   linesAdded: number;
   rev: number;
 };
 
 const defaultConsoleState: ConsoleState = {
-  lineNodes: [],
+  lines: [],
   linesAdded: 0,
   rev: 0,
 };
@@ -117,7 +115,7 @@ export function Console(props: { style?: CSSProperties | null }) {
   const context = useContext(ConsoleContext);
   const [state, setState] = useState<ConsoleState>({
     ...defaultConsoleState,
-    lineNodes: context.lines.map((e) => <ConsoleLine text={e} />),
+    lines: context.lines,
     linesAdded: context.lines.length,
     rev: context.rev,
   });
@@ -130,7 +128,7 @@ export function Console(props: { style?: CSSProperties | null }) {
   useEffect(() => {
     const id = setInterval(() => {
       setState((oldState) => {
-        if (oldState.lineNodes.length > oldState.linesAdded) {
+        if (oldState.lines.length > oldState.linesAdded) {
           return {
             ...oldState,
             linesAdded: oldState.linesAdded + 1,
@@ -149,17 +147,14 @@ export function Console(props: { style?: CSSProperties | null }) {
       const incomingLines = context.incomingLines;
       setState({
         ...state,
-        lineNodes: [
-          ...state.lineNodes,
-          ...incomingLines.map((e) => <ConsoleLine text={e} />),
-        ],
+        lines: [...state.lines, ...incomingLines],
       });
     }
   }, [context.rev]);
 
-  const maxLines = 512;
-  const visibleLineNodes = state.lineNodes
-    .slice(Math.max(0, state.lineNodes.length - maxLines), state.linesAdded + 1)
+  const maxLines = 300;
+  const visibleLines = state.lines
+    .slice(Math.max(0, state.lines.length - maxLines), state.linesAdded + 1)
     .reverse();
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -202,7 +197,10 @@ export function Console(props: { style?: CSSProperties | null }) {
               padding: "16px",
             }}
           >
-            {[<Caret key="caret" />, ...visibleLineNodes,]}
+            {[
+              <Caret key="caret" />,
+              ...visibleLines.map((e, i) => <ConsoleLine text={e} key={i} />),
+            ]}
           </div>
         </div>
         <div

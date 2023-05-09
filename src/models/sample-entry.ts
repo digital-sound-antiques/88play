@@ -9,18 +9,40 @@ export type SampleEntry = {
 export type SampleSection = {
   id: string;
   title: string;
-  copyright: string | null;
-  license: string | null;
+  copyright?: string | null;
+  license?: string | null;
   folder: string;
   entries: SampleEntry[];
 };
 
 export const sampleSections: SampleSection[] = [
   {
+    id: "88play",
+    title: "88play Sample",
+    folder: "dsa",
+    copyright: null,
+    license: null,
+    entries: [
+      {
+        id: "blank",
+        title: "Blank MML",
+        copyright: "Digital Sound Antiques",
+        license: "MIT License",
+        files: ["blank.muc", "voice.dat", "mucompcm.bin"],
+      },
+      {
+        id: "grider",
+        title: "Gun Rider",
+        copyright: "J & Brezza",
+        files: ["grider.muc", "voice.dat"],
+      },
+    ],
+  },
+  {
     id: "mucom88",
     title: "MUCOM88 (MUSIC LALF)",
     folder: "mucom88",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -44,7 +66,7 @@ export const sampleSections: SampleSection[] = [
     id: "actraiser",
     title: "Actraiser",
     folder: "ACTRAISER_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -73,7 +95,7 @@ export const sampleSections: SampleSection[] = [
     id: "algarna",
     title: "Algarna",
     folder: "ALGARNA_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -102,7 +124,7 @@ export const sampleSections: SampleSection[] = [
     id: "bare1",
     title: "Bare Knuckle",
     folder: "BARE1_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -136,7 +158,7 @@ export const sampleSections: SampleSection[] = [
     id: "bare2",
     title: "Bare Knuckle 2",
     folder: "BARE2_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -180,7 +202,7 @@ export const sampleSections: SampleSection[] = [
     id: "bosconian",
     title: "Bosconian",
     folder: "BOSCONIAN_YK2_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -199,7 +221,7 @@ export const sampleSections: SampleSection[] = [
     id: "etrian",
     title: "Etrian Odyssey",
     folder: "Etrian_Odyssey",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -233,7 +255,7 @@ export const sampleSections: SampleSection[] = [
     id: "misty",
     title: "MISTY BLUE",
     folder: "MISTY_BLUE_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -262,7 +284,7 @@ export const sampleSections: SampleSection[] = [
     id: "slap",
     title: "Slap Fight (MD)",
     folder: "SLAP_FIGHT_MD_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -286,7 +308,7 @@ export const sampleSections: SampleSection[] = [
     id: "scheme",
     title: "The Scheme",
     folder: "THE_SCHEME_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {
@@ -335,7 +357,7 @@ export const sampleSections: SampleSection[] = [
     id: "shinobi",
     title: "The Super Shinobi",
     folder: "THE_SUPER_SHINOBI_MML",
-    copyright: "Yuzo Koshiro",
+    copyright: "Yuzo Koshiro 2018",
     license: "CC BY-NC-ND 4.0",
     entries: [
       {

@@ -143,7 +143,6 @@ export class EditorContextReducer {
       this.storage!,
       resourceMap
     );
-    console.log(unresolvedResources);
     this.setState((state) => ({ ...state, resourceMap, unresolvedResources }));
     return unresolvedResources;
   };
@@ -238,7 +237,7 @@ export function embedHashTag(mml: string, rmap: MMLResourceMap): string {
     }
   }
 
-  if (/^;?#88play/.test(lines[0])) {
+  if (/^;?#name/.test(lines[0])) {
     res.push(lines.shift());
     res.push(...refs);
   } else {

@@ -5,12 +5,14 @@ export interface ConsoleContextState {
   lines: string[];
   incomingLines: string[];
   rev: number;
+  log: (message:string) => void;
 }
 
 const defaultContextState: ConsoleContextState = {
   lines: [],
   incomingLines: [],
   rev: 0,
+  log: () => { /* noop */ },
 };
 
 export const ConsoleContext = createContext(defaultContextState);
@@ -27,6 +29,7 @@ export function ConsoleContextProvider(
   const processIncomingMessage = (message: string) => {
     const incomingLines = message.split("\n");
     setState((state) => ({
+      ...state,
       lines: [...state.lines, ...incomingLines],
       incomingLines,
       rev: state.rev + 1,
@@ -46,8 +49,18 @@ export function ConsoleContextProvider(
     };
   }, []);
 
+  const log = (message: string) => {
+    const incomingLines = message.split("\n");
+    setState((state) => ({
+      ...state,
+      lines: [...state.lines, ...incomingLines],
+      incomingLines,
+      rev: state.rev + 1,
+    }));
+  };
+
   return (
-    <ConsoleContext.Provider value={state}>
+    <ConsoleContext.Provider value={{...state, log}}>
       {props.children}
     </ConsoleContext.Provider>
   );

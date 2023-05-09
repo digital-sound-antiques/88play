@@ -43,23 +43,29 @@ export function SampleDialog(props: { open: boolean; onClose?: () => void }) {
     return (
       <Box key={index}>
         <ListSubheader>{section.title}</ListSubheader>
-        {section.entries.map((e) => (
-          <ListItem key={e.id} disablePadding>
-            <ListItemButton onClick={() => onClickItem(e, section)}>
-              <ListItemIcon>
-                <MusicNote color="primary" />
-              </ListItemIcon>
-              <ListItemText
-                primary={e.title}
-                secondary={
-                  <Typography variant="caption">
-                    Copyright (c) {e.copyright ?? section.copyright}.
-                  </Typography>
-                }
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {section.entries.map((e) => {
+          const copyright = e.copyright ?? section.copyright;
+          const license = e.license ?? section.license;
+
+          return (
+            <ListItem key={e.id} disablePadding>
+              <ListItemButton onClick={() => onClickItem(e, section)}>
+                <ListItemIcon>
+                  <MusicNote color="primary" />
+                </ListItemIcon>
+                <ListItemText
+                  primary={e.title}
+                  secondary={
+                    <Typography variant="caption">
+                      {copyright != null ? `Copyright (c) ${copyright}` : null}
+                      {license != null ? ` / ${license}` : null}
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </Box>
     );
   };
@@ -99,18 +105,6 @@ export function SampleDialog(props: { open: boolean; onClose?: () => void }) {
           <PlayControl />
         </Box>
       </DialogActions>
-      <Divider />
-      <Stack direction="row" sx={{ justifyContent: "space-around" }}>
-        <Typography variant="caption" sx={{ p: 2 }}>
-          Copyright © 2019 Yuzo Koshiro, published in compliance with&nbsp;
-          <Link
-            target="_blank"
-            href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-          >
-            CC BY-NC-ND 4.0
-          </Link>
-        </Typography>
-      </Stack>
     </Dialog>
   );
 }
