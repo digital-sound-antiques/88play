@@ -5,17 +5,14 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Divider,
   IconButton,
-  Link,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   ListSubheader,
-  Stack,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useContext } from "react";
 import { EditorContext } from "../contexts/EditorContext";
