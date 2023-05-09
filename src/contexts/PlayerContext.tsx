@@ -215,6 +215,7 @@ export function PlayerContextProvider(props: React.PropsWithChildren) {
   useEffectOnce(() => {
     const params = AppGlobal.getQueryParams();
     setState({ ...state, idToOpen: params.get("open") });
+    AppGlobal.removeQueryParam('open');
   });
 
   useEffect(() => {

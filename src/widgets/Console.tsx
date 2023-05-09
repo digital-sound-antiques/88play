@@ -1,10 +1,4 @@
-import {
-  CSSProperties,
-  useContext,
-  useEffect,
-  useRef,
-  useState
-} from "react";
+import { CSSProperties, useContext, useEffect, useRef, useState } from "react";
 
 import { Divider } from "@mui/material";
 import { brown } from "@mui/material/colors";
@@ -35,15 +29,15 @@ function ConsoleLine(props: { text: string }) {
   let child;
   if (m != null) {
     if (/error/i.test(m[0])) {
-      child = <span style={errorStyle}>{text}</span>;
+      child = <pre style={errorStyle}>{text}</pre>;
     } else {
-      child = <span style={emStyle}>{text}</span>;
+      child = <pre style={emStyle}>{text}</pre>;
     }
   } else {
     if (/error/i.test(text)) {
-      child = <span style={errorStyle}>{text}</span>;
+      child = <pre style={errorStyle}>{text}</pre>;
     } else {
-      child = <span style={style}>{text}</span>;
+      child = <pre style={style}>{text}</pre>;
     }
   }
 
@@ -93,7 +87,7 @@ function Caret() {
           textShadow: `0 0 3px ${color}, 0 0 8px ${color}`,
         }}
       >
-        <span>{"\u2589"}</span>
+        <pre>{"\u2589"}</pre>
       </div>
     </>
   );
@@ -163,15 +157,22 @@ export function Console(props: { style?: CSSProperties | null }) {
     <>
       <Box sx={{ height: "4px", backgroundColor: "background.paper" }}></Box>
       <Divider />
+      <style>
+        {`
+        .mucom88-console pre {
+          font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, "Source Code Pro", source-code-pro, monospace;
+          font-size: 11px;
+          margin: 0;
+        }
+        `}
+      </style>
       <div
+        className="mucom88-console"
         style={{
           position: "relative",
           width: "100%",
           height: "100%",
           overflow: "hidden",
-          fontFamily:
-            'Monaco, Menlo, "Ubuntu Mono", Consolas, "Source Code Pro", source-code-pro, monospace',
-          fontSize: "11px",
           ...props.style,
           textAlign: "left",
         }}

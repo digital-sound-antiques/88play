@@ -1,7 +1,6 @@
 import { BinaryDataStorage } from "../utils/binary-data-storage";
 import { loadBlobOrUrl, loadBlobOrUrlAsText } from "../utils/load-urls";
 import { downloadBinary } from "../utils/share-utils";
-import AppGlobal from "./AppGlobal";
 import {
   EditorContextState,
   MMLResourceEntry,
@@ -131,7 +130,6 @@ export class EditorContextReducer {
   };
 
   onChangeText = (value: string) => {
-    AppGlobal.removeQueryParam('open');
     this.updateText(value);
   };
 
