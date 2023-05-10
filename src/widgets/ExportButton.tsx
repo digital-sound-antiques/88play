@@ -64,7 +64,7 @@ export function ExportMenu(props: {
     props.onClose?.();
     const mml = editorContext.text;
     const name = getBasename(mml);
-    saveAs(toSjis(addLineNumber(mml, true)), name + ".bas");
+    saveAs(toSjis(addLineNumber(mml, true)), name + ".txt");
   };
 
   const onClickDownloadMUB = async () => {
@@ -103,8 +103,7 @@ export function ExportMenu(props: {
       onClose={props.onClose}
     >
       <MenuItem onClick={onClickDownloadMML}>MML (.muc)</MenuItem>
-      <MenuItem onClick={onClickDownloadBAS}>MML (.bas)</MenuItem>
-      <MenuItem onClick={onClickDownloadMUB}>Binary (.mub)</MenuItem>
+      <MenuItem onClick={onClickDownloadBAS}>MML (for BASIC)</MenuItem>
       <Divider />
       <MenuItem onClick={() => onClickDownloadAttachment("voice")}>
         Voice Data
@@ -112,6 +111,8 @@ export function ExportMenu(props: {
       <MenuItem onClick={() => onClickDownloadAttachment("pcm")}>
         ADPCM Data
       </MenuItem>
+      <Divider />
+      <MenuItem onClick={onClickDownloadMUB}>Binary (.mub)</MenuItem>
     </Menu>
   );
 }
