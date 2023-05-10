@@ -17,7 +17,7 @@ const banner = ` █████╗  █████╗ ██████╗ �
 ██╔══██╗██╔══██╗██╔═══╝ ██║     ██╔══██║  ╚██╔╝  
 ╚█████╔╝╚█████╔╝██║     ███████╗██║  ██║   ██║   
  ╚════╝  ╚════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝ 
-PC-8801 FM/SSG emulator, powered by Open Mucom88`;
+PC-8801 FM/SSG emulator, powered by OPEN MUCOM88`;
 
 import { EditorSettingsContextProvider } from "./contexts/EditorSettingContext";
 import { StorageContextProvider } from "./contexts/StorageContext";

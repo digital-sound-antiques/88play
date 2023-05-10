@@ -42,5 +42,14 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
     "vite-plugin-pwa": "^0.14.7"
-  }
+  },
+  "keywords": [
+    "MUCOM88",
+    "YM2203",
+    "YM2608",
+    "FM",
+    "Chiptune"
+  ],
+  "author": "Digital Sound Antiques",
+  "license": "CC BY-NC-SA 4.0"
 }
