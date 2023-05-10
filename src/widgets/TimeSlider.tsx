@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-
 import { Box, LinearProgress } from "@mui/material";
 import { AudioPlayerProgress } from "webaudio-stream-player";
 import { PlayerContext } from "../contexts/PlayerContext";
@@ -47,7 +46,6 @@ export function TimeSlider() {
   }
 
   const boxRef = useRef<HTMLDivElement>(null);
-
   const onClick = (ev: React.MouseEvent<HTMLDivElement>) => {
     if (boxRef.current != null) {
       const { left } = boxRef.current.getBoundingClientRect();

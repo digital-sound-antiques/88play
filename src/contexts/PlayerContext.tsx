@@ -153,7 +153,7 @@ async function applyPlayStateChange(
         new Promise<Error>((resolve) =>
           setTimeout(
             resolve,
-            2000,
+            10000,
             new Error(
               "Fatal Error: MUCOM88 compiler has hung up. Might be a bug of compiler?"
             )
