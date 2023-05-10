@@ -1,5 +1,3 @@
-console.log("mucom-decoder-worker");
-
 import Mucom88, { MucomStatusType } from "mucom88-js";
 import { AudioDecoderWorker } from "webaudio-stream-player";
 
@@ -21,7 +19,7 @@ export type MucomDecoderStartOptions = {
   attachments?: MucomDecoderAttachment[];
 };
 
-const defaultDuration = 60 * 1000 * 5;
+const maxDuration = 60 * 1000 * 10;
 const defaultFadeDuration = 5 * 1000;
 
 async function loadAsset(url: string): Promise<Uint8Array> {
@@ -32,18 +30,48 @@ async function loadAsset(url: string): Promise<Uint8Array> {
 class Fader {
   durationInFrame = 0;
   fadeDurationInFrame = 0;
-  fadeStartFrame: number | null = null;
-  fadeOnLoop = false;
+  fadeStartFrame?: number | null;
+  timeTagValue?: number | null;
+  maxCount = 0;
+
+  setup(
+    mucom: Mucom88,
+    sampleRate: number,
+    timeTagValue?: number | null,
+    fadeTagValue?: number | null
+  ) {
+    this.timeTagValue = timeTagValue;
+    if (this.timeTagValue != null) {
+      const duration = Math.min(60 * 20 * 1000, this.timeTagValue * 1000);
+      this.durationInFrame = Math.floor((sampleRate * duration) / 1000);
+    } else {
+      this.durationInFrame = Math.floor((sampleRate * maxDuration) / 1000);
+    }
+    this.fadeDurationInFrame = Math.floor(
+      sampleRate * (fadeTagValue ?? defaultFadeDuration / 1000)
+    );
+    this.fadeStartFrame = null;
+
+    const { totalCounts, loopCounts, maxch } = mucom.getChannelCounts();
+    for (let i = 0; i < maxch; i++) {
+      const sum = totalCounts[i] + loopCounts[i];
+      if (this.maxCount < sum) {
+        this.maxCount = sum;
+      }
+    }
+    if (loopCounts.every((e) => e == 0)) {
+      this.fadeDurationInFrame = 0;
+    }
+  }
 
   updateFadeState(currentFrame: number, mucom: Mucom88) {
     if (this.fadeStartFrame == null) {
       if (currentFrame >= this.durationInFrame - this.fadeDurationInFrame) {
         this.fadeStartFrame = currentFrame;
       }
-      if (this.fadeOnLoop) {
-        const maxCount = mucom.getStatus(MucomStatusType.MAXCOUNT);
+      if (this.timeTagValue == null) {
         const curCount = mucom.getStatus(MucomStatusType.INTCOUNT);
-        if (maxCount * 2 <= curCount) {
+        if (this.maxCount <= curCount) {
           this.fadeStartFrame = currentFrame;
         }
       }
@@ -72,12 +100,9 @@ class MucomDecoderWorker extends AudioDecoderWorker {
 
   private _mucom: Mucom88 | null = null;
 
-  private _duration = defaultDuration;
-  private _fadeDuration = defaultFadeDuration;
-
   private _decodeFrames = 0;
 
-  private _fader = new Fader();
+  private _fader: Fader = new Fader();
 
   async init(_: unknown): Promise<void> {
     console.log("MucomDecoderWorker.init");
@@ -90,13 +115,18 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     Mucom88.FS.writeFile("/2608_TOP.WAV", await loadAsset(top));
   }
 
-  getTimeTagValue(mml: string): number | null {
-    const m = mml.match(/^#time\s+([0-9]+).*$/m);
-    if (m != null) {
-      console.log(`#time ${m[1]} found.`);
-      return parseInt(m[1]);
+  getTagValue(mml: string): { time: number | null; fade: number | null } {
+    const matches = mml.matchAll(/^#(time|fade)\s+([0-9]+).*$/mg);
+    let time = null;
+    let fade = null;
+    for (const match of matches) {
+      if (match[1] == "time") {
+        time = parseInt(match[2]);
+      } else {
+        fade = parseInt(match[2]);
+      }
     }
-    return null;
+    return { time, fade };
   }
 
   async start(args: MucomDecoderStartOptions): Promise<void> {
@@ -109,27 +139,14 @@ class MucomDecoderWorker extends AudioDecoderWorker {
       Mucom88.FS.writeFile(name, data);
     }
 
+    this._fader = new Fader();
     this._decodeFrames = 0;
 
-    const timeTagValue = this.getTimeTagValue(args.mml);
-
-    if (timeTagValue != null) {
-      this._duration = Math.min(60 * 20 * 1000, timeTagValue * 1000);
-      this._fader.fadeOnLoop = false;
-    } else {
-      this._fader.fadeOnLoop = true;
-    }
-
-    this._fader.durationInFrame = Math.floor(
-      (this.sampleRate * this._duration) / 1000
-    );
-    this._fader.fadeDurationInFrame = Math.floor(
-      (this.sampleRate * this._fadeDuration) / 1000
-    );
-    this._fader.fadeStartFrame = null;
-
+    const { time, fade } = this.getTagValue(args.mml);
     this._mucom.reset(this.sampleRate);
     this._mucom.loadMML(args.mml);
+    this._fader.setup(this._mucom, this.sampleRate, time, fade);
+
     this.worker.postMessage({
       type: "onstart",
       message: this._mucom.getMessageBuffer(),
@@ -141,13 +158,8 @@ class MucomDecoderWorker extends AudioDecoderWorker {
       return null;
     }
 
-    const currentTimeInMs = (this._decodeFrames / this.sampleRate) * 1000;
-    if (this._duration + this._fadeDuration < currentTimeInMs) {
-      return null;
-    }
-
-    this._fader.updateFadeState(this._decodeFrames, this._mucom);
-    if (this._fader.getValue(this._decodeFrames) == 0.0) {
+    this._fader?.updateFadeState(this._decodeFrames, this._mucom);
+    if (this._fader?.getValue(this._decodeFrames) == 0.0) {
       return null;
     }
 
@@ -156,7 +168,7 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     const buf = this._mucom.render(this.sampleRate);
 
     for (let i = 0; i < this.sampleRate; i++) {
-      const fade = this._fader.getValue(this._decodeFrames++);
+      const fade = this._fader?.getValue(this._decodeFrames++) ?? 1.0;
       lch[i] = Math.round((fade * buf[i * 2]) >> 1);
       rch[i] = Math.round((fade * buf[i * 2 + 1]) >> 1);
     }
