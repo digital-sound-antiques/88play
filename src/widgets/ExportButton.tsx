@@ -15,6 +15,8 @@ import md5 from "md5";
 import { Mucom88 } from "mucom88-js";
 import { StorageContext } from "../contexts/StorageContext";
 import { ToolBarButton } from "./ToolBarButton";
+import { convert as toSjis } from "utf16-to-sjis";
+import { addLineNumber } from "../utils/load-urls";
 
 function saveAs(input: Uint8Array | string, filename: string) {
   const blob = new Blob([input]);
@@ -24,16 +26,16 @@ function saveAs(input: Uint8Array | string, filename: string) {
   a.click();
 }
 
-function removeExt(file: string) {
+function removeExt(file: string): string {
   const parts = file.split(".");
   if (parts.length > 1) {
-    return parts.slice(0, parts.length - 1);
+    return parts.slice(0, parts.length - 1).join('.');
   }
-  return parts;
+  return file;
 }
 
 function getBasename(mml: string) {
-  let m = mml.match(/^;?#88play name=(.+)$/m);
+  let m = mml.match(/^;?#name\s*(.+)\s*$/m);
   if (m != null) {
     return removeExt(m[1].trim());
   }
@@ -57,6 +59,12 @@ export function ExportMenu(props: {
     props.onClose?.();
     const mml = editorContext.text;
     saveAs(mml, getBasename(mml) + ".muc");
+  };
+  const onClickDownloadBAS = () => {
+    props.onClose?.();
+    const mml = editorContext.text;
+    const name = getBasename(mml);
+    saveAs(toSjis(addLineNumber(mml, true)), name + ".bas");
   };
 
   const onClickDownloadMUB = async () => {
@@ -94,15 +102,16 @@ export function ExportMenu(props: {
       anchorEl={props.anchorEl}
       onClose={props.onClose}
     >
-      <MenuItem onClick={onClickDownloadMML}>Download MML</MenuItem>
+      <MenuItem onClick={onClickDownloadMML}>MML (.muc)</MenuItem>
+      <MenuItem onClick={onClickDownloadBAS}>MML (.bas)</MenuItem>
+      <MenuItem onClick={onClickDownloadMUB}>Binary (.mub)</MenuItem>
+      <Divider />
       <MenuItem onClick={() => onClickDownloadAttachment("voice")}>
-        Download Voice
+        Voice Data
       </MenuItem>
       <MenuItem onClick={() => onClickDownloadAttachment("pcm")}>
-        Download PCM
+        ADPCM Data
       </MenuItem>
-      <Divider />
-      <MenuItem onClick={onClickDownloadMUB}>Download MUB</MenuItem>
     </Menu>
   );
 }
@@ -117,7 +126,7 @@ export function ExportButton() {
       <ToolBarButton
         ref={buttonRef}
         icon={<Download fontSize="small" />}
-        label="Export"
+        label="Download"
         onClick={() => setOpen(true)}
       />
       <ExportMenu

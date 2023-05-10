@@ -8,13 +8,6 @@ export const convertUrlIfRequired = (url: string) => {
   return url;
 };
 
-export function getMMLAndTitle(data: Uint8Array) {
-  const mml = decodeAsText(data);
-  const m = mml?.match(/^#title\s+([^\s]+).*$/);
-  const title = m != null ? m[1] : null;
-  return { title, mml };
-}
-
 export function decodeAsText(u8: Uint8Array): string {
   let encoding = detectEncoding(u8);
 
@@ -83,4 +76,27 @@ export async function loadBlob(blob: Blob): Promise<Uint8Array> {
     };
     reader.readAsArrayBuffer(blob);
   });
+}
+
+export function addLineNumber(mml: string, crLf: boolean): string {
+  const lines = mml.split("\n");
+  const buf: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    buf.push(`${(i + 1) * 10} '${lines[i]}`);
+  }
+  return buf.join(crLf ? "\r\n" : "\n");
+}
+
+export function removeLineNumber(mml: string): string {
+  const lines = mml.replace("\r\n", "\n").split("\n");
+  const buf: string[] = [];
+  for (const line of lines) {
+    const m = line.match(/^[0-9]+\s+'?(.*)$/);
+    if (m != null) {
+      buf.push(m[1]);
+    } else {
+      buf.push(line);
+    }
+  }
+  return buf.join('\n');
 }

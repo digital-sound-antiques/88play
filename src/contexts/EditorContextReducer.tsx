@@ -1,5 +1,5 @@
 import { BinaryDataStorage } from "../utils/binary-data-storage";
-import { loadBlobOrUrl, loadBlobOrUrlAsText } from "../utils/load-urls";
+import { loadBlobOrUrl, loadBlobOrUrlAsText, removeLineNumber } from "../utils/load-urls";
 import { downloadBinary } from "../utils/share-utils";
 import {
   EditorContextState,
@@ -40,7 +40,7 @@ export class EditorContextReducer {
     if (/\.(bin|dat|mub)$/.test(name)) {
       return [null, null];
     }
-    const text = await loadBlobOrUrlAsText(file);
+    const text = removeLineNumber(await loadBlobOrUrlAsText(file));
     if (text != null) {
       if (
         text.indexOf("#mucom88") >= 0 ||
