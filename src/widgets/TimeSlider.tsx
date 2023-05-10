@@ -46,26 +46,29 @@ export function TimeSlider() {
     variant = "buffer";
   }
 
-  const progressRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
 
   const onClick = (ev: React.MouseEvent<HTMLDivElement>) => {
-    const target = ev.target as HTMLDivElement;
-    const pos = (ev.clientX / target.clientWidth) * state.bufferedTime;
-    context.player.seekInTime(pos);
+    if (boxRef.current != null) {
+      const { left } = boxRef.current.getBoundingClientRect();
+      const offsetX = ev.clientX - left;
+      const boxWidth = boxRef.current.clientWidth;
+      const pos = (offsetX / boxWidth) * state.bufferedTime;
+      context.player.seekInTime(pos);
+    }
   };
 
   return (
-    <Box sx={{ py: 0 }} onClick={onClick}>
+    <Box ref={boxRef} sx={{ py: 0 }} onClick={onClick}>
       <LinearProgress
-        ref={progressRef}
         variant={variant}
         color="secondary"
         value={value}
         valueBuffer={valueBuffer}
         sx={{
           height: "4px",
-          "& .MuiLinearProgress-bar": {            
-            transition: 'none',
+          "& .MuiLinearProgress-bar": {
+            transition: "none",
           },
         }}
       />
