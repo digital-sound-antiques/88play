@@ -163,6 +163,7 @@ export function Console(props: { style?: CSSProperties | null }) {
           font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, "Source Code Pro", source-code-pro, monospace;
           font-size: 11px;
           margin: 0;
+          white-space: pre-wrap;
         }
         `}
       </style>
