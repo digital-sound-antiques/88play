@@ -1,10 +1,16 @@
 import { MoreVert } from "@mui/icons-material";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import {
+  IconButton,
+  ListItemText,
+  Menu,
+  MenuItem
+} from "@mui/material";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { AboutDialog } from "../views/AboutDialog";
 import { SettingsDialog } from "../views/SettingsDialog";
 
-export function SettingsButton() {
+export function MoreButton() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef(null);
   const onClick = async () => {
@@ -31,6 +37,7 @@ export function MoreMenu(props: {
   onClose?: () => void;
   onError?: (message: string) => void;
 }) {
+  const { t } = useTranslation();
   const [openSettings, setOpenSettings] = useState(false);
   const [openAbout, setOpenAbout] = useState(false);
 
@@ -51,8 +58,12 @@ export function MoreMenu(props: {
         anchorEl={props.anchorEl}
         onClose={props.onClose}
       >
-        <MenuItem onClick={onClickSettings}>Settings</MenuItem>
-        <MenuItem onClick={onClickAbout}>About</MenuItem>
+        <MenuItem onClick={onClickSettings}>
+          <ListItemText>{t("menu.more.settings")}</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={onClickAbout}>
+          <ListItemText>{t("menu.more.about")}</ListItemText>
+        </MenuItem>
       </Menu>
       <AboutDialog open={openAbout} onClose={() => setOpenAbout(false)} />
       <SettingsDialog
