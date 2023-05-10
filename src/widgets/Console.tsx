@@ -1,9 +1,8 @@
 import { CSSProperties, useContext, useEffect, useRef, useState } from "react";
 
-import { Divider } from "@mui/material";
 import { brown } from "@mui/material/colors";
-import { Box } from "@mui/system";
 import { ConsoleContext } from "../contexts/ConsoleContext";
+import { Theme, useMediaQuery } from "@mui/material";
 
 function ConsoleLine(props: { text: string }) {
   const text = props.text == "" ? "\u00A0" : props.text;
@@ -153,15 +152,16 @@ export function Console(props: { style?: CSSProperties | null }) {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const isXs = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'));
+  const fontSize = isXs ? 9 : 11;
+
   return (
     <>
-      <Box sx={{ height: "4px", backgroundColor: "background.paper" }}></Box>
-      <Divider />
       <style>
         {`
         .mucom88-console pre {
           font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, "Source Code Pro", source-code-pro, monospace;
-          font-size: 11px;
+          font-size: ${fontSize}px;
           margin: 0;
           white-space: pre-wrap;
         }

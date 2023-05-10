@@ -3,11 +3,13 @@ import {
   Box,
   CssBaseline,
   Divider,
+  IconButton,
   Link,
+  Stack,
   ThemeProvider,
   Toolbar,
   Typography,
-  createTheme
+  createTheme,
 } from "@mui/material";
 
 import { PlayControl } from "./views/PlayerControl";
@@ -18,15 +20,16 @@ import { EditorView } from "./views/EditorView.js";
 import { ResourceAlert } from "./views/ResourceAlert.js";
 import { Console } from "./widgets/Console.js";
 
-import { Nightlife } from "@mui/icons-material";
-import {
-  ISplitviewPanelProps,
-  Orientation,
-  SplitviewReact,
-  SplitviewReadyEvent,
-} from "dockview";
-import "dockview/dist/styles/dockview.css";
+import { ExpandLess, ExpandMore, Nightlife } from "@mui/icons-material";
+
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import {
+  ImperativePanelHandle,
+  Panel,
+  PanelGroup,
+  PanelResizeHandle,
+} from "react-resizable-panels";
 import packageJson from "../package.json";
 import ghlogo from "./assets/github-mark-white.svg";
 import { GlobalProgress } from "./views/GlobalProgress.js";
@@ -77,26 +80,19 @@ export function App() {
 export function AppRoot() {
   const { t } = useTranslation();
 
-  const components = {
-    main: (_props: ISplitviewPanelProps<{ title: string }>) => {
-      return <EditorView />;
-    },
-    console: (_props: ISplitviewPanelProps<{ title: string }>) => {
-      return <Console />;
-    },
+  const [consoleCollapsed, setConsoleCollapsed] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const consolePanelRef = useRef<ImperativePanelHandle>(null);
+
+  const onClickCollapse = () => {
+    setConsoleCollapsed(true);
+    consolePanelRef.current?.collapse();
+  };
+  const onClickExpand = () => {
+    setConsoleCollapsed(false);
+    consolePanelRef.current?.expand();
   };
 
-  const onReady = (event: SplitviewReadyEvent) => {
-    event.api.addPanel({
-      id: "main",
-      component: "main",
-    });
-    event.api.addPanel({
-      id: "console",
-      component: "console",
-      size: 160,
-    });
-  };
 
   return (
     <Box
@@ -138,12 +134,48 @@ export function AppRoot() {
         <AppToolBar />
         <Divider />
         <ResourceAlert />
-        <SplitviewReact
-          onReady={onReady}
-          components={components}
-          orientation={Orientation.VERTICAL}
-          className="dockview-theme-abyss"
-        />
+        <Box sx={{ position: "relative", height: "100%" }}>
+          <PanelGroup direction="vertical">
+            <Panel defaultSize={75} style={{ position: "relative" }}>
+              <EditorView />
+            </Panel>
+            <PanelResizeHandle onDragging={setDragging}>
+              <Stack
+                direction="row"
+                sx={{
+                  borderTop: dragging ? "2px solid #0080f0" : null,
+                  px: 2,
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    px: 0.5,
+                    borderBottom: "1px solid #aaaaaa",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "11px" }}>CONSOLE</Typography>
+                </Box>
+                {consoleCollapsed ? (
+                  <IconButton size="small" onClick={onClickExpand}>
+                    <ExpandLess fontSize="small" />
+                  </IconButton>
+                ) : (
+                  <IconButton size="small" onClick={onClickCollapse}>
+                    <ExpandMore fontSize="small" />
+                  </IconButton>
+                )}
+              </Stack>
+            </PanelResizeHandle>
+            <Panel defaultSize={25} collapsible={true} ref={consolePanelRef}>
+              <Console />
+            </Panel>
+          </PanelGroup>
+        </Box>
         <Box sx={{ flex: 0 }}>
           <PlayControl />
         </Box>

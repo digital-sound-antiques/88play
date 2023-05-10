@@ -25,8 +25,12 @@ function save(state: EditorSettingsContextState) {
 
 export const EditorSettingsContext = createContext({
   ...defaultContextState,
-  setFontSize: (_: number) => {},
-  setWrap: (_: boolean) => {},
+  setFontSize: (_: number) => {
+    /* noop */
+  },
+  setWrap: (_: boolean) => {
+    /* noop */
+  },
 });
 
 export function EditorSettingsContextProvider(props: React.PropsWithChildren) {
