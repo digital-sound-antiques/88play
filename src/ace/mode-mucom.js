@@ -9,90 +9,89 @@ ace.define(
         start: [
           {
             token: "comment",
-            regex: /;.*$/,
+            regex: /;.*/,
           },
           {
-            token: "mmltag",
-            regex: /^#[a-zA-Z0-9-_:.]+\s*$/,
-          },
-          {
-            token: "mmltag",
-            regex: /^#[a-zA-Z0-9-_:.]+/,
-            next: "mmltagValue",
-          },
-          {
-            token: "line-number",
-            regex: /^[0-9]+\s*/,
+            token: ["tag.name", "tag.value"],
+            regex: /(#[\w\-:.]+)(.*)/,
           },
           {
             token: "channel",
-            regex: /'?([A-K]\s|#)/,
+            regex: /^([A-K]|#)$/,
+          },
+          {
+            token: "channel",
+            regex: /^([A-K]|#)/,
             next: "mml",
           },
-        ],
-        mmltagValue: [
           {
-            token: "mmltag-value",
-            regex: /.*$/,
-            next: "start",
+            token: "vdef",
+            regex: /^(\s\s+)(@[0-9]+|@%[0-9]+)/,
+          },
+          {
+            token: "vpar",
+            regex: /^(\s\s+)([0-9]+|\$[0-9a-fA-F]+)(\s*,\s*([0-9]+|\$[0-9a-fA-F]+))*/,
+          },
+          {
+            defaultToken: "comment"
           },
         ],
         mml: [
           {
             token: "comment",
-            regex: /;.*$/,
+            regex: /;.*/,
             next: "start",
           },
           {
-            token: "mml-jump",
+            token: "mml.jump",
             regex: "[LJ]",
           },
           {
-            token: "mml-looping",
+            token: "mml.loop",
             regex: /(\[|\/|\][0-9]+)/,
           },
           {
-            token: "mml-bracket",
+            token: "mml.bracket",
             regex: /[{}]/,
           },
           {
-            token: "mml-macro",
+            token: "mml.macro",
             regex: /\*[0-9]+/,
           },
           {
-            token: "mml-rel-octave",
+            token: "mml.rel-octave",
             regex: /[<>]/,
           },
           {
-            token: "mml-rel-volume",
+            token: "mml.rel-volume",
             regex: /[()][0-9]*/,
           },
           {
-            token: "mml-command",
-            regex: /([CtTovqplDLKVksHMRSEPwsm]|R[Fm]|M[FWCLD])-?(\$[0-9a-fA-F]+|[0-9]+)(,-?(\$[0-9a-fA-F]+|[0-9]+))*/,
+            token: "mml.command",
+            regex: /([CtTovqplDLKVksHMRSEPwsm]|R[Fm]|M[FWCLD])(-?(\$[0-9a-fA-F]+|[0-9]+))(\s*,\s*-?(\$[0-9a-fA-F]+|[0-9]+))*/,
           },
           {
-            token: "mml-command",
-            regex: /y(DM|TL|KA|DR|SR|SL|SE)?(,(\$[0-9A-Fa-f]+|[0-9]+))+/,
+            token: "mml.command",
+            regex: /(y(DM|TL|KA|DR|SR|SL|SE)?)(\s*,\s*(?:\$[0-9A-Fa-f]+|[0-9]+))+/,
           },
           {
-            token: "mml-command",
-            regex: /\\=[0-9]+(,[0-9]+)?/,
+            token: "mml.command",
+            regex: /(\\=[0-9]+)(\s*,\s*[0-9]+)?/,
           },
           {
-            token: "mml-command",
+            token: "mml.command",
             regex: /(vm|[:!|\\])/,
           },
           {
-            token: "mml-command",
+            token: "mml,command",
             regex: /\s%[0-9]+/,
           }, {
-            token: "mml-command",
-            regex: /@([0-9]+|"[^"]+")/,
+            token: "mml.command.voice",
+            regex: /(@([0-9]+|"[^"]+"))/,
           },
           {
             token: "eol",
-            regex: "$",
+            regex: /$/,
             next: "start",
           },
         ],
@@ -126,11 +125,11 @@ ace.define(THEME_PATH, function (require, exports, _module) {
   exports.cssText = `
   .ace_editor.ace_mucom {
     color: #efebe9;
-    background-color: #1f1b19;
+    background-color: #0f0b09;
   }
   .ace_marker-layer .ace_bracket {
     margin: -1px 0 0 -1px;
-    background-color: #bfbfbf;
+    background-color: #666;
   }
   .ace_marker-layer .ace_active-line {
     background-color: rgba(255,255,255,0.14);
@@ -138,37 +137,43 @@ ace.define(THEME_PATH, function (require, exports, _module) {
   .ace_gutter-active-line {
     background-color: rgba(255,255,255,0.14);
   }
-  .ace_line-number {
-    color: #808080;
-  }
   .ace_comment {
     color: #999;
   }
-  .ace_mmltag {
+  .ace_vdef {
+    color: #fbf;
+  }
+  .ace_vpar {
+    color: #fbf;
+  }
+  .ace_tag.ace_name {
     color: #ee0;
   }
-  .ace_mml-bracket {
+  .ace_tag.ace_value {
+    color: #fff;
+  }
+  .ace_mml.ace_bracket {
     color: #999;
   }
-  .ace_mml-looping {
-    color: #8ef;
+  .ace_mml.ace_loop {
+    color: #4ce;
   }
-  .ace_mml-rel-octave, .ace_mml-rel-volume {
+  .ace_mml.ace_rel-octave, .ace_mml.ace_rel-volume {
     color: #999;
   }
-  .ace_mml-macro {
+  .ace_mml.ace_macro {
     color: #e8e;
   }
-  .ace_mml-command {
-    color: #beb;
+  .ace_mml.ace_command {
+    color: #ae8;
   }
-  .ace_mml-jump {
-    color: #e88;
+  .ace_mml.ace_command.ace_voice {
+    color: #fbf
   }
   .ace_channel {
     color: #4ef;
   }
-  .ace_jump {
+  .ace_mml.ace_jump {
     color: #ff0;
   }
   .ace_selection {
