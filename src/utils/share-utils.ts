@@ -1,5 +1,5 @@
 const apiSet = {
-  prodction: {
+  production: {
     dataApi: "https://asia-northeast1-play-f7a8b.cloudfunctions.net/databin",
     textApi: "https://asia-northeast1-play-f7a8b.cloudfunctions.net/textbin",
     getDataUrl: (key: string) =>
@@ -17,7 +17,7 @@ const apiSet = {
   },
 };
 
-const api = apiSet.prodction;
+const api = apiSet.production;
 
 export const shareApi = api;
 

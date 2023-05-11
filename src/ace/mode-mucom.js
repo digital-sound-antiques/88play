@@ -1,6 +1,6 @@
 ace.define(
   "ace/mode/mucom_highlight_rules",
-  function (require, exports, module) {
+  function (require, exports, _module) {
     const oop = require("ace/lib/oop");
     const TextHighlightRules =
       require("ace/mode/text_highlight_rules").TextHighlightRules;
@@ -10,6 +10,10 @@ ace.define(
           {
             token: "comment",
             regex: /;.*$/,
+          },
+          {
+            token: "mmltag",
+            regex: /^#[a-zA-Z0-9-_:.]+\s*$/,
           },
           {
             token: "mmltag",
@@ -99,7 +103,7 @@ ace.define(
   }
 );
 
-ace.define("ace/mode/mucom", function (require, exports, module) {
+ace.define("ace/mode/mucom", function (require, exports, _module) {
   const oop = require("ace/lib/oop");
   const TextMode = require("ace/mode/text").Mode;
   // let MatchingBraceOutdent = require("ace/mode/matching_brace_outdent").MatchingBraceOutdent;
@@ -116,7 +120,7 @@ ace.define("ace/mode/mucom", function (require, exports, module) {
 });
 
 const THEME_PATH = "ace/theme/mucom";
-ace.define(THEME_PATH, function (require, exports, module) {
+ace.define(THEME_PATH, function (require, exports, _module) {
   exports.isDark = true;
   exports.cssClass = "ace_mucom";
   exports.cssText = `
