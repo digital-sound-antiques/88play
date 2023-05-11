@@ -43,6 +43,11 @@ export const sampleSections: SampleSection[] = [
         license: "MIT License",
         files: ["tiny.muc", "voice.dat", "mucompcm.bin"],
       },
+      {
+        id: "ym2413",
+        title: "YM2413-style 15 voices",
+        files: ["ym2413.muc"],
+      }
     ],
   },
   {
