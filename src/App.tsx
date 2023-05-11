@@ -93,6 +93,9 @@ export function AppRoot() {
     consolePanelRef.current?.expand();
   };
 
+  const onClickPanelHandle = () => {
+    consolePanelRef.current?.expand();
+  };
 
   return (
     <Box
@@ -140,38 +143,50 @@ export function AppRoot() {
               <EditorView />
             </Panel>
             <PanelResizeHandle onDragging={setDragging}>
-              <Stack
-                direction="row"
-                sx={{
-                  borderTop: dragging ? "2px solid #0080f0" : null,
-                  px: 2,
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Box
+              <div onClick={onClickPanelHandle}>
+                <Stack
+                  direction="row"
                   sx={{
-                    display: "flex",
-                    justifyContent: "center",
+                    borderTop: dragging ? "2px solid #0080f0" : null,
+                    pl: 2,
+                    pr: 1,
+                    justifyContent: "space-between",
                     alignItems: "center",
-                    px: 0.5,
-                    borderBottom: "1px solid #aaaaaa",
                   }}
                 >
-                  <Typography sx={{ fontSize: "11px" }}>CONSOLE</Typography>
-                </Box>
-                {consoleCollapsed ? (
-                  <IconButton size="small" onClick={onClickExpand}>
-                    <ExpandLess fontSize="small" />
-                  </IconButton>
-                ) : (
-                  <IconButton size="small" onClick={onClickCollapse}>
-                    <ExpandMore fontSize="small" />
-                  </IconButton>
-                )}
-              </Stack>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      px: 1,
+                      borderBottom: "1px solid #aaaaaa",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "11px" }}>CONSOLE</Typography>
+                  </Box>
+                  {consoleCollapsed ? (
+                    <IconButton edge="end" size="small" onClick={onClickExpand}>
+                      <ExpandLess fontSize="small" />
+                    </IconButton>
+                  ) : (
+                    <IconButton
+                      edge="end"
+                      size="small"
+                      onClick={onClickCollapse}
+                    >
+                      <ExpandMore fontSize="small" />
+                    </IconButton>
+                  )}
+                </Stack>
+              </div>
             </PanelResizeHandle>
-            <Panel defaultSize={25} collapsible={true} ref={consolePanelRef}>
+            <Panel
+              defaultSize={25}
+              collapsible={true}
+              onCollapse={setConsoleCollapsed}
+              ref={consolePanelRef}
+            >
               <Console />
             </Panel>
           </PanelGroup>
