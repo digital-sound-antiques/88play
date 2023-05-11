@@ -1,5 +1,5 @@
-;#name 2413rom.muc
-#title YM2413 ROM Like Voices
+;#name ym2413.muc
+#title YM2413-style Voices
 #mucom88 1.7
 #driver mucom88
 #composer J.S. Bach
