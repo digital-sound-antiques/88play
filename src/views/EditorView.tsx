@@ -94,8 +94,9 @@ export function EditorView(props: EditorViewProps) {
           }}
           setOptions={{
             indentedSoftWrap: false,
-            useSoftTabs: true,
             tabSize: 2,
+            useSoftTabs: true,
+            navigateWithinSoftTabs: true,
           }}
         />
       </FileDropContext>
