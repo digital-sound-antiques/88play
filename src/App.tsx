@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box,
+  Button,
   CssBaseline,
   Divider,
   IconButton,
@@ -36,6 +37,8 @@ import { GlobalProgress } from "./views/GlobalProgress.js";
 import { ReadyToPlayDialog } from "./views/ReadyToPlayDialog.js";
 import { AppToolBar } from "./widgets/AppToolBar.js";
 import { VolumeControl } from "./widgets/VolumeControl.js";
+import { Monitor } from "./widgets/Monitor.js";
+import { Keyboards } from "./widgets/Keyboard.js";
 
 const theme = createTheme({
   palette: {
@@ -80,6 +83,7 @@ export function App() {
 export function AppRoot() {
   const { t } = useTranslation();
 
+  const [tabMode, setTabMode] = useState("console");
   const [consoleCollapsed, setConsoleCollapsed] = useState(false);
   const [dragging, setDragging] = useState(false);
   const consolePanelRef = useRef<ImperativePanelHandle>(null);
@@ -150,8 +154,9 @@ export function AppRoot() {
                     borderTop: dragging ? "2px solid #0080f0" : null,
                     pl: 2,
                     pr: 1,
-                    justifyContent: "space-between",
+                    justifyContent: "start",
                     alignItems: "center",
+                    gap: 1,
                   }}
                 >
                   <Box
@@ -160,11 +165,70 @@ export function AppRoot() {
                       justifyContent: "center",
                       alignItems: "center",
                       px: 1,
-                      borderBottom: "1px solid #aaaaaa",
                     }}
                   >
-                    <Typography sx={{ fontSize: "11px" }}>CONSOLE</Typography>
+                    <Button
+                      variant="text"
+                      onClick={() => setTabMode("console")}
+                      onMouseDown={(e) => e.stopPropagation()}
+                    >
+                      <Typography
+                        sx={{
+                          color: tabMode == "console" ? "white" : null,
+                          fontSize: "11px",
+                        }}
+                      >
+                        CONSOLE
+                      </Typography>
+                    </Button>
                   </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      px: 1,
+                    }}
+                  >
+                    <Button
+                      variant="text"
+                      onClick={() => setTabMode("monitor")}
+                      onMouseDown={(e) => e.stopPropagation()}
+                    >
+                      <Typography
+                        sx={{
+                          color: tabMode == "monitor" ? "white" : null,
+                          fontSize: "11px",
+                        }}
+                      >
+                        MONITOR
+                      </Typography>
+                    </Button>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      px: 1,
+                    }}
+                  >
+                    <Button
+                      variant="text"
+                      onClick={() => setTabMode("keyboard")}
+                      onMouseDown={(e) => e.stopPropagation()}
+                    >
+                      <Typography
+                        sx={{
+                          color: tabMode == "keyboard" ? "white" : null,
+                          fontSize: "11px",
+                        }}
+                      >
+                        KEYBOARD
+                      </Typography>
+                    </Button>
+                  </Box>
+                  <Box sx={{ flex: 1 }} />
                   {consoleCollapsed ? (
                     <IconButton edge="end" size="small" onClick={onClickExpand}>
                       <ExpandLess fontSize="small" />
@@ -187,7 +251,13 @@ export function AppRoot() {
               onCollapse={setConsoleCollapsed}
               ref={consolePanelRef}
             >
-              <Console />
+              {tabMode == "monitor" ? (
+                <Monitor />
+              ) : tabMode == "console" ? (
+                <Console />
+              ) : (
+                <Keyboards />
+              )}
             </Panel>
           </PanelGroup>
         </Box>

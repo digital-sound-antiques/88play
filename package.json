@@ -1,7 +1,7 @@
 {
   "name": "88play",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.12.0",
     "md5": "^2.3.0",
-    "mucom88-js": "^0.1.1",
+    "mucom88-js": "^0.3.0",
     "react": "^18.2.0",
     "react-ace": "^10.1.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -26,7 +26,7 @@
     "react-i18next": "^12.2.2",
     "react-resizable-panels": "^0.0.43",
     "utf16-to-sjis": "^1.1.1",
-    "webaudio-stream-player": "^1.0.2"
+    "webaudio-stream-player": "^1.1.0"
   },
   "devDependencies": {
     "@types/i18next-browser-languagedetector": "^3.0.0",

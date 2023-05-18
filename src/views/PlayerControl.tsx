@@ -59,7 +59,7 @@ export function PlayControl() {
         }}
       >
         <Typography variant="caption">
-          {toTimeString(timeInfo.currentTime)}
+          {toTimeString(Math.min(timeInfo.currentTime, timeInfo.bufferedTime))}
         </Typography>
         <Box
           sx={{

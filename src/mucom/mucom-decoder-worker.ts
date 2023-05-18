@@ -1,4 +1,4 @@
-import Mucom88, { MucomStatusType } from "mucom88-js";
+import Mucom88, { MucomStatusType, CHDATA } from "mucom88-js";
 import { AudioDecoderWorker } from "webaudio-stream-player";
 
 import bd from "../assets/wav/2608_bd.wav";
@@ -17,6 +17,13 @@ export type MucomDecoderAttachment = {
 export type MucomDecoderStartOptions = {
   mml: string;
   attachments?: MucomDecoderAttachment[];
+  duration?: number | null;
+  fadeDuration?: number | null;
+};
+
+export type MucomDecoderSnapshot = {
+  timeInMs: number;
+  data: (CHDATA|null)[];
 };
 
 const maxDuration = 60 * 1000 * 10;
@@ -116,7 +123,7 @@ class MucomDecoderWorker extends AudioDecoderWorker {
   }
 
   getTagValue(mml: string): { time: number | null; fade: number | null } {
-    const matches = mml.matchAll(/^#(time|fade)\s+([0-9]+).*$/mg);
+    const matches = mml.matchAll(/^#(time|fade)\s+([0-9]+).*$/gm);
     let time = null;
     let fade = null;
     for (const match of matches) {
@@ -153,6 +160,19 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     });
   }
 
+  getChannelSnapshot(): MucomDecoderSnapshot {
+    const data: CHDATA[] = [];
+    if (this._mucom != null) {
+      for (let ch = 0; ch < 11; ch++) {
+        data.push(this._mucom.getChannelData(ch));
+      }
+    }
+    return {
+      timeInMs: (this._decodeFrames / this.sampleRate) * 1000,
+      data,
+    };
+  }
+
   async process(): Promise<Array<Int16Array> | null> {
     if (this._mucom == null) {
       return null;
@@ -165,12 +185,26 @@ class MucomDecoderWorker extends AudioDecoderWorker {
 
     const lch = new Int16Array(this.sampleRate);
     const rch = new Int16Array(this.sampleRate);
-    const buf = this._mucom.render(this.sampleRate);
 
-    for (let i = 0; i < this.sampleRate; i++) {
-      const fade = this._fader?.getValue(this._decodeFrames++) ?? 1.0;
-      lch[i] = Math.round((fade * buf[i * 2]) >> 1);
-      rch[i] = Math.round((fade * buf[i * 2 + 1]) >> 1);
+    let i = 0;
+    const fps = 120;
+    const incr = Math.floor(this.sampleRate / fps);
+    const snapshots: MucomDecoderSnapshot[] = [];
+    while (i < this.sampleRate) {
+      const step = Math.min(incr, this.sampleRate - i);
+      const buf = this._mucom.render(step);
+      snapshots.push(this.getChannelSnapshot());
+      for (let j = 0; j < step; j++) {
+        const fade = this._fader?.getValue(this._decodeFrames + j) ?? 1.0;
+        lch[i + j] = Math.round((fade * buf[j * 2]) >> 1);
+        rch[i + j] = Math.round((fade * buf[j * 2 + 1]) >> 1);
+      }
+      this._decodeFrames += step;
+      i += step;
+    }
+
+    if (snapshots.length > 0) {
+      this.worker.postMessage({ type: "snapshots", data: snapshots });
     }
 
     return [lch, rch];
