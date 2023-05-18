@@ -128,9 +128,17 @@ function buildContents(
     if (pch != null) {
       const noteStr =
         i == 6 ? toRflag(pch.note) : toNote(pch.code >> 4, pch.note);
+      let vnum;
+      if (i == 6 || i == 10) {
+        vnum = "@" + toDec(pch.vnum, 3);
+      } else if (3 <= i && i <=5 ) {
+        vnum = "----";
+      } else {
+        vnum = "@" + toDec(pch.vnum_org,3);
+      }
       cols = [
         String.fromCharCode(0x41 + i) + " ",
-        "@" + toDec(pch.vnum, 3),
+        vnum,
         toDec(pch.vol_org, 3),
         toDec(pch.detune, 5),
         toHex(pch.wadr, 4),
@@ -144,7 +152,7 @@ function buildContents(
       const noteStr = i == 6 ? toRflag(0) : toNote(0, 0xff);
       cols = [
         String.fromCharCode(0x41 + i) + " ",
-        "@" + toDec(0, 3),
+        "----",
         toDec(0, 3),
         toDec(0, 5),
         toHex(0, 4),
