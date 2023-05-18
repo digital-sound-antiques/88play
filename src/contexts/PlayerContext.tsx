@@ -47,7 +47,7 @@ function autoResumeAudioContext(audioContext: AudioContext) {
 
 const createDefaultContextState = () => {
   const audioContext = new AudioContext({
-    sampleRate: 55467,
+    sampleRate: 44100, //55467,
     latencyHint: "interactive",
   });
   const state: PlayerContextState = {
