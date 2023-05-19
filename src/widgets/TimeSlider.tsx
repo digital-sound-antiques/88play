@@ -35,12 +35,12 @@ export function TimeSlider() {
     valueBuffer = 0;
     variant = "determinate";
   } else if (state.isFulFilled) {
-    value = (100 * state.currentTime) / state.bufferedTime;
+    value = Math.min(100, (100 * state.currentTime) / state.bufferedTime);
     valueBuffer = 100;
     variant = "determinate";
   } else {
-    const max = Math.max(state.bufferedTime * 1.5, 60 * 1000);
-    value = (100 * state.currentTime) / max;
+    const max = Math.max(state.bufferedTime + 30 * 1000, 60 * 1000);
+    value = Math.min(100, (100 * state.currentTime) / max);
     valueBuffer = (100 * state.bufferedTime) / max;
     variant = "buffer";
   }
