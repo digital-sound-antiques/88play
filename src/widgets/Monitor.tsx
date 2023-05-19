@@ -35,7 +35,7 @@ export function Monitor(props: { style?: CSSProperties | null }) {
   }, []);
 
   const isXs = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
-  const fontSize = isXs ? 11 : 12;
+  const fontSize = isXs ? 10 : 11;
 
   return (
     <>

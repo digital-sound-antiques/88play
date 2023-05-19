@@ -1,7 +1,5 @@
 import { Box, Stack, SxProps, Theme, useMediaQuery } from "@mui/material";
-import {
-  pink
-} from "@mui/material/colors";
+import { pink } from "@mui/material/colors";
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { PlayerContext } from "../contexts/PlayerContext";
 
@@ -438,24 +436,33 @@ export function Keyboards() {
     };
   }, []);
 
+  const gap = 1.0;
+
   const children = useMemo(() => {
-    const maxWidth = Math.max(512, Math.min(960, (512 * size.height) / 320));
-    const minHeight = Math.floor((12 * maxWidth) / 512);
-    const maxHeight = Math.floor((28 * maxWidth) / 512);
+    const width = isXs ? size.width : 600;
+    const minHeight = 18 * width / 600;
+    const maxHeight = 28 * width / 600;
+    const fontSize = 12 * Math.min(1.0, size.width / 600);
+    const height = Math.min(
+      maxHeight,
+      Math.max(minHeight, (size.height - gap * 10) / 11)
+    );
+
     return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
       <Stack
         key={e}
         direction="row"
-        sx={{ alignItems: "center", width: "100%", height: `${maxHeight}px` }}
+        sx={{ alignItems: "center", width: width, height: height }}
       >
         <Box
           sx={{
-            p: 0,
+            px: 0.5,
             width: "16px",
             fontFamily:
               "Monaco, Menlo, 'Ubuntu Mono', Consolas, 'Source Code Pro', source-code-pro, monospace",
-            fontSize: "11px",
+            fontSize: fontSize,
             lineHeight: "100%",
+            textAlign: "center",
           }}
         >
           {String.fromCharCode(0x41 + e)}
@@ -464,16 +471,13 @@ export function Keyboards() {
           targets={[e]}
           highlightColor={pink[300]}
           blackKeyColor="#181818"
-          whiteKeyColor="#c8c8c8"
-          sx={{
-            maxWidth: `${maxWidth}px`,
-            minHeight: `${minHeight}px`,
-            maxHeight: `${maxHeight}px`,
-          }}
+          whiteKeyColor="#cccccc"
+          sx={{}}
         />
+        <Box sx={{ width: "16px" }}></Box>
       </Stack>
     ));
-  }, [size]);
+  }, [size.width, size.height]);
 
   return (
     <Stack
@@ -482,11 +486,11 @@ export function Keyboards() {
       gap="1px"
       sx={{
         px: isXs ? 0 : 2,
-        pb: 1,
         justifyContent: "start",
         alignItems: "start",
         height: "100%",
         overflowY: "auto",
+        overflowX: "hidden",
       }}
     >
       {children}
