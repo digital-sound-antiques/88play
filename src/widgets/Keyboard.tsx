@@ -440,7 +440,7 @@ export function Keyboards() {
 
   const children = useMemo(() => {
     const maxWidth = Math.max(512, Math.min(960, (512 * size.height) / 320));
-    const minHeight = Math.floor((14 * maxWidth) / 512);
+    const minHeight = Math.floor((12 * maxWidth) / 512);
     const maxHeight = Math.floor((28 * maxWidth) / 512);
     return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
       <Stack
