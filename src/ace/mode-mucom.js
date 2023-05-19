@@ -30,7 +30,7 @@ ace.define(
           },
           {
             token: "vpar",
-            regex: /^(\s\s+)([0-9]+|\$[0-9a-fA-F]+)(\s*,\s*([0-9]+|\$[0-9a-fA-F]+))*/,
+            regex: /^(\s\s+)(-?[0-9]+|-?\$[0-9a-fA-F]+)(\s*,\s*(-?[0-9]+|-?\$[0-9a-fA-F]+))*/,
           },
           {
             defaultToken: "comment"
