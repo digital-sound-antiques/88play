@@ -100,6 +100,7 @@ export function FileDropContext(props: FileDropContextProps) {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#ffffff40",
+            pointerEvents: "none",
           }}
         ></Box>
       </Box>
