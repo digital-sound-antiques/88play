@@ -23,7 +23,7 @@ export type MucomDecoderStartOptions = {
 
 export type MucomDecoderSnapshot = {
   timeInMs: number;
-  data: (CHDATA|null)[];
+  data: (CHDATA | null)[];
 };
 
 const maxDuration = 60 * 1000 * 10;
@@ -59,14 +59,9 @@ class Fader {
     );
     this.fadeStartFrame = null;
 
-    const { totalCounts, loopCounts, maxch } = mucom.getChannelCounts();
-    for (let i = 0; i < maxch; i++) {
-      const sum = totalCounts[i] + loopCounts[i];
-      if (this.maxCount < sum) {
-        this.maxCount = sum;
-      }
-    }
-    if (loopCounts.every((e) => e == 0)) {
+    const { maxCount, hasGlobalLoop } = mucom.getCountData();
+    this.maxCount = maxCount;
+    if (!hasGlobalLoop) {
       this.fadeDurationInFrame = 0;
     }
   }

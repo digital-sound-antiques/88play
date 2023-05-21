@@ -1,4 +1,8 @@
+import { MMLResourceMap } from "../contexts/EditorContext";
+import { MucomDecoderAttachment } from "../mucom/mucom-decoder-worker";
+import { BinaryDataStorage } from "./binary-data-storage";
 import { TextDecoderEncoding, detectEncoding } from "./detect-encoding";
+import { downloadBinary } from "./share-utils";
 
 export const convertUrlIfRequired = (url: string) => {
   const m = url.match(/^(https:\/\/)?f\.msxplay\.com\/([0-9a-z]+)/i);
@@ -99,4 +103,39 @@ export function removeLineNumber(mml: string): string {
     }
   }
   return buf.join('\n');
+}
+
+export async function loadLocalOrNetworkResource(
+  storage: BinaryDataStorage,
+  id: string
+): Promise<Uint8Array | null> {
+  const data = await storage.get(id);
+  if (data != null) {
+    return data;
+  }
+  try {
+    const data = await downloadBinary(id);
+    await storage.put(data, id);
+    return data;
+  } catch (_) {
+    return null;
+  }
+}
+
+export async function prepareAttachments(
+  rmap: MMLResourceMap,
+  storage: BinaryDataStorage,
+): Promise<MucomDecoderAttachment[]> {
+  const res: MucomDecoderAttachment[] = [];
+
+  for (const name in rmap) {
+    const { type, id } = rmap[name];
+    if (id != null) {
+      const data = await loadLocalOrNetworkResource(storage, id);
+      if (data != null) {
+        res.push({ type, name, data });
+      }
+    }
+  }
+  return res;
 }

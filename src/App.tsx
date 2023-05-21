@@ -83,22 +83,29 @@ export function App() {
 export function AppRoot() {
   const { t } = useTranslation();
 
-  const [tabMode, setTabMode] = useState("console");
-  const [consoleCollapsed, setConsoleCollapsed] = useState(false);
-  const [dragging, setDragging] = useState(false);
-  const consolePanelRef = useRef<ImperativePanelHandle>(null);
+  const [panelMode, setPanelMode] = useState<PanelMode>("console");
+  const [panelCollapsed, setPanelCollapsed] = useState(false);
+  const [isDragging, setDragging] = useState(false);
+  const panelRef = useRef<ImperativePanelHandle>(null);
 
-  const onClickCollapse = () => {
-    setConsoleCollapsed(true);
-    consolePanelRef.current?.collapse();
+  const onPanelCollapse = () => {
+    panelRef.current?.collapse();
   };
-  const onClickExpand = () => {
-    setConsoleCollapsed(false);
-    consolePanelRef.current?.expand();
+  const onPanelExpand = () => {
+    panelRef.current?.expand();
   };
-
-  const onClickPanelHandle = () => {
-    consolePanelRef.current?.expand();
+  const toggleCollapse = () => {
+    if (panelCollapsed) {
+      panelRef.current?.expand();
+    } else {
+      panelRef.current?.collapse();
+    }
+  };
+  const onPanelModeChange = (mode: PanelMode) => {
+    setPanelMode(mode);
+    if (panelCollapsed) {
+      panelRef.current?.expand();
+    }
   };
 
   return (
@@ -147,113 +154,34 @@ export function AppRoot() {
               <EditorView />
             </Panel>
             <PanelResizeHandle onDragging={setDragging}>
-              <div onClick={onClickPanelHandle}>
-                <Stack
-                  direction="row"
-                  sx={{
-                    borderTop: dragging ? "2px solid #0080f0" : null,
-                    pl: 2,
-                    pr: 1,
-                    justifyContent: "start",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      px: 1,
-                    }}
-                  >
-                    <Button
-                      variant="text"
-                      onClick={() => setTabMode("console")}
-                      onMouseDown={(e) => e.stopPropagation()}
-                    >
-                      <Typography
-                        sx={{
-                          color: tabMode == "console" ? "white" : null,
-                          fontSize: "11px",
-                        }}
-                      >
-                        CONSOLE
-                      </Typography>
-                    </Button>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      px: 1,
-                    }}
-                  >
-                    <Button
-                      variant="text"
-                      onClick={() => setTabMode("monitor")}
-                      onMouseDown={(e) => e.stopPropagation()}
-                    >
-                      <Typography
-                        sx={{
-                          color: tabMode == "monitor" ? "white" : null,
-                          fontSize: "11px",
-                        }}
-                      >
-                        MONITOR
-                      </Typography>
-                    </Button>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      px: 1,
-                    }}
-                  >
-                    <Button
-                      variant="text"
-                      onClick={() => setTabMode("keyboard")}
-                      onMouseDown={(e) => e.stopPropagation()}
-                    >
-                      <Typography
-                        sx={{
-                          color: tabMode == "keyboard" ? "white" : null,
-                          fontSize: "11px",
-                        }}
-                      >
-                        KEYBOARD
-                      </Typography>
-                    </Button>
-                  </Box>
-                  <Box sx={{ flex: 1 }} />
-                  {consoleCollapsed ? (
-                    <IconButton edge="end" size="small" onClick={onClickExpand}>
-                      <ExpandLess fontSize="small" />
-                    </IconButton>
-                  ) : (
-                    <IconButton
-                      edge="end"
-                      size="small"
-                      onClick={onClickCollapse}
-                    >
-                      <ExpandMore fontSize="small" />
-                    </IconButton>
-                  )}
-                </Stack>
+              <div
+                onDoubleClick={toggleCollapse}
+                style={{
+                  marginTop: "4px",
+                  cursor: "auto",
+                  borderTop: isDragging ? "2px solid #0080f0" : undefined,
+                  transition: "border",
+                  transitionDelay: "150ms",                  
+                }}
+              >
+                <PanelTabBar
+                  mode={panelMode}
+                  collapsed={panelCollapsed}
+                  onChange={onPanelModeChange}
+                  onCollapse={onPanelCollapse}
+                  onExpand={onPanelExpand}
+                />
               </div>
             </PanelResizeHandle>
             <Panel
               defaultSize={25}
               collapsible={true}
-              onCollapse={setConsoleCollapsed}
-              ref={consolePanelRef}
+              onCollapse={setPanelCollapsed}
+              ref={panelRef}
             >
-              {tabMode == "monitor" ? (
+              {panelMode == "monitor" ? (
                 <Monitor />
-              ) : tabMode == "console" ? (
+              ) : panelMode == "console" ? (
                 <Console />
               ) : (
                 <Keyboards />
@@ -296,6 +224,87 @@ export function AppRoot() {
           </Link>
         </Box>
       </Box>
+    </Box>
+  );
+}
+
+type PanelMode = "console" | "monitor" | "keyboard";
+
+type PanelTabBarProps = {
+  mode: PanelMode;
+  collapsed: boolean;
+  onChange: (mode: PanelMode) => void;
+  onExpand: () => void;
+  onCollapse: () => void;
+};
+
+function PanelTabBar(props: PanelTabBarProps) {
+  return (
+    <Stack
+      direction="row"
+      sx={{
+        pl: 2,
+        pr: 1,
+        justifyContent: "start",
+        alignItems: "center",
+        gap: 1,
+      }}
+    >
+      <PanelTab
+        selected={props.mode == "console"}
+        label="CONSOLE"
+        onClick={() => props.onChange("console")}
+      />
+      <PanelTab
+        selected={props.mode == "monitor"}
+        label="MONITOR"
+        onClick={() => props.onChange("monitor")}
+      />
+      <PanelTab
+        selected={props.mode == "keyboard"}
+        label="KEYBOARD"
+        onClick={() => props.onChange("keyboard")}
+      />
+      <Box sx={{ flex: 1 }} />
+      {props.collapsed ? (
+        <IconButton edge="end" size="small" onClick={props.onExpand}>
+          <ExpandLess fontSize="small" />
+        </IconButton>
+      ) : (
+        <IconButton edge="end" size="small" onClick={props.onCollapse}>
+          <ExpandMore fontSize="small" />
+        </IconButton>
+      )}
+    </Stack>
+  );
+}
+
+type PanelTabProps = {
+  label: string;
+  selected: boolean;
+  onClick: () => void;
+};
+
+function PanelTab(props: PanelTabProps) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        px: 1,
+      }}
+    >
+      <Button variant="text" onClick={props.onClick}>
+        <Typography
+          sx={{
+            color: props.selected ? "white" : null,
+            fontSize: "11px",
+          }}
+        >
+          {props.label}
+        </Typography>
+      </Button>
     </Box>
   );
 }

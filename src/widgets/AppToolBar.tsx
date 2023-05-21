@@ -36,8 +36,8 @@ export function AppToolBar() {
         noShrink
       />
       <Box sx={{ flex: 1 }}></Box>
-      <ShareButton />
       <ExportButton />
+      <ShareButton />
       <Box sx={{ flex: 1 }}></Box>
       <MoreButton />
     </Toolbar>

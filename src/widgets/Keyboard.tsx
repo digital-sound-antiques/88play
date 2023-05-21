@@ -434,6 +434,7 @@ export function Keyboards() {
     return () => {
       resizeObserver.disconnect();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const gap = 1.0;
@@ -477,6 +478,7 @@ export function Keyboards() {
         <Box sx={{ width: "16px" }}></Box>
       </Stack>
     ));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size.width, size.height]);
 
   return (

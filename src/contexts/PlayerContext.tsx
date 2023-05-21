@@ -1,17 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AudioPlayerState } from "webaudio-stream-player";
 import { useEffectOnce } from "../hooks/use-effect-once";
-import { MucomDecoderAttachment } from "../mucom/mucom-decoder-worker";
 import { MucomPlayer } from "../mucom/mucom-player";
 import { isIOS, isSafari } from "../utils/platform-detect";
-import { downloadBinary } from "../utils/share-utils";
 import { unmuteAudio } from "../utils/unmute";
 import AppGlobal from "./AppGlobal";
-import { MMLResourceMap } from "./EditorContext";
+import { ConsoleContext, ConsoleContextState } from "./ConsoleContext";
 import { getResourceMap } from "./EditorContextReducer";
 import { PlayerContextReducer } from "./PlayerContextReducer";
 import { StorageContext, StorageContextState } from "./StorageContext";
-import { ConsoleContext, ConsoleContextState } from "./ConsoleContext";
+import { prepareAttachments } from "../utils/load-urls";
 
 export type PlayItem = {
   title?: string | null;
@@ -100,41 +98,6 @@ function usePrevious<T>(value: T) {
   return ref.current;
 }
 
-async function loadLocalOrNetworkResource(
-  storageContext: StorageContextState,
-  id: string
-): Promise<Uint8Array | null> {
-  const data = await storageContext.get(id);
-  if (data != null) {
-    return data;
-  }
-  try {
-    const data = await downloadBinary(id);
-    await storageContext.put(data, id);
-    return data;
-  } catch (_) {
-    return null;
-  }
-}
-
-async function prepareAttachments(
-  rmap: MMLResourceMap,
-  storageContext: StorageContextState
-): Promise<MucomDecoderAttachment[]> {
-  const res: MucomDecoderAttachment[] = [];
-
-  for (const name in rmap) {
-    const { type, id } = rmap[name];
-    if (id != null) {
-      const data = await loadLocalOrNetworkResource(storageContext, id);
-      if (data != null) {
-        res.push({ type, name, data });
-      }
-    }
-  }
-  return res;
-}
-
 async function applyPlayStateChange(
   consoleContext: ConsoleContextState,
   storageContext: StorageContextState,
@@ -147,7 +110,7 @@ async function applyPlayStateChange(
     const rmap = getResourceMap(mml);
     setBusy(true);
     try {
-      const attachments = await prepareAttachments(rmap, storageContext);
+      const attachments = await prepareAttachments(rmap, storageContext.storage);
       const res = await Promise.race<Error | void>([
         state.player.play({ mml, attachments, duration, fadeDuration }),
         new Promise<Error>((resolve) =>

@@ -6,7 +6,7 @@ import {
   DialogContent,
   Divider,
   Menu,
-  MenuItem
+  MenuItem,
 } from "@mui/material";
 import { useContext, useRef, useState } from "react";
 import { EditorContext } from "../contexts/EditorContext";
@@ -16,7 +16,9 @@ import { Mucom88 } from "mucom88-js";
 import { StorageContext } from "../contexts/StorageContext";
 import { ToolBarButton } from "./ToolBarButton";
 import { convert as toSjis } from "utf16-to-sjis";
-import { addLineNumber } from "../utils/load-urls";
+import { addLineNumber, prepareAttachments } from "../utils/load-urls";
+import { MucomLogFileType } from "mucom88-js/dist/module";
+import { getResourceMap } from "../contexts/EditorContextReducer";
 
 function saveAs(input: Uint8Array | string, filename: string) {
   const blob = new Blob([input]);
@@ -29,7 +31,7 @@ function saveAs(input: Uint8Array | string, filename: string) {
 function removeExt(file: string): string {
   const parts = file.split(".");
   if (parts.length > 1) {
-    return parts.slice(0, parts.length - 1).join('.');
+    return parts.slice(0, parts.length - 1).join(".");
   }
   return file;
 }
@@ -67,33 +69,77 @@ export function ExportMenu(props: {
     saveAs(toSjis(addLineNumber(mml, true)), name + ".txt");
   };
 
+  const getAttachments = async () => {
+    const rmap = getResourceMap(editorContext.text);
+    return (await prepareAttachments(rmap, storage)) ?? [];
+  };
+
   const onClickDownloadMUB = async () => {
     props.onClose?.();
-    const mml = editorContext.text;
-    await Mucom88.initialize();
-    const mucom = new Mucom88();
-    mucom.reset(44100);
-    const mub = mucom.compile(mml);
-    if (mub != null) {
-      saveAs(mub, getBasename(mml) + ".mub");
-    } else {
-      props.onError?.("Compile Error.");
+    editorContext.reducer.setBusy(true);
+    try {
+      await Mucom88.initialize();
+      const mml = editorContext.text;
+
+      for (const attachment of await getAttachments()) {
+        const { name, data } = attachment;
+        Mucom88.FS.writeFile(name, data);
+      }
+      const mucom = new Mucom88();
+      try {
+        mucom.reset(44100);
+        const mub = mucom.compile(mml);
+        saveAs(mub, getBasename(mml) + ".mub");
+      } catch (e) {
+        props.onError?.("Compile Error.");
+      }
+      mucom.release();
+    } finally {
+      editorContext.reducer.setBusy(false);
+    }
+  };
+
+  const onClickDownloadVGM = async () => {
+    props.onClose?.();
+    editorContext.reducer.setBusy(true);
+    try {
+      await Mucom88.initialize();
+      const mml = editorContext.text;
+      for (const attachment of await getAttachments()) {
+        const { name, data } = attachment;
+        Mucom88.FS.writeFile(name, data);
+      }
+      const mucom = new Mucom88();
+      try {
+        mucom.reset(44100);
+        const mub = mucom.compile(mml);
+        const { maxCount } = mucom.getCountData();
+        const vgm = mucom.generateLogFile(mub, MucomLogFileType.VGM, maxCount);
+        saveAs(vgm, getBasename(mml) + ".vgm");
+      } catch (e) {
+        console.log(e);
+        props.onError?.("Compile Error");
+      }
+      mucom.release();
+    } finally {
+      editorContext.reducer.setBusy(false);
     }
   };
 
   const onClickDownloadAttachment = async (type: "voice" | "pcm") => {
     props.onClose?.();
-    for (const key in editorContext.resourceMap) {
-      const r = editorContext.resourceMap[key];
-      if (r.type == type && r.id != null) {
-        const data = await storage.get(r.id);
-        if (data != null) {
-          saveAs(data, r.name);
+    editorContext.reducer.setBusy(true);
+    try {
+      for (const attachment of await getAttachments()) {
+        if (attachment.type == type) {
+          saveAs(attachment.data, attachment.name);
           return;
         }
       }
+      props.onError?.(`Missing ${type} data file.`);
+    } finally {
+      editorContext.reducer.setBusy(false);
     }
-    props.onError?.(`Missing ${type} data file.`);
   };
 
   return (
@@ -112,7 +158,8 @@ export function ExportMenu(props: {
         ADPCM Data
       </MenuItem>
       <Divider />
-      <MenuItem onClick={onClickDownloadMUB}>Binary (.mub)</MenuItem>
+      <MenuItem onClick={onClickDownloadMUB}>MUB (.mub)</MenuItem>
+      <MenuItem onClick={onClickDownloadVGM}>VGM (.vgm)</MenuItem>
     </Menu>
   );
 }
@@ -127,7 +174,7 @@ export function ExportButton() {
       <ToolBarButton
         ref={buttonRef}
         icon={<Download fontSize="small" />}
-        label="Download"
+        label="Export"
         onClick={() => setOpen(true)}
       />
       <ExportMenu
