@@ -440,20 +440,18 @@ export function Keyboards() {
   const gap = 1.0;
 
   const children = useMemo(() => {
-    const width = isXs ? size.width : 600;
-    const minHeight = 18 * width / 600;
-    const maxHeight = 28 * width / 600;
+    const baseWidth = Math.min(size.width - 32, Math.max(600, size.height / 9 * 16));
+    const width = isXs ? size.width : baseWidth;
+    const minHeight = (width / 16 * 5) / 11 - gap;
+    const maxHeight = (width / 16 * 10) / 11 - gap;
     const fontSize = 12 * Math.min(1.0, size.width / 600);
-    const height = Math.min(
-      maxHeight,
-      Math.max(minHeight, (size.height - gap * 10) / 11)
-    );
+    const height = Math.min(maxHeight, Math.max(minHeight, (size.height - gap * 10) / 11));
 
     return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
       <Stack
         key={e}
         direction="row"
-        sx={{ alignItems: "center", width: width, height: height }}
+        sx={{ alignItems: "center", width: width }}
       >
         <Box
           sx={{
@@ -473,7 +471,7 @@ export function Keyboards() {
           highlightColor={pink[300]}
           blackKeyColor="#181818"
           whiteKeyColor="#cccccc"
-          sx={{}}
+          sx={{ height: height }}
         />
         <Box sx={{ width: "16px" }}></Box>
       </Stack>
