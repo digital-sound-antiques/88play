@@ -61,6 +61,7 @@ class Fader {
 
     const { maxCount, hasGlobalLoop } = mucom.getCountData();
     this.maxCount = maxCount;
+
     if (!hasGlobalLoop) {
       this.fadeDurationInFrame = 0;
     }
