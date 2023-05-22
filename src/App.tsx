@@ -39,6 +39,7 @@ import { AppToolBar } from "./widgets/AppToolBar.js";
 import { VolumeControl } from "./widgets/VolumeControl.js";
 import { Monitor } from "./widgets/Monitor.js";
 import { Keyboards } from "./widgets/Keyboard.js";
+import { GlobalErrorDialog } from "./views/GlobalErrorDialog.js";
 
 const theme = createTheme({
   palette: {
@@ -75,6 +76,7 @@ export function App() {
       <CssBaseline />
       <AppRoot />
       <ReadyToPlayDialog />
+      <GlobalErrorDialog />
       <GlobalProgress />
     </ThemeProvider>
   );

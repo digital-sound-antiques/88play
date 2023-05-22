@@ -37,7 +37,12 @@ export async function loadBlobOrUrlAsText(
     return loadBlobAsText(file);
   } else {
     const res = await fetch(file);
-    return decodeAsText(new Uint8Array(await res.arrayBuffer()));
+    const buf = await res.arrayBuffer();
+    console.log(buf.byteLength);
+    if (buf.byteLength > 256 * 1024) {
+      throw new Error("Object too large.");
+    }
+    return decodeAsText(new Uint8Array(buf));
   }
 }
 
@@ -46,7 +51,11 @@ export async function loadBlobAsText(blob: Blob): Promise<string> {
     const reader = new FileReader();
     reader.onloadend = () => {
       try {
-        const u8 = new Uint8Array(reader.result as ArrayBuffer);
+        const buf = reader.result as ArrayBuffer;
+        if (buf.byteLength > 256 * 1024) {
+          throw new Error("Object too large.");
+        }
+        const u8 = new Uint8Array(buf);
         resolve(decodeAsText(u8));
       } catch (e) {
         reject(e);

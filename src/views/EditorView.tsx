@@ -8,14 +8,16 @@ import { ConsoleContext } from "../contexts/ConsoleContext.js";
 import { EditorContext } from "../contexts/EditorContext";
 import { EditorSettingsContext } from "../contexts/EditorSettingContext.js";
 import { FileDropContext } from "../contexts/FileDropContext";
+import { AppGlobalContext } from "../contexts/AppGlobalContext.js";
 
 type EditorViewProps = {
   sx?: SxProps<Theme>;
 };
 
 export function EditorView(props: EditorViewProps) {
+  const { setErrorMessage } = useContext(AppGlobalContext);
   const context = useContext(EditorContext);
-  const console = useContext(ConsoleContext);
+  const consoleContext = useContext(ConsoleContext);
   const settings = useContext(EditorSettingsContext);
 
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -35,7 +37,7 @@ export function EditorView(props: EditorViewProps) {
 
   const annotations: Ace.Annotation[] = useMemo(() => {
     const res: Ace.Annotation[] = [];
-    for (const line of console.incomingLines) {
+    for (const line of consoleContext.incomingLines) {
       const m = line.match(/#error.*in\s*line\s*([0-9]+)/);
       if (m != null) {
         res.push({
@@ -47,7 +49,7 @@ export function EditorView(props: EditorViewProps) {
       }
     }
     return res;
-  }, [console.incomingLines]);
+  }, [consoleContext.incomingLines]);
 
   const resizeObserver = new ResizeObserver(onResize);
 
@@ -58,7 +60,16 @@ export function EditorView(props: EditorViewProps) {
     return () => {
       resizeObserver.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const onFileDrop = async (fileList: FileList | null) => {
+    try {
+      await context.reducer.onFileOpen(fileList);
+    } catch (e) {
+      setErrorMessage(e);
+    }
+  };
 
   return (
     <Box
@@ -73,9 +84,7 @@ export function EditorView(props: EditorViewProps) {
         ...props.sx,
       }}
     >
-      <FileDropContext
-        onFileDrop={(fileList) => context.reducer.onFileOpen(fileList)}
-      >
+      <FileDropContext onFileDrop={onFileDrop}>
         <AceEditor
           ref={aceRef}
           annotations={annotations}

@@ -6,10 +6,9 @@ import {
   useRef,
   useState,
 } from "react";
-import {
-  EditorContextReducer
-} from "./EditorContextReducer";
+import { EditorContextReducer } from "./EditorContextReducer";
 import { StorageContext } from "./StorageContext";
+import { AppGlobalContext } from "./AppGlobalContext";
 
 export type MMLResourceEntry = {
   type: "pcm" | "voice";
@@ -45,6 +44,7 @@ export const EditorContext = createContext({
 });
 
 export function EditorContextProvider(props: React.PropsWithChildren) {
+  const { setErrorMessage } = useContext(AppGlobalContext);
   const [state, setState] = useState(defaultContextState);
 
   const { storage, rev } = useContext(StorageContext);
@@ -52,12 +52,16 @@ export function EditorContextProvider(props: React.PropsWithChildren) {
 
   useEffect(() => {
     reducer.updateUnresolvedResources(state.text);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rev]);
 
-  const onFileInputChange = (ev: ChangeEvent<HTMLInputElement>) => {
+  const onFileInputChange = async (ev: ChangeEvent<HTMLInputElement>) => {
     const { files } = ev.target;
-    reducer.onFileOpen(files);
+    try {
+      await reducer.onFileOpen(files);
+    } catch (e) {
+      setErrorMessage(`${e}`);
+    }
   };
 
   const fileInputRef = useRef<HTMLInputElement>(null);

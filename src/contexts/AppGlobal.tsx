@@ -1,11 +1,4 @@
-// let initialized = false;
-
 const AppGlobal = {
-  // initialize: async () => {
-  //   if (!initialized) {
-  //     initialized = true;
-  //   }
-  // },
   url: new URL(window.location.href),
   getQueryParams: () => {
     const url = new URL(window.location.href);

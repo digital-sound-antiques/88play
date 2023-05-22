@@ -1,5 +1,9 @@
 import { BinaryDataStorage } from "../utils/binary-data-storage";
-import { loadBlobOrUrl, loadBlobOrUrlAsText, removeLineNumber } from "../utils/load-urls";
+import {
+  loadBlobOrUrl,
+  loadBlobOrUrlAsText,
+  removeLineNumber,
+} from "../utils/load-urls";
 import { downloadBinary } from "../utils/share-utils";
 import {
   EditorContextState,
@@ -42,24 +46,16 @@ export class EditorContextReducer {
     }
     const text = removeLineNumber(await loadBlobOrUrlAsText(file));
     if (text != null) {
-      if (
-        text.indexOf("#mucom88") >= 0 ||
-        text.indexOf("#title") >= 0 ||
-        text.indexOf("#voice") >= 0 ||
-        text.indexOf("#pcm") >= 0 ||
-        /\.(muc|txt|mml)$/i.test(name)
-      ) {
-        const parts = [];
-        if (!/^;#name/gm.test(text)) {
-          const head = `;#name ${name.replace(/[=\s]/g, "")}`;
-          parts.push(head);
-        }
-        parts.push(text);
-        const mml = parts.join("\n");
-        const rmap = getResourceMap(mml);
-        await downloadResources(this.storage!, rmap);
-        return [mml, rmap];
+      const parts = [];
+      if (!/^;#name/gm.test(text)) {
+        const head = `;#name ${name.replace(/[=\s]/g, "")}`;
+        parts.push(head);
       }
+      parts.push(text);
+      const mml = parts.join("\n");
+      const rmap = getResourceMap(mml);
+      await downloadResources(this.storage!, rmap);
+      return [mml, rmap];
     }
     return [null, null];
   };
@@ -76,45 +72,50 @@ export class EditorContextReducer {
   ): Promise<void> => {
     this.setState((state) => ({ ...state, busy: true }));
 
-    const state = await this.getLatestState();
-    let resourceMap = { ...state.resourceMap };
-    let mml = state.text;
+    try {
+      const state = await this.getLatestState();
+      let resourceMap = { ...state.resourceMap };
+      let mml = state.text;
 
-    // load MML. only the first file is accepted.
-    for (const file of files ?? []) {
-      const res = await this.loadAsMML(file);
-      if (res[0] != null && res[1] != null) {
-        mml = res[0];
-        resourceMap = res[1];
-        break;
-      }
-    }
-
-    // load resources specified in MML
-    for (const file of files ?? []) {
-      const name = this.getName(file);
-      const entry = resourceMap[name];
-      if (entry != null) {
-        const data = await loadBlobOrUrl(file);
-        const dataId = await this.storage!.put(data);
-        if (dataId != null) {
-          entry.id = dataId;
+      // load MML. only the first file is accepted.
+      for (const file of files ?? []) {
+        const res = await this.loadAsMML(file);
+        if (res[0] != null && res[1] != null) {
+          mml = res[0];
+          resourceMap = res[1];
+          break;
         }
       }
+
+      // load resources specified in MML
+      for (const file of files ?? []) {
+        const name = this.getName(file);
+        const entry = resourceMap[name];
+        if (entry != null) {
+          const data = await loadBlobOrUrl(file);
+          const dataId = await this.storage!.put(data);
+          if (dataId != null) {
+            entry.id = dataId;
+          }
+        }
+      }
+
+      const unresolvedResources = await getUnresolvedResources(
+        this.storage!,
+        resourceMap
+      );
+
+      this.setState((state) => ({
+        ...state,
+        text: embedHashTag(mml, resourceMap),
+        resourceMap,
+        unresolvedResources,
+        busy: false,
+      }));
+    } catch (e) {
+      this.setState((state) => ({ ...state, busy: false }));
+      throw e;
     }
-
-    const unresolvedResources = await getUnresolvedResources(
-      this.storage!,
-      resourceMap
-    );
-
-    this.setState((state) => ({
-      ...state,
-      text: embedHashTag(mml, resourceMap),
-      resourceMap,
-      unresolvedResources,
-      busy: false,
-    }));
   };
 
   updateText = async (value: string) => {
