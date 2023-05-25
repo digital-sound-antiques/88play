@@ -88,6 +88,7 @@ export function AppRoot() {
   const [panelMode, setPanelMode] = useState<PanelMode>("console");
   const [panelCollapsed, setPanelCollapsed] = useState(false);
   const [isDragging, setDragging] = useState(false);
+  const [isResizeHandleHover, setResizeHandleHover] = useState(false);
   const panelRef = useRef<ImperativePanelHandle>(null);
 
   const onPanelCollapse = () => {
@@ -159,13 +160,24 @@ export function AppRoot() {
               <div
                 onDoubleClick={toggleCollapse}
                 style={{
-                  marginTop: "4px",
                   cursor: "auto",
-                  borderTop: isDragging ? "2px solid #0080f0" : undefined,
-                  transition: "border",
-                  transitionDelay: "150ms",                  
                 }}
               >
+                <div
+                  onMouseOver={() => setResizeHandleHover(true)}
+                  onMouseOut={() => setResizeHandleHover(false)}
+                  style={{
+                    width: "100%",
+                    height: "4px",
+                    cursor: "row-resize",
+                    borderTop:
+                      isResizeHandleHover || isDragging
+                        ? "3px solid #0080f0ff"
+                        : "3px solid #0080f000",
+                    transition: "border-color 200ms",
+                    transitionDelay: "200ms",
+                  }}
+                />
                 <PanelTabBar
                   mode={panelMode}
                   collapsed={panelCollapsed}
@@ -297,7 +309,11 @@ function PanelTab(props: PanelTabProps) {
         px: 1,
       }}
     >
-      <Button variant="text" onClick={props.onClick}>
+      <Button
+        variant="text"
+        onClick={props.onClick}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         <Typography
           sx={{
             color: props.selected ? "white" : null,
