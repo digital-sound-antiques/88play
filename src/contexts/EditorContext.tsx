@@ -23,6 +23,8 @@ export interface EditorContextState {
   resourceMap: MMLResourceMap;
   unresolvedResources: MMLResourceEntry[];
   busy: boolean;
+  progress: number | null;
+  progressMessage: string | null;
   openFile: () => void;
 }
 
@@ -31,6 +33,8 @@ const defaultContextState: EditorContextState = {
   resourceMap: {},
   unresolvedResources: [],
   busy: false,
+  progress: null,
+  progressMessage: null,
   openFile: () => {
     // noop
   },

@@ -56,7 +56,7 @@ const createDefaultContextState = () => {
     playStateChangeCount: 0,
     playState: "stopped",
     busy: false,
-    masterGain: 4.0,
+    masterGain: 2.0,
     unmute: async () => {
       unmuteAudio();
       if (audioContext.state != "running") {
@@ -73,7 +73,11 @@ const createDefaultContextState = () => {
   try {
     const data = localStorage.getItem("88play.playerContext");
     const json = data != null ? JSON.parse(data) : {};
-    state.masterGain = json.masterGain ?? state.masterGain;
+    if (json.version == 1) {
+      state.masterGain = json.masterGain / 2 ?? state.masterGain;
+    } else {
+      state.masterGain = json.masterGain ?? state.masterGain;
+    }
     state.gainNode.gain.value = state.masterGain;
   } catch (e) {
     console.error(e);
@@ -165,7 +169,7 @@ function useExternalSyncEffect(state: PlayerContextState) {
 
   useEffect(() => {
     const { masterGain } = state;
-    const data = { version: 1, masterGain };
+    const data = { version: 2, masterGain };
     localStorage.setItem("88play.playerContext", JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.masterGain]);

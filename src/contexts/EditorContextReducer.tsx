@@ -36,6 +36,14 @@ export class EditorContextReducer {
     this.setState((state) => ({ ...state, busy: value }));
   }
 
+  setProgress(value: number | null) {
+    this.setState((state) => ({ ...state, progress: value }));
+  }
+
+  setProgressMessage(value: string | null) {
+    this.setState((state) => ({ ...state, progressMessage: value }));
+  }
+
   loadAsMML = async (
     file: File | URL | string
   ): Promise<[string | null, MMLResourceMap | null]> => {

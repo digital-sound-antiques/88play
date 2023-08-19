@@ -1,4 +1,4 @@
-import Mucom88, { MucomStatusType, CHDATA } from "mucom88-js";
+import Mucom88, { CHDATA } from "mucom88-js";
 import { AudioDecoderWorker } from "webaudio-stream-player";
 
 import bd from "../assets/wav/2608_bd.wav";
@@ -7,6 +7,7 @@ import rim from "../assets/wav/2608_rim.wav";
 import sd from "../assets/wav/2608_sd.wav";
 import tom from "../assets/wav/2608_tom.wav";
 import top from "../assets/wav/2608_top.wav";
+import { Fader, getTimeFadeTagValue, loadAsset } from "./common";
 
 export type MucomDecoderAttachment = {
   type: "pcm" | "voice";
@@ -25,76 +26,6 @@ export type MucomDecoderSnapshot = {
   timeInMs: number;
   data: (CHDATA | null)[];
 };
-
-const maxDuration = 60 * 1000 * 10;
-const defaultFadeDuration = 5 * 1000;
-
-async function loadAsset(url: string): Promise<Uint8Array> {
-  const res = await fetch(new URL(url, import.meta.url));
-  return new Uint8Array(await res.arrayBuffer());
-}
-
-class Fader {
-  durationInFrame = 0;
-  fadeDurationInFrame = 0;
-  fadeStartFrame?: number | null;
-  timeTagValue?: number | null;
-  maxCount = 0;
-
-  setup(
-    mucom: Mucom88,
-    sampleRate: number,
-    timeTagValue?: number | null,
-    fadeTagValue?: number | null
-  ) {
-    this.timeTagValue = timeTagValue;
-    if (this.timeTagValue != null) {
-      const duration = Math.min(60 * 20 * 1000, this.timeTagValue * 1000);
-      this.durationInFrame = Math.floor((sampleRate * duration) / 1000);
-    } else {
-      this.durationInFrame = Math.floor((sampleRate * maxDuration) / 1000);
-    }
-    this.fadeDurationInFrame = Math.floor(
-      sampleRate * (fadeTagValue ?? defaultFadeDuration / 1000)
-    );
-    this.fadeStartFrame = null;
-
-    const { maxCount, hasGlobalLoop } = mucom.getCountData();
-    this.maxCount = maxCount;
-
-    if (!hasGlobalLoop) {
-      this.fadeDurationInFrame = 0;
-    }
-  }
-
-  updateFadeState(currentFrame: number, mucom: Mucom88) {
-    if (this.fadeStartFrame == null) {
-      if (currentFrame >= this.durationInFrame - this.fadeDurationInFrame) {
-        this.fadeStartFrame = currentFrame;
-      }
-      if (this.timeTagValue == null) {
-        const curCount = mucom.getStatus(MucomStatusType.INTCOUNT);
-        if (this.maxCount <= curCount) {
-          this.fadeStartFrame = currentFrame;
-        }
-      }
-    }
-  }
-
-  getValue(currentFrame: number): number {
-    if (this.fadeStartFrame != null) {
-      const elapsed = currentFrame - this.fadeStartFrame;
-      return Math.min(
-        1.0,
-        Math.max(
-          0,
-          (this.fadeDurationInFrame - elapsed) / this.fadeDurationInFrame
-        )
-      );
-    }
-    return 1.0;
-  }
-}
 
 class MucomDecoderWorker extends AudioDecoderWorker {
   constructor(worker: Worker) {
@@ -118,19 +49,6 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     Mucom88.FS.writeFile("/2608_TOP.WAV", await loadAsset(top));
   }
 
-  getTagValue(mml: string): { time: number | null; fade: number | null } {
-    const matches = mml.matchAll(/^#(time|fade)\s+([0-9]+).*$/gm);
-    let time = null;
-    let fade = null;
-    for (const match of matches) {
-      if (match[1] == "time") {
-        time = parseInt(match[2]);
-      } else {
-        fade = parseInt(match[2]);
-      }
-    }
-    return { time, fade };
-  }
 
   async start(args: MucomDecoderStartOptions): Promise<void> {
     if (this._mucom == null) {
@@ -145,7 +63,7 @@ class MucomDecoderWorker extends AudioDecoderWorker {
     this._fader = new Fader();
     this._decodeFrames = 0;
 
-    const { time, fade } = this.getTagValue(args.mml);
+    const { time, fade } = getTimeFadeTagValue(args.mml);
     this._mucom.reset(this.sampleRate);
     this._mucom.loadMML(args.mml);
     this._fader.setup(this._mucom, this.sampleRate, time, fade);
@@ -192,8 +110,8 @@ class MucomDecoderWorker extends AudioDecoderWorker {
       snapshots.push(this.getChannelSnapshot());
       for (let j = 0; j < step; j++) {
         const fade = this._fader?.getValue(this._decodeFrames + j) ?? 1.0;
-        lch[i + j] = Math.round((fade * buf[j * 2]) >> 1);
-        rch[i + j] = Math.round((fade * buf[j * 2 + 1]) >> 1);
+        lch[i + j] = Math.round(fade * buf[j * 2]);
+        rch[i + j] = Math.round(fade * buf[j * 2 + 1]);
       }
       this._decodeFrames += step;
       i += step;

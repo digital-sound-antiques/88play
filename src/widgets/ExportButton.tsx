@@ -19,6 +19,7 @@ import { convert as toSjis } from "utf16-to-sjis";
 import { addLineNumber, prepareAttachments } from "../utils/load-urls";
 import { MucomLogFileType } from "mucom88-js/dist/module";
 import { getResourceMap } from "../contexts/EditorContextReducer";
+import { Mucom2Wav } from "../mucom/mucom-to-wav";
 
 function saveAs(input: Uint8Array | string, filename: string) {
   const blob = new Blob([input]);
@@ -142,6 +143,37 @@ export function ExportMenu(props: {
     }
   };
 
+  const onClickDownloadWAV = async () => {
+    props.onClose?.();
+    editorContext.reducer.setBusy(true);
+    try {
+      const mml = editorContext.text;
+      const encoder = new Mucom2Wav(55467);
+      const args = {
+        mml,
+        attachments: await getAttachments(),
+      };
+      const it = encoder.convert(args);
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const d = await it.next();
+        if (d.done) {
+          saveAs(d.value, getBasename(mml) + ".wav");
+          break;
+        } else {
+          const seconds = (d.value.decodedFrames / d.value.sampleRate).toFixed(1);
+          editorContext.reducer.setProgressMessage(`${seconds}s generated`);
+          await new Promise((resolve) => setTimeout(resolve, 1));
+          console.log(`${d.value}`);
+        }
+      }
+      encoder.release();
+    } finally {
+      editorContext.reducer.setProgressMessage(null);
+      editorContext.reducer.setBusy(false);
+    }
+  };
+
   return (
     <Menu
       open={props.open ?? false}
@@ -160,6 +192,8 @@ export function ExportMenu(props: {
       <Divider />
       <MenuItem onClick={onClickDownloadMUB}>MUB (.mub)</MenuItem>
       <MenuItem onClick={onClickDownloadVGM}>VGM (.vgm)</MenuItem>
+      <Divider />
+      <MenuItem onClick={onClickDownloadWAV}>WAV (55.5KHz) (.wav)</MenuItem>
     </Menu>
   );
 }

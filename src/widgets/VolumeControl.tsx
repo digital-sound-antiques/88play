@@ -30,7 +30,7 @@ export function VolumeControl() {
       <VolumeDown sx={{ fontSize: "20px" }} />
       <WhiteSlider      
         size="small"
-        min={1.0}
+        min={0.5}
         max={8.0}
         defaultValue={4.0}
         step={0.25}

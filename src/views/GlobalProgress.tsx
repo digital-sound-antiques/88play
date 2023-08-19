@@ -1,4 +1,9 @@
-import { CircularProgress, Dialog, DialogContent } from "@mui/material";
+import {
+  CircularProgress,
+  Dialog,
+  DialogContent,
+  Typography,
+} from "@mui/material";
 import { useContext } from "react";
 import { PlayerContext } from "../contexts/PlayerContext";
 import { EditorContext } from "../contexts/EditorContext";
@@ -7,6 +12,7 @@ export function GlobalProgress() {
   const playerContext = useContext(PlayerContext);
   const editorContext = useContext(EditorContext);
   const open = playerContext.busy || editorContext.busy;
+  const { progress, progressMessage } = editorContext;
 
   return (
     <Dialog open={open} hideBackdrop={true}>
@@ -19,7 +25,14 @@ export function GlobalProgress() {
           gap: 1,
         }}
       >
-        <CircularProgress variant="indeterminate" />
+        <CircularProgress
+          variant={progress == null ? "indeterminate" : "determinate"}
+          value={progress ?? undefined}
+        />
+
+        {progressMessage != null ? (
+          <Typography>{progressMessage}</Typography>
+        ) : null}
       </DialogContent>
     </Dialog>
   );
