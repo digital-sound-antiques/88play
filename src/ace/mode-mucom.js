@@ -83,7 +83,7 @@ ace.define(
             regex: /(vm|[:!|\\])/,
           },
           {
-            token: "mml,command",
+            token: "mml.command",
             regex: /\s%[0-9]+/,
           }, {
             token: "mml.command.voice",
