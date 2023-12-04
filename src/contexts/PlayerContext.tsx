@@ -74,7 +74,7 @@ const createDefaultContextState = () => {
     const data = localStorage.getItem("88play.playerContext");
     const json = data != null ? JSON.parse(data) : {};
     if (json.version == 1) {
-      state.masterGain = json.masterGain / 2 ?? state.masterGain;
+      state.masterGain = json.masterGain != null ? json.masterGain / 2 : state.masterGain;
     } else {
       state.masterGain = json.masterGain ?? state.masterGain;
     }
