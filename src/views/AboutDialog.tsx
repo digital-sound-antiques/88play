@@ -22,7 +22,7 @@ export function AboutDialog(props: { open: boolean; onClose?: () => void }) {
       Koshiro
     </>,
   ];
-  const specialThanks = ["Boukichi", "TAN-Y (aosoft)", "WING☆", "D.M.88"];
+  const specialThanks = ["Boukichi", "TAN-Y (aosoft)", "MUCOM88", "WING☆", "D.M.88"];
 
   return (
     <Dialog open={props.open}>
