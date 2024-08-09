@@ -51,7 +51,7 @@ const createDefaultContextState = () => {
   const state: PlayerContextState = {
     audioContext: audioContext,
     gainNode: new GainNode(audioContext),
-    player: new MucomPlayer("worklet"),
+    player: new MucomPlayer(isIOS ? "script" : "worklet"),
     currentItem: null,
     playStateChangeCount: 0,
     playState: "stopped",
@@ -74,7 +74,8 @@ const createDefaultContextState = () => {
     const data = localStorage.getItem("88play.playerContext");
     const json = data != null ? JSON.parse(data) : {};
     if (json.version == 1) {
-      state.masterGain = json.masterGain != null ? json.masterGain / 2 : state.masterGain;
+      state.masterGain =
+        json.masterGain != null ? json.masterGain / 2 : state.masterGain;
     } else {
       state.masterGain = json.masterGain ?? state.masterGain;
     }
@@ -114,7 +115,10 @@ async function applyPlayStateChange(
     const rmap = getResourceMap(mml);
     setBusy(true);
     try {
-      const attachments = await prepareAttachments(rmap, storageContext.storage);
+      const attachments = await prepareAttachments(
+        rmap,
+        storageContext.storage
+      );
       const res = await Promise.race<Error | void>([
         state.player.play({ mml, attachments, duration, fadeDuration }),
         new Promise<Error>((resolve) =>
